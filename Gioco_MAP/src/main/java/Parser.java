@@ -8,7 +8,8 @@ public class Parser
         int i = 0;
 
         String[] elementiComandoSporco = comando.split("\\s+");
-        String[] elementiComandoPulito = new String [1];
+        String[] elementiComandoPulito = new String [2];
+
 
         for (String parola:elementiComandoSporco)
         {
@@ -18,6 +19,7 @@ public class Parser
                 i++;
             }
         }
+
 
         if (elementiComandoPulito[0] == "entra" || elementiComandoPulito[0] == "sali" || elementiComandoPulito[0] == "scendi")
         {
@@ -51,7 +53,7 @@ public class Parser
 
         else if (elementiComandoPulito[0] == "apri" && elementiComandoPulito[1] == "inventario")
         {
-            //comando per visualizzare l'inventario
+            partita.apriInvetario();
         }
     }
 }

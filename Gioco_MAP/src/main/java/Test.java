@@ -4,12 +4,10 @@ import java.util.Iterator;
 public class Test {
     public static void main(String[] args)
     {
-        String comando = "a b c d e f g h i l m o p q ";
-        String[] vettoreStringa = comando.split("\\s+");
+        GameManager partita = new GameManager();
 
-        for (String parola : vettoreStringa)
-        {
-            System.out.println(parola);
-        }
+        Parser.parser("accendi la luce nella stanza" , partita.paroleDaCancellare, partita.paroleConcesse, partita);
+
+
     }
 }

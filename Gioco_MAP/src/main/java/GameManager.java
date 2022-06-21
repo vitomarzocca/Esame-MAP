@@ -33,7 +33,6 @@ public class GameManager
             inventario[i] = Oggetti.VUOTO;
 
         }
-        System.out.println("Inventario caricato");
     }
 
     private void avvaloraParoleDaCancellare()
@@ -45,7 +44,6 @@ public class GameManager
         try
         {
             fr = new FileReader("/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/paroleDaCancellare.txt");
-            System.out.println("file trovato");
         }
         catch (FileNotFoundException e)
         {
@@ -120,7 +118,6 @@ public class GameManager
         try
         {
             fr = new FileReader("/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/paroleConcesse.txt");
-            System.out.println("file trovato");
         }
         catch (FileNotFoundException e)
         {
@@ -154,7 +151,7 @@ public class GameManager
 
                 if(parolaLetta != null)
                 {
-                    paroleDaCancellare.add(parolaLetta);
+                    paroleConcesse.add(parolaLetta);
                     flag = true;
                 }
                 else
@@ -324,6 +321,14 @@ public class GameManager
             casa.remove(stanza);
             stanza.luce = false;
             casa.add(stanza);
+        }
+    }
+
+    public void apriInvetario()
+    {
+        for (Oggetti oggetto : inventario)
+        {
+            System.out.println(oggetto);
         }
     }
 

@@ -9,8 +9,6 @@ sali
 scendi
 usa
 minaccia
-
-
 letto
 armadio
 scale
@@ -26,3 +24,4 @@ luce
 luci
 chiave
 chiavi
+invetario
