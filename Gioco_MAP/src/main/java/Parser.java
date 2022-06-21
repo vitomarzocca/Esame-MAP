@@ -3,14 +3,14 @@ import java.util.Set;
 public class Parser
 {
     //L'idea è quella di prendere il comando e riscriverlo come <verbo> <oggetto>
-    public static void parser(String comando, Set<String> paroleDaCancellare, Set<String> paroleConcesse)
+    public static void parser(String comando, Set<String> paroleDaCancellare, Set<String> paroleConcesse, GameManager partita)
     {
         int i = 0;
 
         String[] elementiComandoSporco = comando.split("\\s+");
         String[] elementiComandoPulito = new String [1];
 
-        for (String parola:elementiComandoPulito)
+        for (String parola:elementiComandoSporco)
         {
             if(paroleDaCancellare.contains(parola) == false && i<2 && paroleConcesse.contains(parola) == true)
             {
@@ -26,7 +26,7 @@ public class Parser
 
         else if (elementiComandoPulito[0] == "raccogli" || elementiComandoPulito[0] == "prendi")
         {
-            //invocazione comando per raccogliere oggetto
+            partita.raccoltaOggetto(elementiComandoPulito[1]);
         }
 
         else if (elementiComandoPulito[0] == "nasconditi")
@@ -34,14 +34,14 @@ public class Parser
             //invocazione comando per nascondersi
         }
 
-        else if (elementiComandoPulito[0] == "accendi")
+        else if (elementiComandoPulito[0] == "accendi" && elementiComandoPulito[1] == "luce")
         {
-            //invocazione comando per accendere la luce in una stanza
+            partita.accendiLuce();
         }
 
-        else if (elementiComandoPulito[0] == "spegni")
+        else if (elementiComandoPulito[0] == "spegni" && elementiComandoPulito[1] == "luce")
         {
-            //invocazione comando per spegnere la luce
+            partita.spegniLuce();
         }
 
         else if (elementiComandoPulito[0] == "usa")

@@ -3,16 +3,22 @@ import java.io.Serializable;
 public class Stanza implements Serializable
 {
     int numeroStanza;
-    boolean luce;
-    boolean chiave;
-    boolean letto;
-    boolean armadio;
+    boolean luce;   //FALSE = luce spenta    TRUE = luce accesa
+    boolean letto;  //FALSE = non c'è un letto   TRUE = c'è un letto.
+    boolean armadio;  //FALSE = non c'è un armadio   TRUE = c'è un letto.armadio.
 
-    public Stanza (boolean luce, boolean chiave, boolean letto, boolean armadio)
+    Oggetti oggetto;
+
+    public Stanza (int numeroStanza, boolean luce, boolean letto, boolean armadio)
     {
+        this.numeroStanza = numeroStanza;
         this.luce = luce;
-        this.chiave = chiave;
         this. letto = letto;
         this.armadio = armadio;
+    }
+
+    public void inserisciOggettoStanza(Oggetti oggetto)
+    {
+        this.oggetto = oggetto;
     }
 }

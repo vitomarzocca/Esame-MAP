@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -244,5 +245,81 @@ public class GameManager
             System.out.println("Si è verificato un errore nella chiusura dello stream");
         }
     }
+
+    private Stanza ricercaStanzaCorrente()
+    {
+        Stanza stanza = null;
+
+        Iterator<Stanza> it = casa.iterator();
+        {
+            while(it.hasNext() == true)
+            {
+                stanza = it.next();
+
+                if (stanza.numeroStanza != stanzaCorrente)
+                {
+                    stanza = null;
+                }
+            }
+        }
+
+        return stanza;
+    }
+
+    public void raccoltaOggetto(String oggetto)
+    {
+        Stanza stanza = ricercaStanzaCorrente();
+
+        if(ricercaStanzaCorrente().oggetto.name().equals(oggetto) )  //il .name() permette la conversione da enumerativo a stringa
+        {
+            System.out.println(stanza.oggetto.name() + "è stato aggiunto all'invetario");
+
+            for (int i = 0; i<10; i++)
+            {
+                if(inventario[i] == Oggetti.VUOTO)
+                {
+                    inventario[i] = stanza.oggetto;
+                }
+            }
+        }
+
+
+
+    }
+
+    public void accendiLuce()
+    {
+        Stanza stanza = ricercaStanzaCorrente();
+
+        if (stanza.luce == true)
+        {
+            System.out.println("In questa stanza la luce è già accesa");
+        }
+
+        else
+        {
+            casa.remove(stanza);
+            stanza.luce = true;
+            casa.add(stanza);
+        }
+    }
+
+    public void spegniLuce()
+    {
+        Stanza stanza = ricercaStanzaCorrente();
+
+        if (stanza.luce == false)
+        {
+            System.out.println("In questa stanza la luce è già spenta");
+        }
+
+        else
+        {
+            casa.remove(stanza);
+            stanza.luce = false;
+            casa.add(stanza);
+        }
+    }
+
 
 }

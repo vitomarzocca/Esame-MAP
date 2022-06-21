@@ -1,8 +1,8 @@
 public enum Oggetti
 {
     VUOTO,
-    CHIAVE,
-    TRONCHESE,          //Questa è una bozza
-    ACCENDINO,
-    CANDELA
+    chiave,
+    tronchese,          //Questa è una bozza
+    accendino,
+    candela
 }

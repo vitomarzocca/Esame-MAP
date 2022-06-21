@@ -4,13 +4,12 @@ import java.util.Iterator;
 public class Test {
     public static void main(String[] args)
     {
-        GameManager partita = new GameManager();
+        String comando = "a b c d e f g h i l m o p q ";
+        String[] vettoreStringa = comando.split("\\s+");
 
-        Iterator<String> it = partita.paroleDaCancellare.iterator();
-
-        while (it.hasNext() == true)
+        for (String parola : vettoreStringa)
         {
-            System.out.println(it.next());
+            System.out.println(parola);
         }
     }
 }
