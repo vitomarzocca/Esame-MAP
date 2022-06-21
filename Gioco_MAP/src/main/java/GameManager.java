@@ -261,7 +261,7 @@ public class GameManager
                 {
                     stanza = null;
                 }
-                
+
                 else
                 {
                     break;
