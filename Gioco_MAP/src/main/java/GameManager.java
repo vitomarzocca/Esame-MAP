@@ -43,7 +43,7 @@ public class GameManager
 
         try
         {
-            fr = new FileReader("./paroleDaCancellare.txt");
+            fr = new FileReader("/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/paroleDaCancellare.txt");
             System.out.println("file trovato");
         }
         catch (FileNotFoundException e)
@@ -118,7 +118,7 @@ public class GameManager
 
         try
         {
-            fr = new FileReader("./paroleConcesse.txt");
+            fr = new FileReader("/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/paroleConcesse.txt");
             System.out.println("file trovato");
         }
         catch (FileNotFoundException e)
@@ -134,7 +134,7 @@ public class GameManager
 
             if(parolaLetta != null)
             {
-                paroleDaCancellare.add(parolaLetta);
+                paroleConcesse.add(parolaLetta);
                 flag = true;
             }
 

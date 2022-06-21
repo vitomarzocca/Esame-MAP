@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Esame-MAP.iml" filepath="$PROJECT_DIR$/.idea/Esame-MAP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Gioco_MAP/Gioco_MAP.iml" filepath="$PROJECT_DIR$/Gioco_MAP/Gioco_MAP.iml" />
+    </modules>
+  </component>
+</project>

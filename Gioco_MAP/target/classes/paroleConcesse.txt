@@ -1,0 +1,28 @@
+entra
+accendi
+spegni
+prendi
+raccogli
+apri
+inventario
+sali
+scendi
+usa
+minaccia
+
+
+letto
+armadio
+scale
+scala
+cantina
+sala da pranzo
+bagno
+cucina
+ripostiglo
+stanza da letto
+finestra
+luce
+luci
+chiave
+chiavi
