@@ -249,6 +249,7 @@ public class GameManager
     private Stanza ricercaStanzaCorrente()
     {
         Stanza stanza = null;
+        boolean trovato = false;
 
         Iterator<Stanza> it = casa.iterator();
         {
@@ -256,7 +257,7 @@ public class GameManager
             {
                 stanza = it.next();
 
-                if (stanza.numeroStanza != stanzaCorrente)
+                if (stanza.numeroStanza != stanzaCorrente && trovato == false)
                 {
                     stanza = null;
                 }
