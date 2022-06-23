@@ -405,15 +405,28 @@ public class GameManager
 
     public void usa(String oggetto) //metodo non definitivo è na cosa provissoria
     {
-        if(controllaInvetario(Oggetti.valueOf(oggetto)))
+        Oggetti ogg ;
+
+        try
         {
-            //da finire
+            ogg = Oggetti.valueOf(oggetto);
+
+            if(controllaInvetario(ogg))
+            {
+                //da finire
+            }
+
+            else
+            {
+                System.out.print("L' oggetto che vuoi usare non è presente nel tuo inventario");
+            }
+        }
+        catch(Exception e )
+        {
+            System.out.println("Oggetto che vuoi usare non è presente nell'inventario");
         }
 
-        else
-        {
-            System.out.print("L' oggetto che vuoi usare non è presente nel tuo inventario");
-        }
+
     }
 
     public void muovi(String direzione)
