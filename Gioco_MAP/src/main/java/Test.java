@@ -6,7 +6,7 @@ public class Test {
     {
         GameManager partita = new GameManager();
 
-        Parser.parser("accendi la luce nella stanza" , partita.paroleDaCancellare, partita.paroleConcesse, partita);
+        Parser.parser("nasconditi sotto il letto" , partita.paroleDaCancellare, partita.paroleConcesse, partita);
 
 
     }

@@ -21,9 +21,9 @@ public class Parser
         }
 
 
-        if (elementiComandoPulito[0] == "entra" || elementiComandoPulito[0] == "sali" || elementiComandoPulito[0] == "scendi")
+        if (elementiComandoPulito[0] == "entra" || elementiComandoPulito[0] == "apri")
         {
-            //invocazione comando per cambiare stanza
+            partita.muovi(elementiComandoPulito[1]);
         }
 
         else if (elementiComandoPulito[0] == "raccogli" || elementiComandoPulito[0] == "prendi")
@@ -33,7 +33,7 @@ public class Parser
 
         else if (elementiComandoPulito[0] == "nasconditi")
         {
-            //invocazione comando per nascondersi
+            partita.nascondi();
         }
 
         else if (elementiComandoPulito[0] == "accendi" && elementiComandoPulito[1] == "luce")
@@ -48,12 +48,22 @@ public class Parser
 
         else if (elementiComandoPulito[0] == "usa")
         {
-            //invocazione comando per usare un oggetto nell'inventario
+            partita.usa(elementiComandoPulito[1]);
         }
 
         else if (elementiComandoPulito[0] == "apri" && elementiComandoPulito[1] == "inventario")
         {
             partita.apriInvetario();
+        }
+
+        else if (elementiComandoPulito[0] == "carica" && elementiComandoPulito[1] == "salvataggio")
+        {
+            //bisgona ancora creare un metodo
+        }
+
+        else if (elementiComandoPulito[0] == null || elementiComandoPulito[1] == null)
+        {
+            System.out.println("Comando non valido. Riprovare");
         }
     }
 }

@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 
 public class GameManager
 {
+    public boolean nascosto = false;
     public int stanzaCorrente;
     public Oggetti[] inventario = new Oggetti[10];
 
@@ -269,6 +270,54 @@ public class GameManager
         return stanza;
     }
 
+    private Stanza ricercaStanzaPerNumero(int numeroStanza)
+    {
+        Stanza nuovaStanza = null;
+
+
+        Iterator<Stanza> it = casa.iterator();
+        {
+            while (it.hasNext() == true)
+            {
+                nuovaStanza = it.next();
+
+                if (nuovaStanza.numeroStanza != numeroStanza)
+                {
+                    nuovaStanza = null;
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+        }
+        return nuovaStanza;
+    }
+
+    private boolean controllaInvetario (Oggetti oggetto)
+    {
+        boolean trovato = false;
+
+        for (int i = 0; i<10; i++)
+        {
+            if(inventario[i] == oggetto)
+            {
+                trovato = true;
+            }
+        }
+
+        if(trovato == true)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
     public void raccoltaOggetto(String oggetto)
     {
         Stanza stanza = ricercaStanzaCorrente();
@@ -330,6 +379,378 @@ public class GameManager
         {
             System.out.println(oggetto);
         }
+    }
+
+    public void nascondi()
+    {
+        Stanza stanza = ricercaStanzaCorrente();
+
+        if (stanza.armadio == true)
+        {
+            nascosto = true;
+            System.out.println("Ti sei nascosto nell'aramdio");
+        }
+
+        else if (stanza.letto == true)
+        {
+            nascosto = true;
+            System.out.println("Ti sei nascosto sotto il letto");
+        }
+
+        else
+        {
+            System.out.println("Non c'è nessun nascodiglio in questa stanza");
+        }
+    }
+
+    public void usa(String oggetto) //metodo non definitivo è na cosa provissoria
+    {
+        if(controllaInvetario(Oggetti.valueOf(oggetto)))
+        {
+            //da finire
+        }
+
+        else
+        {
+            System.out.print("L' oggetto che vuoi usare non è presente nel tuo inventario");
+        }
+    }
+
+    public void muovi(String direzione)
+    {
+        Stanza stanza = ricercaStanzaCorrente();
+        Stanza nuovaStanza = null;
+
+        if (stanza.numeroStanza == 1 && direzione == "est")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(2);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 1 && direzione == "ovest")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(3);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+
+        }
+
+        else if (stanza.numeroStanza == 1 && direzione == "nord" )
+        {
+            nuovaStanza = ricercaStanzaPerNumero(5);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 2 && direzione == "ovest")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(1);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 3 && direzione == "est")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(1);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 3 && direzione == "nord" )
+        {
+            nuovaStanza = ricercaStanzaPerNumero(1);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 4 && direzione == "nord")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(7);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 4 && direzione == "est")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(5);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 4 && direzione == "sud")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(3);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 5 && direzione == "sud")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(1);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 5 && direzione == "ovest")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(4);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 5 && direzione == "nord")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(6);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 5 && direzione == "est")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(12);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 6 && direzione == "sud")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(5);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 6 && direzione == "ovest")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(7);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 6 && direzione == "est")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(11);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 7 && direzione == "est")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(6);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 7 && direzione == "sud")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(4);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 7 && direzione == "nord")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(8);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 8 && direzione == "est")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(9);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 8 && direzione == "sud")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(10);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 9 && direzione == "ovest")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(8);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if (stanza.numeroStanza == 10 && direzione == "nord")
+        {
+            nuovaStanza = ricercaStanzaPerNumero(8);
+
+            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+            }
+            else
+            {
+                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else
+        {
+            System.out.println("Non esiste nessuna porta in questa direzione");
+        }
+
+
+
     }
 
 
