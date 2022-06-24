@@ -15,6 +15,8 @@ public class GameManager
     public Set<String> paroleConcesse = new HashSet<>();
     public Set<String> paroleDaCancellare = new HashSet<>();
 
+    public static int stanzaGuradia;
+
     int tempoDiGioco;
 
     public GameManager()
