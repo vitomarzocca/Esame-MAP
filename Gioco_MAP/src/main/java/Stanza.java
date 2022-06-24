@@ -11,7 +11,7 @@ public class Stanza implements Serializable
     public boolean armadio;  //FALSE = non c'è un armadio   TRUE = c'è un letto.armadio.
 
 
-    public Stanza (int numeroStanza, String descrizione, boolean luce, boolean letto, boolean armadio, int stanzaCollegata1, int stanzaCollegata2, int stanzaCollegata3, int stanzaCollegata4, Oggetti oggetto, Oggetti oggettoRichiesto) {
+    public Stanza (int numeroStanza, String descrizione, boolean luce, boolean letto, boolean armadio, Oggetti oggetto, Oggetti oggettoRichiesto) {
         this.numeroStanza = numeroStanza;
         this.descrizione = descrizione;
         this.luce = luce;

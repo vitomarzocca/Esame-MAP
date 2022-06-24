@@ -11,8 +11,6 @@ usa
 minaccia
 letto
 armadio
-scale
-scala
 cantina
 sala da pranzo
 bagno
@@ -26,3 +24,7 @@ chiave
 chiavi
 invetario
 nasconditi
+nord
+sud
+est
+ovest

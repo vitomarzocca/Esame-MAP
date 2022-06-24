@@ -1,8 +1,9 @@
 public enum Oggetti
 {
     VUOTO,
-    chiave,
-    tronchese,          //Questa è una bozza
+    chiave_cantina,
+    fedora,
     accendino,
-    candela
+    padella,
+    chiave_tesoro
 }

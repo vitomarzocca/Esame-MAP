@@ -24,7 +24,7 @@ public class GameManager
         inizializzaInventario();
         avvaloraParoleDaCancellare();
         avvaloraParoleConcesse();
-        //avvaloraCasa();
+        avvaloraCasa();
     }
 
     private void inizializzaInventario()
@@ -184,20 +184,20 @@ public class GameManager
         }
     }
 
-    //metodo ancora da testare
     private void avvaloraCasa()
     {
-        Stanza stanza;
+        Stanza stanza = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
+        boolean flag = false;
 
         try
         {
-            fis = new FileInputStream("./descrizioneStanze.txt");
+            fis = new FileInputStream("/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/descrizioneStanze.txt");
         }
         catch (IOException e)
         {
-            System.out.println("Si è verificato un errore con il file \"descizioneStanze.txt\"");
+            System.out.println("Si è verificato un errore con il file \"descizioneStanze.txt\" 1");
         }
 
         try
@@ -206,23 +206,43 @@ public class GameManager
         }
         catch (IOException e)
         {
-            System.out.println("Si è verificato un errore con il file \"descizioneStanze.txt\"");
+            System.out.println("Si è verificato un errore con il file \"descizioneStanze.txt\" 2");
         }
 
-        while (true)
+        try
         {
-            try
-            {
-                ois.readObject();
-            }
-            catch (ClassNotFoundException e)
-            {
-                break;
-            }
-            catch (IOException e)
-            {
-                break;
-            }
+            stanza = (Stanza) ois.readObject();
+            casa.add(stanza);
+            stanza = (Stanza) ois.readObject();
+            casa.add(stanza);
+            stanza = (Stanza) ois.readObject();
+            casa.add(stanza);
+            stanza = (Stanza) ois.readObject();
+            casa.add(stanza);
+            stanza = (Stanza) ois.readObject();
+            casa.add(stanza);
+            stanza = (Stanza) ois.readObject();
+            casa.add(stanza);
+            stanza = (Stanza) ois.readObject();
+            casa.add(stanza);
+            stanza = (Stanza) ois.readObject();
+            casa.add(stanza);
+            stanza = (Stanza) ois.readObject();
+            casa.add(stanza);
+            stanza = (Stanza) ois.readObject();
+            casa.add(stanza);
+            stanza = (Stanza) ois.readObject();
+            casa.add(stanza);
+            stanza = (Stanza) ois.readObject();
+            casa.add(stanza);
+        }
+        catch(IOException e)
+        {
+            System.out.println("Si è verificato un errore");
+        }
+        catch(ClassNotFoundException k)
+        {
+            System.out.println("Si è verificato un errore");
         }
 
         try
@@ -242,6 +262,7 @@ public class GameManager
         {
             System.out.println("Si è verificato un errore nella chiusura dello stream");
         }
+
     }
 
     private Stanza ricercaStanzaCorrente()

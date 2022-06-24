@@ -6,8 +6,11 @@ public class Test {
     {
         GameManager partita = new GameManager();
 
-        Parser.parser("nasconditi sotto il letto" , partita.paroleDaCancellare, partita.paroleConcesse, partita);
+        partita.muovi("sud");
+
+        System.out.println(partita.stanzaCorrente);
 
 
     }
 }
+
