@@ -2,24 +2,66 @@
 public class Dialoghi {
 
     
-        public static void Prologo() {
-        System.out.println("Prologo");
+        public static void prologo() {
+        System.out.println("PROLOGO");
         System.out.println("20 giorni prima");
-        System.out.println("Una giornata tranquilla nella chiassosa Brooklyn, Johnny “o mafius” si sta ritirando a casa da una serena cena con i colleghi mafiosi.");
+        System.out.println("Una giornata tranquilla nella chiassosa Brooklyn, Johnny ï¿½o mafiusï¿½ si sta ritirando a casa da una serena cena con i colleghi mafiosi.");
         System.out.println("Johnny era sempre stato uno a cui piaceva apparire e piaceva farlo con stile, ma questa cosa li si ritorse contro.");
-        System.out.println("Appena uscito dal ristorante del suo miglior amico e collega Vivio Marzalma,si ritrovò con le spalle al muro in un vicoletto li vicino…");
-        System.out.println("Una banda di scapestrati mandati da qualcuno l aveva già accerchiato e sembrava fossero interessati solo al derubarlo anche a costo di non lasciarlo in vita.");
-        System.out.println("“Davvero strano” pensò Johnny mentre guardava negli occhi i suoi malfattori, ”guardano tutti la mia fedora di al capone, saranno interessati davvero a quella?”");
+        System.out.println("Appena uscito dal ristorante del suo miglior amico e collega Vivio Marzalma,si ritrovï¿½ con le spalle al muro in un vicoletto li vicinoï¿½");
+        System.out.println("Una banda di scapestrati mandati da qualcuno l aveva giï¿½ accerchiato e sembrava fossero interessati solo al derubarlo anche a costo di non lasciarlo in vita.");
+        System.out.println("ï¿½Davvero stranoï¿½ pensï¿½ Johnny mentre guardava negli occhi i suoi malfattori, ï¿½guardano tutti la mia fedora di al capone, saranno interessati davvero a quella?ï¿½");
         System.out.println("Non fece in tempo a pensare un alternativa per scappare che senti una botta e poi tutto nero.");
     }
 
     
-        public static void Oggi() {
-        System.out.println("Oggi:");
-        System.out.println("Johnny si è sveglia con una chiamata di Vivio:”Johnny ma che cazzo stai facendo!?!”");
-        System.out.println("“Hey Vivio mi sono appena svegliato,sto nel letto”");
-        System.out.println("“Coglione sveglia non cè tempo da perdere!!!”");
-        System.out.println("“Dimmi che è quello che penso…”disse Johnny con gli occhi di fuoco.");
-        System.out.println("”Paparino sta tornando!”");
+        public static void oggi() {
+        System.out.println("OGGI:");
+        System.out.println("Johnny si ï¿½ sveglia con una chiamata di Vivio:ï¿½Johnny ma che cazzo stai facendo!?!ï¿½");
+        System.out.println("ï¿½Hey Vivio mi sono appena svegliato,sto nel lettoï¿½");
+        System.out.println("ï¿½Coglione sveglia non cï¿½ tempo da perdere!!!ï¿½");
+        System.out.println("ï¿½Dimmi che ï¿½ quello che pensoï¿½ï¿½disse Johnny con gli occhi di fuoco.");
+        System.out.println("ï¿½Paparino sta tornando!ï¿½");
+    }
+
+    public static void messaggioPresenzaChivaCantina(boolean visitata)
+    {
+        if(visitata == true)
+        {
+            System.out.println("Sul tavolo Ã¨ presente una chiave. Prima non l'ho notata.");
+            System.out.println("Potrebbe risualtare utile raccoglierla");
+        }
+    }
+
+    public static void messaggioPresenzaAccendino(boolean visitata)
+    {
+        if(visitata == false)
+        {
+            System.out.println("Qualcuno ha dimenticato sul divano un accendino.");
+            System.out.println("Meglio prenderselo. Un accendino puÃ² essere sempre utile");
+        }
+    }
+
+    public static void messaggioPresenzaPentola(boolean visitata, boolean eventoTipoCheCammina)
+    {
+        if(visitata == false && eventoTipoCheCammina == true)
+        {
+            System.out.println("Devo trovare un qualcosa da unsare per difermi da qul tipo");
+            System.out.println("Questa padella dovrebbe fandare bene");
+        }
+    }
+
+    public static void messaggioPresenzaChiaveTesoto(boolean visitata)
+    {
+        if (visitata == false)
+        {
+            System.out.println("C'Ã¨ qualcosa che luccica");
+            System.out.println("Questa chiave Ã¨ piÃ¹ sfarzosa dela solito. Forse serve per aprire la stanza dei tesori del boss");
+        }
+    }
+
+    public static void  messaggioInizionEvento()
+    {
+        System.out.println("ATTENZIONE E' APPENA ARRIVATA UN AUTO");
+        System.out.println("NON FARTI BECCARE");
     }
 }

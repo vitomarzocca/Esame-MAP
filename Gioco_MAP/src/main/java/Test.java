@@ -10,16 +10,18 @@ public class Test {
 
         GameManager partita = new GameManager();
 
-
         System.out.println("Ti trovi nella stanza: " +partita.stanzaCorrente);
 
         Scanner input = new Scanner(System.in);
 
-        while (true)
+        while (partita.vivo == true)
         {
+            
             comando = input.nextLine();
             Parser.parser(comando, partita);
         }
+
+        System.out.println("Fine partita");
     }
 }
 

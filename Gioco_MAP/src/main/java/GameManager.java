@@ -7,25 +7,38 @@ import java.io.BufferedReader;
 
 public class GameManager
 {
+    public static boolean eventoTipoCheCammina = false;
+    public static boolean eventoTipoCheCamminaInPausa = false;
     public boolean nascosto = false;
-    public int stanzaCorrente;
+    public static int stanzaCorrente;
     public Oggetti[] inventario = new Oggetti[10]; //dimensione forse eccessiva
-
     public boolean[] stanzaVisitata = new boolean[12];
-
     public Set<Stanza> casa = new HashSet();
     public Set<String> paroleConcesse = new HashSet<>();
     public Set<String> paroleDaCancellare = new HashSet<>();
-    public static int stanzaGuradia;
+    public static int stanzaGuradia = 0;
+    public boolean vivo;
+    Evento evento;
 
 
     public GameManager()
     {
         stanzaCorrente = 1;
         inizializzaInventario();
+        inizializzaStanzaVisitata();
         avvaloraParoleDaCancellare();
         avvaloraParoleConcesse();
         avvaloraCasa();
+        evento = new Evento();
+        vivo = true;
+    }
+
+    private void inizializzaStanzaVisitata()
+    {
+        for(int i = 0; i<12; i++ )
+        {
+            stanzaVisitata[i] = false;
+        }
     }
 
     private void inizializzaInventario()
@@ -344,26 +357,32 @@ public class GameManager
     {
         Stanza stanza = ricercaStanzaCorrente();
 
-        if(ricercaStanzaCorrente().oggetto.name().equals(oggetto) )  //il .name() permette la conversione da enumerativo a stringa
+        if(eventoTipoCheCamminaInPausa == false)
         {
-            System.out.println(stanza.oggetto.name() + " è stato aggiunto all'invetario");
-
-            for (int i = 0; i<10; i++)
+            if(ricercaStanzaCorrente().oggetto.name().equals(oggetto) )  //il .name() permette la conversione da enumerativo a stringa
             {
-                if(inventario[i] == Oggetti.VUOTO)
+                System.out.println(stanza.oggetto.name() + " è stato aggiunto all'invetario");
+
+                for (int i = 0; i<10; i++)
                 {
-                    inventario[i] = stanza.oggetto;
-                    break;
+                    if(inventario[i] == Oggetti.VUOTO)
+                    {
+                        inventario[i] = stanza.oggetto;
+                        break;
+                    }
                 }
+            }
+            else
+            {
+                System.out.println("In questa stanza non è presente l'oggetto " + oggetto);
             }
         }
 
         else
         {
-            System.out.println("In questa stanza non è presente l'oggetto " + oggetto);
+            System.out.println("Sei stato catturato dalla guardia");
+            vivo = false;
         }
-
-
 
     }
 
@@ -371,34 +390,58 @@ public class GameManager
     {
         Stanza stanza = ricercaStanzaCorrente();
 
-        if (stanza.luce == true)
+        if(eventoTipoCheCamminaInPausa == false)
         {
-            System.out.println("In questa stanza la luce è già accesa");
+            if (stanza.luce == true)
+            {
+                System.out.println("In questa stanza la luce è già accesa");
+            }
+
+            else
+            {
+                casa.remove(stanza);
+                stanza.luce = true;
+                casa.add(stanza);
+                System.out.println("Hai acceso la luce");
+            }
         }
 
         else
         {
-            casa.remove(stanza);
-            stanza.luce = true;
-            casa.add(stanza);
+            System.out.println("Sei stato catturato dalla guardia");
+            vivo = false;
         }
+
+
     }
 
     public void spegniLuce()
     {
         Stanza stanza = ricercaStanzaCorrente();
 
-        if (stanza.luce == false)
+        if(eventoTipoCheCamminaInPausa == false)
         {
-            System.out.println("In questa stanza la luce è già spenta");
+            if (stanza.luce == false)
+            {
+                System.out.println("In questa stanza la luce è già spenta");
+            }
+
+            else
+            {
+                casa.remove(stanza);
+                stanza.luce = false;
+                casa.add(stanza);
+                System.out.println("Hai spento la luce");
+            }
         }
 
         else
         {
-            casa.remove(stanza);
-            stanza.luce = false;
-            casa.add(stanza);
+            System.out.println("Sei stato catturato dalla guardia");
+            vivo = false;
         }
+
+
     }
 
     public void apriInvetario()
@@ -462,6 +505,7 @@ public class GameManager
         Stanza stanza = ricercaStanzaCorrente();
         Stanza nuovaStanza = null;
 
+
         if (stanza.numeroStanza == 1 && direzione.compareTo("est") == 0)
         {
             nuovaStanza = ricercaStanzaPerNumero(2);
@@ -486,6 +530,7 @@ public class GameManager
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.messaggioPresenzaAccendino(stanzaVisitata[2]);
                 stanzaVisitata[stanzaCorrente-1] = true;
             }
             else
@@ -503,6 +548,7 @@ public class GameManager
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.messaggioPresenzaPentola(stanzaVisitata[4], eventoTipoCheCammina);
                 stanzaVisitata[stanzaCorrente-1] = true;
             }
             else
@@ -551,6 +597,15 @@ public class GameManager
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+
+                if(stanzaVisitata[3] == false)
+                {
+                    Dialoghi.messaggioInizionEvento();
+                    eventoTipoCheCammina = true;
+                    evento.start();
+                }
+
+                Dialoghi.messaggioPresenzaChivaCantina(stanzaVisitata[3]);
                 stanzaVisitata[stanzaCorrente-1] = true;
             }
             else
@@ -583,6 +638,7 @@ public class GameManager
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.messaggioPresenzaPentola(stanzaVisitata[4], eventoTipoCheCammina);
                 stanzaVisitata[stanzaCorrente-1] = true;
             }
             else
@@ -599,6 +655,7 @@ public class GameManager
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.messaggioPresenzaAccendino(stanzaVisitata[2]);
                 stanzaVisitata[stanzaCorrente-1] = true;
             }
             else
@@ -631,7 +688,17 @@ public class GameManager
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+
+                if(stanzaVisitata[3] == false)
+                {
+                    Dialoghi.messaggioInizionEvento();
+                    eventoTipoCheCammina = true;
+                    evento.start();
+                }
+
+                Dialoghi.messaggioPresenzaChivaCantina(stanzaVisitata[3]);
                 stanzaVisitata[stanzaCorrente-1] = true;
+
             }
             else
             {
@@ -679,6 +746,7 @@ public class GameManager
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.messaggioPresenzaPentola(stanzaVisitata[4], eventoTipoCheCammina);
                 stanzaVisitata[stanzaCorrente-1] = true;
             }
             else
@@ -743,6 +811,15 @@ public class GameManager
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+
+                if(stanzaVisitata[3] == false)
+                {
+                    Dialoghi.messaggioInizionEvento();
+                    eventoTipoCheCammina = true;
+                    evento.start();
+                }
+
+                Dialoghi.messaggioPresenzaChivaCantina(stanzaVisitata[3]);
                 stanzaVisitata[stanzaCorrente-1] = true;
             }
             else
@@ -791,6 +868,7 @@ public class GameManager
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.messaggioPresenzaChiaveTesoto(stanzaVisitata[9]);
                 stanzaVisitata[stanzaCorrente-1] = true;
             }
             else
@@ -838,6 +916,11 @@ public class GameManager
 
         stampaMappa();
 
+        if(eventoTipoCheCamminaInPausa == true && eventoTipoCheCamminaInPausa == true)
+        {
+            eventoTipoCheCamminaInPausa = false;
+
+        }
 
     }
 
@@ -986,6 +1069,19 @@ public class GameManager
                     " |   |   |   |      ___    ___\n" +
                     " |___|___|___|     |   |  |***|\n" +
                     "                   |___|  |***|");
+        }
+    }
+
+    private boolean controlloPosizioneGuardia(int prossimaStanza)
+    {
+        if(prossimaStanza != stanzaGuradia)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
         }
     }
 
