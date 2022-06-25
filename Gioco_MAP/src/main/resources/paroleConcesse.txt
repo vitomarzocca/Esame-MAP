@@ -28,3 +28,4 @@ nord
 sud
 est
 ovest
+entra

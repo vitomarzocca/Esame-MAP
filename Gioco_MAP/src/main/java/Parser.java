@@ -10,6 +10,9 @@ public class Parser
         String[] elementiComandoSporco = comando.split("\\s+");
         String[] elementiComandoPulito = new String [2];
 
+        String comandopt1;
+        String comandopt2;
+
 
         for (String parola:elementiComandoSporco)
         {
@@ -20,48 +23,50 @@ public class Parser
             }
         }
 
+        comandopt1 = elementiComandoPulito[0].toString();
+        comandopt2 = elementiComandoPulito[1].toString();
 
-        if (elementiComandoPulito[0] == "entra" || elementiComandoPulito[0] == "apri")
+        if (comandopt1.compareTo("entra") == 0 || comandopt1.compareTo("muovi") == 0)
         {
             partita.muovi(elementiComandoPulito[1]);
         }
 
-        else if (elementiComandoPulito[0] == "raccogli" || elementiComandoPulito[0] == "prendi")
+        else if (comandopt1.compareTo("raccogli") == 0 || comandopt1.compareTo("prendi") == 0)
         {
             partita.raccoltaOggetto(elementiComandoPulito[1]);
         }
 
-        else if (elementiComandoPulito[0] == "nasconditi")
+        else if (comandopt1.compareTo("nasconditi") == 0)
         {
             partita.nascondi();
         }
 
-        else if (elementiComandoPulito[0] == "accendi" && elementiComandoPulito[1] == "luce")
+        else if (comandopt1.compareTo("accendi") + comandopt2.compareTo("luce") == 0)
         {
             partita.accendiLuce();
         }
 
-        else if (elementiComandoPulito[0] == "spegni" && elementiComandoPulito[1] == "luce")
+        else if (comandopt1.compareTo("spegni") + comandopt2.compareTo("luce") == 0)
         {
             partita.spegniLuce();
         }
 
-        else if (elementiComandoPulito[0] == "usa")
+        else if (comandopt1.compareTo("usa") == 0)
         {
             partita.usa(elementiComandoPulito[1]);
         }
 
-        else if (elementiComandoPulito[0] == "apri" && elementiComandoPulito[1] == "inventario")
+        else if (comandopt1.compareTo("apri") + comandopt2.compareTo("inventario") == 0)
         {
             partita.apriInvetario();
         }
 
-        else if (elementiComandoPulito[0] == "carica" && elementiComandoPulito[1] == "salvataggio")
+        else if (comandopt1.compareTo("carica") + comandopt2.compareTo("salvataggio") == 0)
         {
             //bisgona ancora creare un metodo
         }
 
-        else if (elementiComandoPulito[0] == null || elementiComandoPulito[1] == null)
+        else
         {
             System.out.println("Comando non valido. Riprovare");
         }
