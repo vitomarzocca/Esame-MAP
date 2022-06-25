@@ -29,3 +29,7 @@ sud
 est
 ovest
 entra
+accendino
+padella
+chiave
+mostra

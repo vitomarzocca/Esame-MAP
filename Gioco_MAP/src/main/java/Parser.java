@@ -10,8 +10,8 @@ public class Parser
         String[] elementiComandoSporco = comando.split("\\s+");
         String[] elementiComandoPulito = new String [2];
 
-        String comandopt1;
-        String comandopt2;
+        String comandopt1 = "";
+        String comandopt2 = "";
 
 
         for (String parola:elementiComandoSporco)
@@ -23,8 +23,16 @@ public class Parser
             }
         }
 
-        comandopt1 = elementiComandoPulito[0].toString();
-        comandopt2 = elementiComandoPulito[1].toString();
+        try
+        {
+            comandopt1 = elementiComandoPulito[0].toString();
+            comandopt2 = elementiComandoPulito[1].toString();
+        }
+        catch(NullPointerException e)
+        {
+
+        }
+
 
         if (comandopt1.compareTo("entra") == 0 || comandopt1.compareTo("muovi") == 0)
         {
@@ -56,7 +64,7 @@ public class Parser
             partita.usa(elementiComandoPulito[1]);
         }
 
-        else if (comandopt1.compareTo("apri") + comandopt2.compareTo("inventario") == 0)
+        else if (comandopt1.compareTo("apri") + comandopt2.compareTo("inventario") == 0 || comandopt1.compareTo("mostra") + comandopt2.compareTo("inventario") == 0)
         {
             partita.apriInvetario();
         }
