@@ -3,7 +3,7 @@ import java.util.Set;
 public class Parser
 {
     //L'idea è quella di prendere il comando e riscriverlo come <verbo> <oggetto>
-    public static void parser(String comando, Set<String> paroleDaCancellare, Set<String> paroleConcesse, GameManager partita)
+    public static void parser(String comando,  GameManager partita)
     {
         int i = 0;
 
@@ -16,7 +16,7 @@ public class Parser
 
         for (String parola:elementiComandoSporco)
         {
-            if(paroleDaCancellare.contains(parola) == false && i<2 && paroleConcesse.contains(parola) == true)
+            if(partita.paroleDaCancellare.contains(parola) == false && i<2 && partita.paroleConcesse.contains(parola) == true)
             {
                 elementiComandoPulito[i]=parola;
                 i++;

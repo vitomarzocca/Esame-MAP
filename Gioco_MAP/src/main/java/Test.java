@@ -18,7 +18,7 @@ public class Test {
         while (true)
         {
             comando = input.nextLine();
-            Parser.parser(comando, partita.paroleDaCancellare, partita.paroleConcesse, partita);
+            Parser.parser(comando, partita);
         }
     }
 }
