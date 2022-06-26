@@ -5,13 +5,12 @@ import java.util.Set;
 import java.io.FileReader;
 import java.io.BufferedReader;
 
-public class GameManager
-{
+public class GameManager {
     public static boolean eventoTipoCheCammina = false;
     public static boolean eventoTipoCheCamminaInPausa = false;
     public boolean nascosto = false;
     public static int stanzaCorrente;
-    public Oggetti[] inventario = new Oggetti[10]; //dimensione forse eccessiva
+    public Oggetti[] inventario = new Oggetti[6]; //dimensione forse eccessiva
     public boolean[] stanzaVisitata = new boolean[12];
     public Set<Stanza> casa = new HashSet();
     public Set<String> paroleConcesse = new HashSet<>();
@@ -35,16 +34,14 @@ public class GameManager
 
     private void inizializzaStanzaVisitata()
     {
-        for(int i = 0; i<12; i++ )
-        {
+        for (int i = 0; i < 12; i++) {
             stanzaVisitata[i] = false;
         }
     }
 
     private void inizializzaInventario()
     {
-        for(int i = 0; i<10; i++)
-        {
+        for (int i = 0; i < 6; i++) {
             inventario[i] = Oggetti.VUOTO;
 
         }
@@ -56,70 +53,50 @@ public class GameManager
         boolean flag = false;
         String parolaLetta;
 
-        try
-        {
+        try {
             fr = new FileReader("/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/paroleDaCancellare.txt");
-        }
-        catch (FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             System.out.println("si è verificato un errore con la gestione del file");
         }
 
         BufferedReader bf = new BufferedReader(fr);
 
-        try
-        {
+        try {
             parolaLetta = bf.readLine();
 
-            if(parolaLetta != null)
-            {
+            if (parolaLetta != null) {
                 paroleDaCancellare.add(parolaLetta);
                 flag = true;
             }
 
-        }
-        catch (IOException e )
-        {
+        } catch (IOException e) {
             System.out.println("Si è verificato un errore nella lettura del file paroleDaCancellare");
 
         }
 
-        try
-        {
-            while(flag == true)
-            {
+        try {
+            while (flag == true) {
                 parolaLetta = bf.readLine();
 
-                if(parolaLetta != null)
-                {
+                if (parolaLetta != null) {
                     paroleDaCancellare.add(parolaLetta);
                     flag = true;
-                }
-                else
-                {
+                } else {
                     flag = false;
                 }
             }
-        }
-        catch(IOException e)
-        {
+        } catch (IOException e) {
             System.out.println("Si è verificato un errore nella lettura del file paroleDaCancellare");
         }
-        try
-        {
+        try {
             bf.close();
-        }
-        catch (IOException e )
-        {
+        } catch (IOException e) {
             System.out.println("Si è verificato un errore nella chiusura dello stream");
         }
 
-        try
-        {
+        try {
             bf.close();
-        }
-        catch (IOException e )
-        {
+        } catch (IOException e) {
             System.out.println("Si è verificato un errore nella chiusura dello stream");
         }
     }
@@ -130,70 +107,50 @@ public class GameManager
         boolean flag = false;
         String parolaLetta;
 
-        try
-        {
+        try {
             fr = new FileReader("/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/paroleConcesse.txt");
-        }
-        catch (FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             System.out.println("si è verificato un errore con la gestione del file");
         }
 
         BufferedReader bf = new BufferedReader(fr);
 
-        try
-        {
+        try {
             parolaLetta = bf.readLine();
 
-            if(parolaLetta != null)
-            {
+            if (parolaLetta != null) {
                 paroleConcesse.add(parolaLetta);
                 flag = true;
             }
 
-        }
-        catch (IOException e )
-        {
+        } catch (IOException e) {
             System.out.println("Si è verificato un errore nella lettura del file paroleConcesse");
 
         }
 
-        try
-        {
-            while(flag == true)
-            {
+        try {
+            while (flag == true) {
                 parolaLetta = bf.readLine();
 
-                if(parolaLetta != null)
-                {
+                if (parolaLetta != null) {
                     paroleConcesse.add(parolaLetta);
                     flag = true;
-                }
-                else
-                {
+                } else {
                     flag = false;
                 }
             }
-        }
-        catch(IOException e)
-        {
+        } catch (IOException e) {
             System.out.println("Si è verificato un errore nella lettura del file paroleConcesse");
         }
-        try
-        {
+        try {
             bf.close();
-        }
-        catch (IOException e )
-        {
+        } catch (IOException e) {
             System.out.println("Si è verificato un errore nella chiusura dello stream");
         }
 
-        try
-        {
+        try {
             bf.close();
-        }
-        catch (IOException e )
-        {
+        } catch (IOException e) {
             System.out.println("Si è verificato un errore nella chiusura dello stream");
         }
     }
@@ -205,26 +162,19 @@ public class GameManager
         ObjectInputStream ois = null;
         boolean flag = false;
 
-        try
-        {
+        try {
             fis = new FileInputStream("/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/descrizioneStanze.txt");
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             System.out.println("Si è verificato un errore con il file \"descizioneStanze.txt\" 1");
         }
 
-        try
-        {
+        try {
             ois = new ObjectInputStream(fis);
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             System.out.println("Si è verificato un errore con il file \"descizioneStanze.txt\" 2");
         }
 
-        try
-        {
+        try {
             stanza = (Stanza) ois.readObject();
             casa.add(stanza);
             stanza = (Stanza) ois.readObject();
@@ -249,31 +199,21 @@ public class GameManager
             casa.add(stanza);
             stanza = (Stanza) ois.readObject();
             casa.add(stanza);
-        }
-        catch(IOException e)
-        {
+        } catch (IOException e) {
             System.out.println("Si è verificato un errore");
-        }
-        catch(ClassNotFoundException k)
-        {
+        } catch (ClassNotFoundException k) {
             System.out.println("Si è verificato un errore");
         }
 
-        try
-        {
+        try {
             fis.close();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             System.out.println("Si è verificato un errore nella chiusura dello stream");
         }
 
-        try
-        {
+        try {
             ois.close();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             System.out.println("Si è verificato un errore nella chiusura dello stream");
         }
 
@@ -286,17 +226,12 @@ public class GameManager
 
         Iterator<Stanza> it = casa.iterator();
         {
-            while(it.hasNext() == true)
-            {
+            while (it.hasNext() == true) {
                 stanza = it.next();
 
-                if (stanza.numeroStanza != stanzaCorrente)
-                {
+                if (stanza.numeroStanza != stanzaCorrente) {
                     stanza = null;
-                }
-
-                else
-                {
+                } else {
                     break;
                 }
             }
@@ -312,16 +247,12 @@ public class GameManager
 
         Iterator<Stanza> it = casa.iterator();
         {
-            while (it.hasNext() == true)
-            {
+            while (it.hasNext() == true) {
                 nuovaStanza = it.next();
 
-                if (nuovaStanza.numeroStanza != numeroStanza)
-                {
+                if (nuovaStanza.numeroStanza != numeroStanza) {
                     nuovaStanza = null;
-                }
-                else
-                {
+                } else {
                     break;
                 }
 
@@ -330,25 +261,23 @@ public class GameManager
         return nuovaStanza;
     }
 
-    private boolean controllaInvetario (Oggetti oggetto)
+    private boolean controllaInvetario(Oggetti oggetto)
     {
         boolean trovato = false;
 
-        for (int i = 0; i<10; i++)
-        {
-            if(inventario[i] == oggetto)
-            {
+        if (oggetto == Oggetti.VUOTO) {
+            return true;
+        }
+
+        for (int i = 0; i < 6; i++) {
+            if (inventario[i] == oggetto) {
                 trovato = true;
             }
         }
 
-        if(trovato == true)
-        {
+        if (trovato == true) {
             return true;
-        }
-
-        else
-        {
+        } else {
             return false;
         }
     }
@@ -357,29 +286,21 @@ public class GameManager
     {
         Stanza stanza = ricercaStanzaCorrente();
 
-        if(eventoTipoCheCamminaInPausa == false)
-        {
-            if(ricercaStanzaCorrente().oggetto.name().equals(oggetto) )  //il .name() permette la conversione da enumerativo a stringa
+        if (eventoTipoCheCamminaInPausa == false) {
+            if (ricercaStanzaCorrente().oggetto.name().equals(oggetto))  //il .name() permette la conversione da enumerativo a stringa
             {
                 System.out.println(stanza.oggetto.name() + " è stato aggiunto all'invetario");
 
-                for (int i = 0; i<10; i++)
-                {
-                    if(inventario[i] == Oggetti.VUOTO)
-                    {
+                for (int i = 0; i < 10; i++) {
+                    if (inventario[i] == Oggetti.VUOTO) {
                         inventario[i] = stanza.oggetto;
                         break;
                     }
                 }
-            }
-            else
-            {
+            } else {
                 System.out.println("In questa stanza non è presente l'oggetto " + oggetto);
             }
-        }
-
-        else
-        {
+        } else {
             System.out.println("Sei stato catturato dalla guardia");
             vivo = false;
         }
@@ -390,24 +311,16 @@ public class GameManager
     {
         Stanza stanza = ricercaStanzaCorrente();
 
-        if(eventoTipoCheCamminaInPausa == false)
-        {
-            if (stanza.luce == true)
-            {
+        if (eventoTipoCheCamminaInPausa == false) {
+            if (stanza.luce == true) {
                 System.out.println("In questa stanza la luce è già accesa");
-            }
-
-            else
-            {
+            } else {
                 casa.remove(stanza);
                 stanza.luce = true;
                 casa.add(stanza);
                 System.out.println("Hai acceso la luce");
             }
-        }
-
-        else
-        {
+        } else {
             System.out.println("Sei stato catturato dalla guardia");
             vivo = false;
         }
@@ -419,24 +332,16 @@ public class GameManager
     {
         Stanza stanza = ricercaStanzaCorrente();
 
-        if(eventoTipoCheCamminaInPausa == false)
-        {
-            if (stanza.luce == false)
-            {
+        if (eventoTipoCheCamminaInPausa == false) {
+            if (stanza.luce == false) {
                 System.out.println("In questa stanza la luce è già spenta");
-            }
-
-            else
-            {
+            } else {
                 casa.remove(stanza);
                 stanza.luce = false;
                 casa.add(stanza);
                 System.out.println("Hai spento la luce");
             }
-        }
-
-        else
-        {
+        } else {
             System.out.println("Sei stato catturato dalla guardia");
             vivo = false;
         }
@@ -446,8 +351,7 @@ public class GameManager
 
     public void apriInvetario()
     {
-        for (Oggetti oggetto : inventario)
-        {
+        for (Oggetti oggetto : inventario) {
             System.out.println(oggetto);
         }
     }
@@ -456,44 +360,30 @@ public class GameManager
     {
         Stanza stanza = ricercaStanzaCorrente();
 
-        if (stanza.armadio == true)
-        {
+        if (stanza.armadio == true) {
             nascosto = true;
             System.out.println("Ti sei nascosto nell'aramdio");
-        }
-
-        else if (stanza.letto == true)
-        {
+        } else if (stanza.letto == true) {
             nascosto = true;
             System.out.println("Ti sei nascosto sotto il letto");
-        }
-
-        else
-        {
+        } else {
             System.out.println("Non c'è nessun nascodiglio in questa stanza");
         }
     }
 
     public void usa(String oggetto) //metodo non definitivo è na cosa provissoria
     {
-        Oggetti ogg ;
+        Oggetti ogg;
 
-        try
-        {
+        try {
             ogg = Oggetti.valueOf(oggetto);
 
-            if(controllaInvetario(ogg))
-            {
+            if (controllaInvetario(ogg)) {
                 //da finire
-            }
-
-            else
-            {
+            } else {
                 System.out.print("L' oggetto che vuoi usare non è presente nel tuo inventario");
             }
-        }
-        catch(Exception e )
-        {
+        } catch (Exception e) {
             System.out.println("Oggetto che vuoi usare non è presente nell'inventario");
         }
 
@@ -506,418 +396,275 @@ public class GameManager
         Stanza nuovaStanza = null;
 
 
-        if (stanza.numeroStanza == 1 && direzione.compareTo("est") == 0)
-        {
+        if (stanza.numeroStanza == 1 && direzione.compareTo("est") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(2);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 1 && direzione.compareTo("ovest") == 0)
-        {
+        } else if (stanza.numeroStanza == 1 && direzione.compareTo("ovest") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(3);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
                 Dialoghi.messaggioPresenzaAccendino(stanzaVisitata[2]);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
 
-        }
-
-        else if (stanza.numeroStanza == 1 && direzione.compareTo("nord") == 0)
-        {
+        } else if (stanza.numeroStanza == 1 && direzione.compareTo("nord") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(5);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
                 Dialoghi.messaggioPresenzaPentola(stanzaVisitata[4], eventoTipoCheCammina);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 2 && direzione.compareTo("ovest") == 0)
-        {
+        } else if (stanza.numeroStanza == 2 && direzione.compareTo("ovest") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(1);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 3 && direzione.compareTo("est") == 0)
-        {
+        } else if (stanza.numeroStanza == 3 && direzione.compareTo("est") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(1);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 3 && direzione.compareTo("nord") == 0 )
-        {
+        } else if (stanza.numeroStanza == 3 && direzione.compareTo("nord") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(4);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
 
-                if(stanzaVisitata[3] == false)
-                {
+                if (stanzaVisitata[3] == false) {
                     Dialoghi.messaggioInizionEvento();
                     eventoTipoCheCammina = true;
                     evento.start();
                 }
 
                 Dialoghi.messaggioPresenzaChivaCantina(stanzaVisitata[3]);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 4 && direzione.compareTo("nord") == 0)
-        {
+        } else if (stanza.numeroStanza == 4 && direzione.compareTo("nord") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(7);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 4 && direzione.compareTo("est") == 0)
-        {
+        } else if (stanza.numeroStanza == 4 && direzione.compareTo("est") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(5);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
                 Dialoghi.messaggioPresenzaPentola(stanzaVisitata[4], eventoTipoCheCammina);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 4 && direzione.compareTo("sud") == 0)
-        {
+        } else if (stanza.numeroStanza == 4 && direzione.compareTo("sud") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(3);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
                 Dialoghi.messaggioPresenzaAccendino(stanzaVisitata[2]);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 5 && direzione.compareTo("sud") == 0)
-        {
+        } else if (stanza.numeroStanza == 5 && direzione.compareTo("sud") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(1);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 5 && direzione.compareTo("ovest") == 0)
-        {
+        } else if (stanza.numeroStanza == 5 && direzione.compareTo("ovest") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(4);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
 
-                if(stanzaVisitata[3] == false)
-                {
+                if (stanzaVisitata[3] == false) {
                     Dialoghi.messaggioInizionEvento();
                     eventoTipoCheCammina = true;
                     evento.start();
                 }
 
                 Dialoghi.messaggioPresenzaChivaCantina(stanzaVisitata[3]);
-                stanzaVisitata[stanzaCorrente-1] = true;
+                stanzaVisitata[stanzaCorrente - 1] = true;
 
-            }
-            else
-            {
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 5 && direzione.compareTo("nord") == 0)
-        {
+        } else if (stanza.numeroStanza == 5 && direzione.compareTo("nord") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(6);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 5 && direzione.compareTo("est") == 0)
-        {
+        } else if (stanza.numeroStanza == 5 && direzione.compareTo("est") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(12);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 6 && direzione.compareTo("sud") == 0)
-        {
+        } else if (stanza.numeroStanza == 6 && direzione.compareTo("sud") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(5);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
                 Dialoghi.messaggioPresenzaPentola(stanzaVisitata[4], eventoTipoCheCammina);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 6 && direzione.compareTo("ovest") == 0)
-        {
+        } else if (stanza.numeroStanza == 6 && direzione.compareTo("ovest") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(7);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 6 && direzione.compareTo("est") == 0)
-        {
+        } else if (stanza.numeroStanza == 6 && direzione.compareTo("est") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(11);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 7 && direzione.compareTo("est") == 0)
-        {
+        } else if (stanza.numeroStanza == 7 && direzione.compareTo("est") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(6);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 7 && direzione.compareTo("sud") == 0)
-        {
+        } else if (stanza.numeroStanza == 7 && direzione.compareTo("sud") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(4);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
 
-                if(stanzaVisitata[3] == false)
-                {
+                if (stanzaVisitata[3] == false) {
                     Dialoghi.messaggioInizionEvento();
                     eventoTipoCheCammina = true;
                     evento.start();
                 }
 
                 Dialoghi.messaggioPresenzaChivaCantina(stanzaVisitata[3]);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 7 && direzione.compareTo("nord") == 0)
-        {
+        } else if (stanza.numeroStanza == 7 && direzione.compareTo("nord") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(8);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 8 && direzione.compareTo("est") == 0)
-        {
+        } else if (stanza.numeroStanza == 8 && direzione.compareTo("est") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(9);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 8 && direzione.compareTo("sud") == 0)
-        {
+        } else if (stanza.numeroStanza == 8 && direzione.compareTo("sud") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(10);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
                 Dialoghi.messaggioPresenzaChiaveTesoto(stanzaVisitata[9]);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 9 && direzione.compareTo("ovest") == 0)
-        {
+        } else if (stanza.numeroStanza == 9 && direzione.compareTo("ovest") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(8);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else if (stanza.numeroStanza == 10 && direzione.compareTo("nord") == 0)
-        {
+        } else if (stanza.numeroStanza == 10 && direzione.compareTo("nord") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(8);
 
-            if(controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
-            {
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true) {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                stanzaVisitata[stanzaCorrente-1] = true;
-            }
-            else
-            {
+                stanzaVisitata[stanzaCorrente - 1] = true;
+            } else {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
             }
-        }
-
-        else
-        {
+        } else {
             System.out.println("Non esiste nessuna porta in questa direzione");
         }
 
         stampaMappa();
 
-        if(eventoTipoCheCamminaInPausa == true && eventoTipoCheCamminaInPausa == true)
-        {
+        if (eventoTipoCheCamminaInPausa == true && eventoTipoCheCamminaInPausa == true) {
             eventoTipoCheCamminaInPausa = false;
 
         }
@@ -926,8 +673,7 @@ public class GameManager
 
     public void stampaMappa()
     {
-        if (stanzaCorrente == 1)
-        {
+        if (stanzaCorrente == 1) {
             System.out.println("  ___ ___           ___ ___\n" +
                     " |   |   |         |   |   |\n" +
                     " |___|___|         |___|___|\n" +
@@ -936,10 +682,7 @@ public class GameManager
                     " |   |***|   |      ___    ___\n" +
                     " |___|***|___|     |   |  |   |\n" +
                     "                   |___|  |___|");
-        }
-
-        else if(stanzaCorrente == 2)
-        {
+        } else if (stanzaCorrente == 2) {
             System.out.println("  ___ ___           ___ ___\n" +
                     " |   |   |         |   |   |\n" +
                     " |___|___|         |___|___|\n" +
@@ -948,10 +691,7 @@ public class GameManager
                     " |   |   |***|      ___    ___\n" +
                     " |___|___|***|     |   |  |   |\n" +
                     "                   |___|  |___|");
-        }
-
-        else if (stanzaCorrente == 3)
-        {
+        } else if (stanzaCorrente == 3) {
             System.out.println("  ___ ___           ___ ___\n" +
                     " |   |   |         |   |   |\n" +
                     " |___|___|         |___|___|\n" +
@@ -960,10 +700,7 @@ public class GameManager
                     " |***|   |   |      ___    ___\n" +
                     " |***|___|___|     |   |  |   |\n" +
                     "                   |___|  |___|");
-        }
-
-        else if (stanzaCorrente == 4)
-        {
+        } else if (stanzaCorrente == 4) {
             System.out.println("  ___ ___           ___ ___\n" +
                     " |   |   |         |   |   |\n" +
                     " |___|___|         |___|___|\n" +
@@ -972,22 +709,16 @@ public class GameManager
                     " |---|   |   |      ___    ___\n" +
                     " |___|___|___|     |   |  |   |\n" +
                     "                   |___|  |___|");
-        }
-
-        else if (stanzaCorrente == 5)
-        {
-             System.out.println("  ___ ___           ___ ___\n" +
-                     " |   |   |         |   |   |\n" +
-                     " |___|___|         |___|___|\n" +
-                     " |   |***|         |   |\n" +
-                     " |___|***|___      |___|\n" +
-                     " |   |---|   |      ___    ___\n" +
-                     " |___|___|___|     |   |  |   |\n" +
-                     "                   |___|  |___|\n");
-        }
-
-        else if (stanzaCorrente == 6)
-        {
+        } else if (stanzaCorrente == 5) {
+            System.out.println("  ___ ___           ___ ___\n" +
+                    " |   |   |         |   |   |\n" +
+                    " |___|___|         |___|___|\n" +
+                    " |   |***|         |   |\n" +
+                    " |___|***|___      |___|\n" +
+                    " |   |---|   |      ___    ___\n" +
+                    " |___|___|___|     |   |  |   |\n" +
+                    "                   |___|  |___|\n");
+        } else if (stanzaCorrente == 6) {
             System.out.println("  ___ ___           ___ ___\n" +
                     " |   |***|         |   |   |\n" +
                     " |___|***|         |___|___|\n" +
@@ -996,10 +727,7 @@ public class GameManager
                     " |   |   |   |      ___    ___\n" +
                     " |___|___|___|     |   |  |   |\n" +
                     "                   |___|  |___|");
-        }
-
-        else if (stanzaCorrente == 7)
-        {
+        } else if (stanzaCorrente == 7) {
             System.out.println(" ___ ___           ___ ___\n" +
                     " |***|   |         |   |   |\n" +
                     " |***|___|         |___|___|\n" +
@@ -1008,10 +736,7 @@ public class GameManager
                     " |   |   |   |      ___    ___\n" +
                     " |___|___|___|     |   |  |   |\n" +
                     "                   |___|  |___|");
-        }
-
-        else if(stanzaCorrente == 8)
-        {
+        } else if (stanzaCorrente == 8) {
             System.out.println(" ___ ___           ___ ___\n" +
                     " |   |   |         |***|   |\n" +
                     " |___|___|         |***|___|\n" +
@@ -1020,10 +745,7 @@ public class GameManager
                     " |   |   |   |      ___    ___\n" +
                     " |___|___|___|     |   |  |   |\n" +
                     "                   |___|  |___|");
-        }
-
-        else if (stanzaCorrente == 9)
-        {
+        } else if (stanzaCorrente == 9) {
             System.out.println(" ___ ___           ___ ___\n" +
                     " |   |   |         |   |***|\n" +
                     " |___|___|         |___|***|\n" +
@@ -1032,10 +754,7 @@ public class GameManager
                     " |   |   |   |      ___    ___\n" +
                     " |___|___|___|     |   |  |   |\n" +
                     "                   |___|  |___|");
-        }
-
-        else if (stanzaCorrente == 10)
-        {
+        } else if (stanzaCorrente == 10) {
             System.out.println(" ___ ___           ___ ___\n" +
                     " |   |   |         |   |   |\n" +
                     " |___|___|         |___|___|\n" +
@@ -1044,10 +763,7 @@ public class GameManager
                     " |   |   |   |      ___    ___\n" +
                     " |___|___|___|     |   |  |   |\n" +
                     "                   |___|  |___|\n");
-        }
-
-        else if (stanzaCorrente == 11)
-        {
+        } else if (stanzaCorrente == 11) {
             System.out.println(" ___ ___           ___ ___\n" +
                     " |   |   |         |   |   |\n" +
                     " |___|___|         |___|___|\n" +
@@ -1056,10 +772,7 @@ public class GameManager
                     " |   |   |   |      ___    ___\n" +
                     " |___|___|___|     |***|  |   |\n" +
                     "                   |***|  |___|");
-        }
-
-        else if(stanzaCorrente == 12)
-        {
+        } else if (stanzaCorrente == 12) {
             System.out.println("\n" +
                     "  ___ ___           ___ ___\n" +
                     " |   |   |         |   |   |\n" +
@@ -1074,18 +787,29 @@ public class GameManager
 
     private boolean controlloPosizioneGuardia(int prossimaStanza)
     {
-        if(prossimaStanza != stanzaGuradia)
-        {
+        if (prossimaStanza != stanzaGuradia) {
             return true;
-        }
-
-        else
-        {
+        } else {
             return false;
         }
     }
 
+    public void caricaSalvataggio()
+    {
+        GameManager nuovaPartita = null;
 
+        nuovaPartita = GestioneSalvataggio.caricaSalvataggio();
 
+        for (int i = 0; i < 12; i++) {
+            stanzaVisitata[i] = nuovaPartita.stanzaVisitata[i];
+        }
 
+        for (int i = 0; i < 6; i++) {
+            inventario[i] = nuovaPartita.inventario[i];
+        }
+
+        nascosto = nuovaPartita.nascosto;
+        vivo = nuovaPartita.vivo;
+    }
 }
+

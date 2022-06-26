@@ -74,6 +74,11 @@ public class Parser
             //bisgona ancora creare un metodo
         }
 
+        else if (comandopt1.compareTo("salva") + comandopt2.compareTo("partita") == 0)
+        {
+            GestioneSalvataggio.inserimentoSalvataggioInTabella(partita);
+        }
+
         else if (comandopt1.compareTo("/") == 0 || comandopt2.compareTo("/") == 0)
         {
             System.out.println("Comando non valido. Riprovare");

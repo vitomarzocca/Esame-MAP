@@ -16,7 +16,7 @@ public class Test {
 
         while (partita.vivo == true)
         {
-            
+
             comando = input.nextLine();
             Parser.parser(comando, partita);
         }
