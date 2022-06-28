@@ -479,7 +479,7 @@ public class GameManager {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(5);
                 Dialoghi.stanza5();
-                Dialoghi.messaggioPresenzaPentola(stanzaVisitata[4], evento.eventoInFunzione);
+                Dialoghi.messaggioPresenzaPadella(stanzaVisitata[4], evento.eventoInFunzione);
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -537,12 +537,12 @@ public class GameManager {
 
                 if (stanzaVisitata[3] == false)
                 {
-                    Dialoghi.messaggioInizionEvento();
+                    Dialoghi.messaggioInizioEvento();
                     evento.eventoInFunzione = true;
                     evento.start();
                 }
 
-                Dialoghi.messaggioPresenzaChivaCantina(stanzaVisitata[3]);
+                Dialoghi.messaggioPresenzaChiaveCantina(stanzaVisitata[3]);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
             }
@@ -640,12 +640,12 @@ public class GameManager {
 
                 if (stanzaVisitata[3] == false)
                 {
-                    Dialoghi.messaggioInizionEvento();
+                    Dialoghi.messaggioInizioEvento();
                     evento.eventoInFunzione = true;
                     evento.start();
                 }
 
-                Dialoghi.messaggioPresenzaChivaCantina(stanzaVisitata[3]);
+                Dialoghi.messaggioPresenzaChiaveCantina(stanzaVisitata[3]);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
             }
@@ -701,7 +701,7 @@ public class GameManager {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(5);
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                Dialoghi.messaggioPresenzaPentola(stanzaVisitata[4], evento.eventoInFunzione);
+                Dialoghi.messaggioPresenzaPadella(stanzaVisitata[4], evento.eventoInFunzione);
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -776,12 +776,12 @@ public class GameManager {
 
                 if (stanzaVisitata[3] == false)
                 {
-                    Dialoghi.messaggioInizionEvento();
+                    Dialoghi.messaggioInizioEvento();
                     evento.eventoInFunzione = true;
                     evento.start();
                 }
 
-                Dialoghi.messaggioPresenzaChivaCantina(stanzaVisitata[3]);
+                Dialoghi.messaggioPresenzaChiaveCantina(stanzaVisitata[3]);
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 

@@ -18,6 +18,7 @@ public class Test {
         //INSERIRE DIALOGO PRIMA DI ENTRARE IN CASA
 
         Dialoghi.stanza1();
+        partita.stampaMappa();
 
 
         Scanner input = new Scanner(System.in);
