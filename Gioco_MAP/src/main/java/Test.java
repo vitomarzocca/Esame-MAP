@@ -12,16 +12,19 @@ public class Test {
         GameManager partita = new GameManager();
 
 
-
-
-        System.out.println("Ti trovi nella stanza: " +partita.stanzaCorrente);
         Dialoghi.prologo();
+        Dialoghi.oggi();
+
+        //INSERIRE DIALOGO PRIMA DI ENTRARE IN CASA
+
+        Dialoghi.stanza1();
+
 
         Scanner input = new Scanner(System.in);
 
         while (partita.vivo == true)
         {
-
+            Dialoghi.attesaInput();
             comando = input.nextLine();
             Parser.parser(comando, partita);
         }

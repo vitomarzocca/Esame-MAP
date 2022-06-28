@@ -55,7 +55,9 @@ public class Dialoghi {
             System.out.println("Missione: Il Furto");
             System.out.println("Obiettivo: Recupera LA FEDORA");
         }
-    public static void oggi() {
+    public static void oggi()
+    {
+            System.out.println("\n");
             System.out.println("Oggi:");
             System.out.println("Johnny si e' svegliato con una chiamata di Vivio: -Johnny ma che cazzo stai facendo!?!-");
             System.out.println("-Hey Vivio mi sono appena svegliato,sto nel letto-");
@@ -76,9 +78,10 @@ public class Dialoghi {
                   + "Non tutte le storie finiscono bene.");
         }
     public static void attesaInput(){
-            System.out.println("Che vuoi fare? ");
+            System.out.println("\nCOSA VUOI FARE :");
         }
     public static void stanza1(){
+            System.out.println("\n");
             System.out.println("L' INGRESSO");
             System.out.println("L' ingresso e' alquanto illuminato dalla luna"
                     + " che frange le vetrate con immagini della madonna.");
@@ -86,6 +89,7 @@ public class Dialoghi {
             System.out.println("E' possibile muoversi verso: Nord, Est, Ovest.");         
         }
     public static void stanza2(){
+            System.out.println("\n");
             System.out.println("LO SGABUZZINO");
             System.out.println("Si intravedono delle"
                     + " scope ed un lavello sporco di sangue."

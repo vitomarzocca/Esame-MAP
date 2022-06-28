@@ -20,7 +20,6 @@ public class GameManager {
     GestioneSalvataggio salvataggio;
 
 
-
     public GameManager()
     {
         stanzaCorrente = 1;
@@ -315,16 +314,30 @@ public class GameManager {
     {
         Stanza stanza = ricercaStanzaCorrente();
 
-        if (evento.eventoInPausa == false) {
-            if (stanza.luce == true) {
+        if (evento.eventoInPausa == false)
+        {
+            if (stanza.luce == true)
+            {
                 System.out.println("In questa stanza la luce è già accesa");
-            } else {
-                casa.remove(stanza);
-                stanza.luce = true;
-                casa.add(stanza);
-                System.out.println("Hai acceso la luce");
             }
-        } else {
+            else
+            {
+                if(stanzaCorrente == 11)
+                {
+                    //QUI VA IL MESSAGIO CHE LA LUCE E' ROTTA
+                }
+                else
+                {
+                    casa.remove(stanza);
+                    stanza.luce = true;
+                    casa.add(stanza);
+                    System.out.println("Hai acceso la luce");
+                }
+
+            }
+        }
+        else
+        {
             System.out.println("Sei stato catturato dalla guardia");
             vivo = false;
         }
@@ -427,7 +440,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(2);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza2();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -445,7 +458,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(3);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza3();
                 Dialoghi.messaggioPresenzaAccendino(stanzaVisitata[2]);
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
@@ -465,7 +478,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(5);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza5();
                 Dialoghi.messaggioPresenzaPentola(stanzaVisitata[4], evento.eventoInFunzione);
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
@@ -822,13 +835,26 @@ public class GameManager {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(10);
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                Dialoghi.messaggioPresenzaChiaveTesoto(stanzaVisitata[9]);
+                Dialoghi.messaggioPresenzaChiaveTesoro(stanzaVisitata[9]);
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
             else
             {
                 System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+            }
+        }
+
+        else if(stanzaCorrente == 8 && direzione.compareTo("ovest") == 0)
+        {
+            nuovaStanza = ricercaStanzaPerNumero(7);
+
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            {
+                stanzaCorrente = nuovaStanza.numeroStanza;
+                evento.cambiaStanzaCorrente(7);
+                System.out.println("Sei entrato nella stanza: " + stanzaCorrente);
+                stanzaVisitata[stanzaCorrente - 1] = true;
             }
         }
 
