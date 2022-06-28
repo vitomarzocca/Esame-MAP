@@ -8,9 +8,14 @@ public class Test {
     {
         String comando;
 
+
         GameManager partita = new GameManager();
 
+
+
+
         System.out.println("Ti trovi nella stanza: " +partita.stanzaCorrente);
+        Dialoghi.prologo();
 
         Scanner input = new Scanner(System.in);
 

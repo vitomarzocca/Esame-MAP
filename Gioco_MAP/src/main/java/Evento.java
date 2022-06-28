@@ -2,156 +2,182 @@ import java.lang.Math;
 
 public class Evento extends Thread      //EVENTO TIPO CHE CAMMINA PER LE STANZE
 {
+    public boolean eventoInFunzione;
+    public boolean eventoInPausa;
+
+    public int stanzaGuardia;
+
+    public int stanzaCorrente;
+
+    //creare un costruttore
+
+    public Evento()
+    {
+        eventoInFunzione = false;
+        eventoInFunzione = false;
+        stanzaGuardia = 1;
+        stanzaCorrente = 4;
+    }
+
+    public void cambiaStanzaCorrente(int numeroStanza)
+    {
+        stanzaCorrente = numeroStanza;
+    }
 
     public void run()
     {
-        GameManager.stanzaGuradia = 1;
+        while (eventoInFunzione == true ) {
+            while (eventoInPausa == false) {
 
-        while (GameManager.eventoTipoCheCammina == true ) {
-            while (GameManager.eventoTipoCheCamminaInPausa == false) {
-
-                if (GameManager.stanzaGuradia == 1) {
+                if (stanzaGuardia == 1)
+                {
                     int random = (int) (Math.random() * 3);
 
                     switch (random) {
                         case 0:
-                            GameManager.stanzaGuradia = 2;
+                            stanzaGuardia = 2;
                             break;
 
                         case 1:
-                            GameManager.stanzaGuradia = 3;
+                            stanzaGuardia = 3;
                             break;
 
                         case 2:
-                            GameManager.stanzaGuradia = 5;
+                            stanzaGuardia = 5;
                             break;
                     }
 
-                } else if (GameManager.stanzaGuradia == 2) {
-                    GameManager.stanzaGuradia = 1;
-                } else if (GameManager.stanzaGuradia == 3) {
+                }
+                else if (stanzaGuardia == 2)
+                {
+                    stanzaGuardia = 1;
+                }
+
+                else if (stanzaGuardia == 3)
+                {
                     int random = (int) (Math.random() * 2);
 
                     switch (random) {
                         case 0:
-                            GameManager.stanzaGuradia = 4;
+                            stanzaGuardia = 4;
                             break;
 
                         case 1:
-                            GameManager.stanzaGuradia = 1;
+                            stanzaGuardia = 1;
                             break;
 
                     }
-                } else if (GameManager.stanzaGuradia == 4) {
+                }
+
+                else if (stanzaGuardia == 4)
+                {
                     int random = (int) (Math.random() * 3);
 
                     switch (random) {
                         case 0:
-                            GameManager.stanzaGuradia = 3;
+                            stanzaGuardia = 3;
                             break;
 
                         case 1:
-                            GameManager.stanzaGuradia = 5;
+                            stanzaGuardia = 5;
                             break;
 
                         case 2:
-                            GameManager.stanzaGuradia = 7;
+                            stanzaGuardia = 7;
                             break;
                     }
-                } else if (GameManager.stanzaGuradia == 5) {
+                }
+
+                else if (stanzaGuardia == 5)
+                {
                     int random = (int) (Math.random() * 4);
 
                     switch (random) {
                         case 0:
-                            GameManager.stanzaGuradia = 6;
+                            stanzaGuardia = 6;
                             break;
 
                         case 1:
-                            GameManager.stanzaGuradia = 4;
+                            stanzaGuardia = 4;
                             break;
 
                         case 2:
-                            GameManager.stanzaGuradia = 1;
+                            stanzaGuardia = 1;
                             break;
 
-                        case 4:
-                            GameManager.stanzaGuradia = 12;
+                        case 3:
+                            stanzaGuardia = 12;
                             break;
                     }
-                } else if (GameManager.stanzaGuradia == 6) {
+                } else if (stanzaGuardia == 6) {
                     int random = (int) (Math.random() * 3);
 
                     switch (random) {
                         case 0:
-                            GameManager.stanzaGuradia = 7;
+                            stanzaGuardia = 7;
                             break;
 
                         case 1:
-                            GameManager.stanzaGuradia = 5;
+                            stanzaGuardia = 5;
                             break;
 
                         case 2:
-                            GameManager.stanzaGuradia = 11;
+                            stanzaGuardia = 11;
                             break;
                     }
-                } else if (GameManager.stanzaGuradia == 7) {
+                } else if (stanzaGuardia == 7) {
                     int random = (int) (Math.random() * 3);
 
                     switch (random) {
                         case 0:
-                            GameManager.stanzaGuradia = 4;
+                            stanzaGuardia = 4;
                             break;
 
                         case 1:
-                            GameManager.stanzaGuradia = 6;
+                            stanzaGuardia = 6;
                             break;
 
                         case 2:
-                            GameManager.stanzaGuradia = 8;
+                            stanzaGuardia = 8;
                             break;
                     }
-                } else if (GameManager.stanzaGuradia == 8) {
+                } else if (stanzaGuardia == 8) {
                     int random = (int) (Math.random() * 3);
 
                     switch (random) {
                         case 0:
-                            GameManager.stanzaGuradia = 9;
+                            stanzaGuardia = 9;
                             break;
 
                         case 1:
-                            GameManager.stanzaGuradia = 10;
+                            stanzaGuardia = 10;
                             break;
 
                         case 2:
-                            GameManager.stanzaGuradia = 7;
+                            stanzaGuardia = 7;
                             break;
                     }
-                } else if (GameManager.stanzaGuradia == 9) {
-                    GameManager.stanzaGuradia = 8;
-                } else if (GameManager.stanzaGuradia == 10) {
-                    GameManager.stanzaGuradia = 8;
-                } else if (GameManager.stanzaGuradia == 11) {
-                    GameManager.stanzaGuradia = 6;
-                } else if (GameManager.stanzaGuradia == 12) {
-                    GameManager.stanzaGuradia = 5;
-                    GameManager.eventoTipoCheCamminaInPausa = true;
+                } else if (stanzaGuardia == 9) {
+                    stanzaGuardia = 8;
+                } else if (stanzaGuardia == 10) {
+                    stanzaGuardia = 8;
+                } else if (stanzaGuardia == 11) {
+                    stanzaGuardia = 6;
+                } else if (stanzaGuardia == 12) {
+                    stanzaGuardia = 5;
                 }
 
                 try {
-                    Thread.sleep(10000);
+                    Thread.sleep(800);
                 } catch (InterruptedException e) {
                     //
                 }
 
-
-                if (GameManager.stanzaGuradia == GameManager.stanzaCorrente) {
+                if (stanzaGuardia == stanzaCorrente) {
                     System.out.println("ATTENZIONE SENTI DEI PASSI CHE SI STANNO AVVICINANDO VERSO DI TE");
                     System.out.println("NASCONDITI O CAMBIA STANZA");
-                    GameManager.eventoTipoCheCamminaInPausa = true;
+                    eventoInPausa = true;
                 }
-
-                System.out.println("LA GUARDIA SI TROVA NELLA STANZA " + GameManager.stanzaGuradia);
-
             }
         }
     }

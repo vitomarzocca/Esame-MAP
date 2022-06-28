@@ -1,0 +1,43 @@
+2022-06-27 13:52:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS PARTITA (NASCOSTO BOOLEAN, STANZACORRENTE INT, VIVO BOOLEAN,OGGETTOINVETARIO1 VARCHAR(20,[*] OGGETTOINVETARIO2 VARCHAR(20, OGGETTOINVETARIO3 VARCHAR(20, OGGETTOINVETARIO4 VARCHAR(20,)OGGETTOINVETARIO5 VARCHAR(20), OGGETTOINVETARIO6 VARCHAR(20), STANZAVISITATA1 BOOLEAN, STANZAVISITATA2 BOOLEAN), STANZAVISITATA3 BOOLEAN,STANZAVISITATA4 BOOLEAN, STANZAVISITATA5 BOOLEAN, STANZAVISITATA6 BOOLEAN, STANZAVISITATA7 BOOLEAN, STANZAVISITATA8 BOOLEAN, STANZAVISITATA9 BOOLEAN,STANZAVISITATA10 BOOLEAN, STANZAVISITATA11 BOOLEAN, STANZAVISITATA12 BOOLEAN)"; expected ")"; SQL statement:
+CREATE TABLE IF NOT EXISTS partita (nascosto BOOLEAN, stanzaCorrente INT, Vivo BOOLEAN,OggettoInvetario1 VARCHAR(20, OggettoInvetario2 VARCHAR(20, OggettoInvetario3 VARCHAR(20, OggettoInvetario4 VARCHAR(20,)OggettoInvetario5 VARCHAR(20), OggettoInvetario6 VARCHAR(20), StanzaVisitata1 BOOLEAN, StanzaVisitata2 BOOLEAN), StanzaVisitata3 BOOLEAN,StanzaVisitata4 BOOLEAN, StanzaVisitata5 BOOLEAN, StanzaVisitata6 BOOLEAN, StanzaVisitata7 BOOLEAN, StanzaVisitata8 BOOLEAN, StanzaVisitata9 BOOLEAN,StanzaVisitata10 BOOLEAN, StanzaVisitata11 BOOLEAN, StanzaVisitata12 BOOLEAN) [42001-200]
+2022-06-27 13:52:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS PARTITA (NASCOSTO BOOLEAN, STANZACORRENTE INT, VIVO BOOLEAN,OGGETTOINVETARIO1 VARCHAR(20,[*] OGGETTOINVETARIO2 VARCHAR(20, OGGETTOINVETARIO3 VARCHAR(20, OGGETTOINVETARIO4 VARCHAR(20,)OGGETTOINVETARIO5 VARCHAR(20), OGGETTOINVETARIO6 VARCHAR(20), STANZAVISITATA1 BOOLEAN, STANZAVISITATA2 BOOLEAN), STANZAVISITATA3 BOOLEAN,STANZAVISITATA4 BOOLEAN, STANZAVISITATA5 BOOLEAN, STANZAVISITATA6 BOOLEAN, STANZAVISITATA7 BOOLEAN, STANZAVISITATA8 BOOLEAN, STANZAVISITATA9 BOOLEAN,STANZAVISITATA10 BOOLEAN, STANZAVISITATA11 BOOLEAN, STANZAVISITATA12 BOOLEAN)"; expected ")"; SQL statement:
+CREATE TABLE IF NOT EXISTS partita (nascosto BOOLEAN, stanzaCorrente INT, Vivo BOOLEAN,OggettoInvetario1 VARCHAR(20, OggettoInvetario2 VARCHAR(20, OggettoInvetario3 VARCHAR(20, OggettoInvetario4 VARCHAR(20,)OggettoInvetario5 VARCHAR(20), OggettoInvetario6 VARCHAR(20), StanzaVisitata1 BOOLEAN, StanzaVisitata2 BOOLEAN), StanzaVisitata3 BOOLEAN,StanzaVisitata4 BOOLEAN, StanzaVisitata5 BOOLEAN, StanzaVisitata6 BOOLEAN, StanzaVisitata7 BOOLEAN, StanzaVisitata8 BOOLEAN, StanzaVisitata9 BOOLEAN,StanzaVisitata10 BOOLEAN, StanzaVisitata11 BOOLEAN, StanzaVisitata12 BOOLEAN) [42001-200]
+2022-06-27 13:53:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS PARTITA (NASCOSTO BOOLEAN, STANZACORRENTE INT, VIVO BOOLEAN,OGGETTOINVETARIO1 VARCHAR(20,[*] OGGETTOINVETARIO2 VARCHAR(20, OGGETTOINVETARIO3 VARCHAR(20, OGGETTOINVETARIO4 VARCHAR(20,)OGGETTOINVETARIO5 VARCHAR(20), OGGETTOINVETARIO6 VARCHAR(20), STANZAVISITATA1 BOOLEAN, STANZAVISITATA2 BOOLEAN), STANZAVISITATA3 BOOLEAN,STANZAVISITATA4 BOOLEAN, STANZAVISITATA5 BOOLEAN, STANZAVISITATA6 BOOLEAN, STANZAVISITATA7 BOOLEAN, STANZAVISITATA8 BOOLEAN, STANZAVISITATA9 BOOLEAN,STANZAVISITATA10 BOOLEAN, STANZAVISITATA11 BOOLEAN, STANZAVISITATA12 BOOLEAN)"; expected ")"; SQL statement:
+CREATE TABLE IF NOT EXISTS partita (nascosto BOOLEAN, stanzaCorrente INT, Vivo BOOLEAN,OggettoInvetario1 VARCHAR(20, OggettoInvetario2 VARCHAR(20, OggettoInvetario3 VARCHAR(20, OggettoInvetario4 VARCHAR(20,)OggettoInvetario5 VARCHAR(20), OggettoInvetario6 VARCHAR(20), StanzaVisitata1 BOOLEAN, StanzaVisitata2 BOOLEAN), StanzaVisitata3 BOOLEAN,StanzaVisitata4 BOOLEAN, StanzaVisitata5 BOOLEAN, StanzaVisitata6 BOOLEAN, StanzaVisitata7 BOOLEAN, StanzaVisitata8 BOOLEAN, StanzaVisitata9 BOOLEAN,StanzaVisitata10 BOOLEAN, StanzaVisitata11 BOOLEAN, StanzaVisitata12 BOOLEAN) [42001-200]
+2022-06-27 13:54:31 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/dataBaseLocale.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:288)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:808)
+	at org.h2.server.web.WebApp.login(WebApp.java:1033)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:152)
+	at org.h2.server.web.WebThread.run(WebThread.java:101)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/dataBaseLocale.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: /home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/dataBaseLocale.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 16 more

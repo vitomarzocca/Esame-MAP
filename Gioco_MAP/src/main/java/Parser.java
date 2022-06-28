@@ -71,12 +71,12 @@ public class Parser
 
         else if (comandopt1.compareTo("carica") + comandopt2.compareTo("salvataggio") == 0)
         {
-            //bisgona ancora creare un metodo
+            partita.caricaSalvataggio();
         }
 
         else if (comandopt1.compareTo("salva") + comandopt2.compareTo("partita") == 0)
         {
-            GestioneSalvataggio.inserimentoSalvataggioInTabella(partita);
+            partita.salvaPartita();
         }
 
         else if (comandopt1.compareTo("/") == 0 || comandopt2.compareTo("/") == 0)
