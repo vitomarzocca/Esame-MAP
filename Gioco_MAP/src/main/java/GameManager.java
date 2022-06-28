@@ -497,7 +497,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(1);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza1();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -515,7 +515,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(1);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza1();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -533,7 +533,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(4);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza4();
 
                 if (stanzaVisitata[3] == false)
                 {
@@ -561,7 +561,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(7);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza7();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -580,7 +580,7 @@ public class GameManager {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(5);
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
-                Dialoghi.messaggioPresenzaPentola(stanzaVisitata[4], evento.eventoInFunzione);
+                Dialoghi.stanza5();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -599,6 +599,7 @@ public class GameManager {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(3);
                 System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza3();
                 Dialoghi.messaggioPresenzaAccendino(stanzaVisitata[2]);
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
@@ -617,7 +618,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(1);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza1();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -635,7 +636,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(4);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza4();
 
                 if (stanzaVisitata[3] == false)
                 {
@@ -663,7 +664,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(6);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza6();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -681,7 +682,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(12);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza12();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -718,7 +719,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(7);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza7();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -736,7 +737,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(11);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza11();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -754,7 +755,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(6);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza6();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -771,7 +772,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(4);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza4();
 
                 if (stanzaVisitata[3] == false)
                 {
@@ -798,7 +799,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(8);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza8();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -816,7 +817,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(9);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza9();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -834,7 +835,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(10);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza10();
                 Dialoghi.messaggioPresenzaChiaveTesoro(stanzaVisitata[9]);
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
@@ -853,7 +854,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(7);
-                System.out.println("Sei entrato nella stanza: " + stanzaCorrente);
+                Dialoghi.stanza7();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
         }
@@ -866,7 +867,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(8);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza9();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -884,7 +885,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(8);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza8();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -902,7 +903,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(6);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza6();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
@@ -920,7 +921,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(5);
-                System.out.println("Sei entrato nella stanza: " + nuovaStanza.descrizione);
+                Dialoghi.stanza5();
                 stanzaVisitata[stanzaCorrente - 1] = true;
             }
 
