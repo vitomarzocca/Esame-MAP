@@ -1,7 +1,7 @@
 
 public class Dialoghi {
 
-    public static void messaggioPresenzaChivaCantina(boolean visitata)
+    public static void messaggioPresenzaChiaveCantina(boolean visitata)
     {
         if(visitata == true)
         {
@@ -18,7 +18,7 @@ public class Dialoghi {
                     + " Un accendino puo' essere sempre utile");
         }
     }
-    public static void messaggioPresenzaPentola(boolean visitata, boolean eventoTipoCheCammina)
+    public static void messaggioPresenzaPadella(boolean visitata, boolean eventoTipoCheCammina)
     {
         if(visitata == false && eventoTipoCheCammina == true)
         {
@@ -36,7 +36,7 @@ public class Dialoghi {
                     + " del solito. Forse serve per aprire la stanza dei tesori del boss");
         }
     }
-    public static void messaggioInizionEvento()
+    public static void messaggioInizioEvento()
     {
         System.out.println("ATTENZIONE E' APPENA ARRIVATA UN AUTO");
         System.out.println("NON FARTI BECCARE");
@@ -170,11 +170,21 @@ public class Dialoghi {
         System.out.println("La partita e' stata salvata correttamente.");
     }
     public static void luceGuasta(){
-        System.out.println("La luce è guasta. Hai qualcosa per illuminare?");
+        System.out.println("La luce e' guasta. Hai qualcosa per illuminare?");
     }
     public static void oggettoNecessario(){
-        System.out.println("Accidenti... questa porta è chiusa,"
-      +  "credo che servirà una chiave per aprirla.");
+        System.out.println("Accidenti... questa porta e' chiusa,"
+      +  "credo che servira' una chiave per aprirla.");
       System.out.println("Probabilmente si troverà in un altra stanza della casa");
     }
+    public static void nascostoStordimento(){
+        System.out.println("Bravo,ti sei nascosto senza farti sentire!");
+        System.out.println("Guarda!!! E' di spalle, sfrutta"
+                + " l' occasione per colpirlo con la padella!!!");
+    }
+    public static void piuTardi(){
+        System.out.println("--Partenza per la casa del boss--");
+        System.out.println("Johnny e' pronto per riprendersi...");
+        System.out.println("tutt' chell che e' o soi");
+    } 
 }
