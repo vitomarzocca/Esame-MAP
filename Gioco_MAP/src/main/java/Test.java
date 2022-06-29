@@ -30,7 +30,7 @@ public class Test {
             Parser.parser(comando, partita);
         }
 
-        System.out.println("Fine partita");
+        System.out.println("FINE DEL GIOCO");
     }
 }
 

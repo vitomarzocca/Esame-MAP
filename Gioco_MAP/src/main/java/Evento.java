@@ -167,19 +167,28 @@ public class Evento extends Thread      //EVENTO TIPO CHE CAMMINA PER LE STANZE
                     stanzaGuardia = 5;
                 }
 
-                try {
-                    Thread.sleep(400);
-                } catch (InterruptedException e) {
-                    //
-                }
 
                 if (stanzaGuardia == stanzaCorrente) {
                     System.out.println("ATTENZIONE SENTI DEI PASSI CHE SI STANNO AVVICINANDO VERSO DI TE");
                     System.out.println("NASCONDITI O CAMBIA STANZA");
                     eventoInPausa = true;
                 }
+
+                try
+                {
+                    Thread.sleep(400);
+                }
+                catch (InterruptedException e)
+                {
+                    System.out.println("Il thread si è interrotto");
+                }
             }
         }
+    }
+
+    public void interrupt()
+    {
+        eventoInFunzione = false;
     }
 
 }

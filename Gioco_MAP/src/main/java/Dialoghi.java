@@ -130,7 +130,7 @@ public class Dialoghi {
             System.out.println("Le scale che portano al piano di sopra"
                     + " sono illuminate da un bellissimo quadro incorniciato"
                     + "e illuminato di John Dillinger.");
-                    System.out.println("E' presente una porta a: Ovest");
+                    System.out.println("E' presente una porta a: Ovest, Est e Sud");
         }
     public static void stanza8(){
             System.out.println("CORRIDOIO 1o PIANO");
@@ -140,6 +140,7 @@ public class Dialoghi {
         }
     public static void stanza9(){
             System.out.println("LA STANZA DEI TESORI DEL BOSS");
+            System.out.println("-- Nella stanza è presente la tanto cara fedora di Johnny--");
             System.out.println("Ed Eccolo...");
             System.out.println("Li...");
             System.out.println("Immobile...");

@@ -33,3 +33,4 @@ accendino
 padella
 chiave
 mostra
+fedora

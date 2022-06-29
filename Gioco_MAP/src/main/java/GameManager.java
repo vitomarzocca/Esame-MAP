@@ -286,7 +286,19 @@ public class GameManager {
     {
         Stanza stanza = ricercaStanzaCorrente();
 
-        if (evento.eventoInPausa == false) {
+        if(stanzaCorrente == 4 && oggetto.compareTo("chiave") == 0)
+        {
+            oggetto = "chiave_cantina";
+        }
+
+        if(stanzaCorrente == 10 && oggetto.compareTo("chiave") == 0)
+        {
+            oggetto = "chiave_tesoro";
+        }
+
+
+        if (evento.eventoInPausa == false)
+        {
             if (ricercaStanzaCorrente().oggetto.name().equals(oggetto))  //il .name() permette la conversione da enumerativo a stringa
             {
                 System.out.println(stanza.oggetto.name() + " è stato aggiunto all'invetario");
@@ -300,10 +312,20 @@ public class GameManager {
                         break;
                     }
                 }
-            } else {
+
+                if(stanzaCorrente == 9 && oggetto.compareTo("fedora")==0)
+                {
+                    Dialoghi.fine();
+                    vivo = false;
+                }
+            }
+            else
+            {
                 System.out.println("In questa stanza non è presente l'oggetto " + oggetto);
             }
-        } else {
+        }
+        else
+        {
             System.out.println("Sei stato catturato dalla guardia");
             vivo = false;
         }
@@ -349,16 +371,29 @@ public class GameManager {
     {
         Stanza stanza = ricercaStanzaCorrente();
 
-        if (evento.eventoInPausa == false) {
-            if (stanza.luce == false) {
-                System.out.println("In questa stanza la luce è già spenta");
-            } else {
-                casa.remove(stanza);
-                stanza.luce = false;
-                casa.add(stanza);
-                System.out.println("Hai spento la luce");
+        if (evento.eventoInPausa == false)
+        {
+            if (stanzaCorrente == 11)
+            {
+                Dialoghi.luceGuasta();
             }
-        } else {
+            else
+            {
+                if (stanza.luce == false)
+                {
+                    System.out.println("In questa stanza la luce è già spenta");
+                }
+                else
+                {
+                    casa.remove(stanza);
+                    stanza.luce = false;
+                    casa.add(stanza);
+                    System.out.println("Hai spento la luce");
+                }
+            }
+        }
+        else
+        {
             System.out.println("Sei stato catturato dalla guardia");
             vivo = false;
         }
@@ -402,14 +437,14 @@ public class GameManager {
                     accendiLuce();
                 }
 
-                else
+                else if ((stanzaCorrente != 11 && (oggetto.compareTo("accendino") == 0) || oggetto.compareTo("padella") == 0))
                 {
                     System.out.println("Non ha senso usare questo oggetto qui");
                 }
 
-                if(nascosto = true && oggetto.compareTo("accendino") == 0)
+                else if(nascosto = true && oggetto.compareTo("padella") == 0)
                 {
-                    evento.eventoInFunzione = false;
+                    evento.interrupt();
                     System.out.println("La guradi è sistemata. Adesso non ci saranno più intoppi");
                 }
             }
@@ -791,7 +826,7 @@ public class GameManager {
             }
         }
 
-        else if (stanza.numeroStanza == 7 && direzione.compareTo("nord") == 0)
+        else if (stanza.numeroStanza == 7 && direzione.compareTo("ovest") == 0)
         {
             nuovaStanza = ricercaStanzaPerNumero(8);
 

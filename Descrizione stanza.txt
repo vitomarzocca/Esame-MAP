@@ -42,7 +42,7 @@ public class Test {
     {
         Stanza stanza1 = new Stanza(1, "Ingresso", true, false, false, Oggetti.VUOTO, Oggetti.VUOTO);
         Stanza stanza2 = new Stanza(2, "Ripostiglio", false, false, false, Oggetti.VUOTO, Oggetti.VUOTO);
-        Stanza stanza3 = new Stanza(3, "Salotto", true, false, false, Oggetti.accendino, Oggetti.VUOTO);
+        Stanza stanza3 = new Stanza(3, "Salotto", true, false, true, Oggetti.accendino, Oggetti.VUOTO);
         Stanza stanza4 = new Stanza(4, "Sala da prinazo", false, false, false, Oggetti.chiave_cantina, Oggetti.VUOTO);
         Stanza stanza5 = new Stanza(5, "Cucina", true, false, true, Oggetti.padella, Oggetti.VUOTO);
         Stanza stanza6 = new Stanza(6, "Bagno", true, false, true, Oggetti.VUOTO, Oggetti.VUOTO);
