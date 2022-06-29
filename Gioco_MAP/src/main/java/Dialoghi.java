@@ -122,6 +122,7 @@ public class Dialoghi {
             System.out.println("Si intravede uno specchio e dei sanitari"
                     + " completamente d'oro tipico da boss della mala o"
                     + "dei capi rom.");
+            System.out.println("E' presente un armadio");
             System.out.println("E' presente una porta a: Sud, Est, Ovest.");
         }
     public static void stanza7(){
@@ -134,6 +135,7 @@ public class Dialoghi {
     public static void stanza8(){
             System.out.println("CORRIDOIO 1o PIANO");
             System.out.println("Uno spazioso corridioio che da alle stanze da letto");
+            System.out.println("E' presente un armadio");
             System.out.println("E' presente una porta a: Sud, Est, Ovest.");
         }
     public static void stanza9(){
