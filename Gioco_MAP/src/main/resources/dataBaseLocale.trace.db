@@ -571,3 +571,50 @@ IF EXISTS DROP TABLE partita [42000-200]
 2022-06-30 14:45:18 jdbc[6]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PARTITA" not found; SQL statement:
 INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-200]
+2022-06-30 19:09:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "EVENTO" not found; SQL statement:
+SELECT
+NASCOSTO,
+STANZACORRENTE,
+VIVO,
+EVENTO, 
+OGGETTOINVETARIO1,  
+OGGETTOINVETARIO2,
+OGGETTOINVETARIO3, 
+OGGETTOINVETARIO4, 
+OGGETTOINVETARIO5, 
+OGGETTOINVETARIO6,
+STANZAVISITATA1,  
+STANZAVISITATA2,  
+STANZAVISITATA3 ,
+STANZAVISITATA4, 
+STANZAVISITATA5,  
+STANZAVISITATA6,  
+STANZAVISITATA7,  
+STANZAVISITATA8,  
+STANZAVISITATA9 ,
+STANZAVISITATA10 , 
+STANZAVISITATA11 , 
+STANZAVISITATA12   FROM partita [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
+	at org.h2.command.dml.Select.prepare(Select.java:1206)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:78)
+	at GestioneSalvataggio.caricaSalvataggio(GestioneSalvataggio.java:231)
+	at GameManager.caricaSalvataggio(GameManager.java:1376)
+	at Parser.parser(Parser.java:64)
+	at Test.main(Test.java:30)
+2022-06-30 19:11:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PARTITA" not found; SQL statement:
+DROP TABLE partita [42102-200]
+2022-06-30 19:11:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PARTITA" not found; SQL statement:
+INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-200]

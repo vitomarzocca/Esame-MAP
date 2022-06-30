@@ -55,6 +55,7 @@ public class GestioneSalvataggio
                  "       NASCOSTO BOOLEAN NOT NULL,\n" +
                  "       STANZACORRENTE INT NOT NULL,\n" +
                  "      VIVO BOOLEAN NOT NULL,\n" +
+                 "      EVENTO BOOLEAN NOT NULL,\n" +
                  "OGGETTOINVETARIO1  VARCHAR(20) NOT NULL,\n" +
                  "OGGETTOINVETARIO2  VARCHAR(20) NOT NULL,\n" +
                  "OGGETTOINVETARIO3  VARCHAR(20) NOT NULL,\n" +
@@ -109,7 +110,7 @@ public class GestioneSalvataggio
 
     }
 
-    public  void inserimentoSalvataggioInTabella(boolean nascosto, int stanzaCorrente, boolean vivo, Oggetti inventario[], boolean stanzaVisitata[])
+    public  void inserimentoSalvataggioInTabella(boolean nascosto, int stanzaCorrente, boolean vivo, Oggetti inventario[], boolean stanzaVisitata[], boolean statoEvento)
     {
         connessioneDB();
 
@@ -133,7 +134,7 @@ public class GestioneSalvataggio
         try
         {
 
-          pstm = conn.prepareStatement("INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+          pstm = conn.prepareStatement("INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         }
         catch (SQLException e)
         {
@@ -146,24 +147,25 @@ public class GestioneSalvataggio
             pstm.setBoolean(1, nascosto);
             pstm.setInt(2, stanzaCorrente);
             pstm.setBoolean(3, vivo);
-            pstm.setString(4, inventario[0].toString());
-            pstm.setString(5, inventario[1].toString());
-            pstm.setString(6, inventario[2].toString());
-            pstm.setString(7, inventario[3].toString());
-            pstm.setString(8, inventario[4].toString());
-            pstm.setString(9, inventario[5].toString());
-            pstm.setBoolean(10, stanzaVisitata[0]);
-            pstm.setBoolean(11, stanzaVisitata[1]);
-            pstm.setBoolean(12, stanzaVisitata[2]);
-            pstm.setBoolean(13, stanzaVisitata[3]);
-            pstm.setBoolean(14, stanzaVisitata[4]);
-            pstm.setBoolean(15, stanzaVisitata[5]);
-            pstm.setBoolean(16, stanzaVisitata[6]);
-            pstm.setBoolean(17, stanzaVisitata[7]);
-            pstm.setBoolean(18, stanzaVisitata[8]);
-            pstm.setBoolean(19, stanzaVisitata[9]);
-            pstm.setBoolean(20, stanzaVisitata[10]);
-            pstm.setBoolean(21, stanzaVisitata[11]);
+            pstm.setBoolean(4, statoEvento);
+            pstm.setString(5, inventario[0].toString());
+            pstm.setString(6, inventario[1].toString());
+            pstm.setString(7, inventario[2].toString());
+            pstm.setString(8, inventario[3].toString());
+            pstm.setString(9, inventario[4].toString());
+            pstm.setString(10, inventario[5].toString());
+            pstm.setBoolean(11, stanzaVisitata[0]);
+            pstm.setBoolean(12, stanzaVisitata[1]);
+            pstm.setBoolean(13, stanzaVisitata[2]);
+            pstm.setBoolean(14, stanzaVisitata[3]);
+            pstm.setBoolean(15, stanzaVisitata[4]);
+            pstm.setBoolean(16, stanzaVisitata[5]);
+            pstm.setBoolean(17, stanzaVisitata[6]);
+            pstm.setBoolean(18, stanzaVisitata[7]);
+            pstm.setBoolean(19, stanzaVisitata[8]);
+            pstm.setBoolean(20, stanzaVisitata[9]);
+            pstm.setBoolean(21, stanzaVisitata[10]);
+            pstm.setBoolean(22, stanzaVisitata[11]);
         }
         catch(SQLException e)
         {
@@ -230,6 +232,7 @@ public class GestioneSalvataggio
                     "NASCOSTO,\n" +
                     "STANZACORRENTE,\n" +
                     "VIVO,\n" +
+                    "EVENTO, \n" +
                     "OGGETTOINVETARIO1,  \n" +
                     "OGGETTOINVETARIO2,\n" +
                     "OGGETTOINVETARIO3, \n" +
@@ -264,15 +267,16 @@ public class GestioneSalvataggio
                  salvataggio.nascosto = rs.getBoolean(1);
                  salvataggio.stanzaCorrente = rs.getInt(2);
                  salvataggio.vivo = rs.getBoolean(3);
+                 salvataggio.evento.eventoInFunzione =rs.getBoolean(4);
 
                  for (int i = 0; i < 6; i++)
                  {
-                     salvataggio.inventario[i] = Oggetti.valueOf(rs.getString(i + 4));
+                     salvataggio.inventario[i] = Oggetti.valueOf(rs.getString(i + 5));
                  }
 
                  for (int i = 0; i < 12; i++)
                  {
-                     salvataggio.stanzaVisitata[i] = rs.getBoolean(i + 10);
+                     salvataggio.stanzaVisitata[i] = rs.getBoolean(i + 11);
                  }
             }
 

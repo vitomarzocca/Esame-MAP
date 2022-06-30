@@ -1389,7 +1389,12 @@ public class GameManager {
 
         if (nuovaPartita.stanzaVisitata[3] == true)
         {
-            evento.start();
+            if(evento.eventoInFunzione == false)
+            {
+                evento.eventoInFunzione = true;
+                evento.start();
+            }
+
         }
 
         switch (stanzaCorrente)
@@ -1436,7 +1441,7 @@ public class GameManager {
         salvataggio = new GestioneSalvataggio();
         File fileDaCancellare = new File ("/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/descrizioneStanze.txt");
 
-        salvataggio.inserimentoSalvataggioInTabella(nascosto, stanzaCorrente, vivo, inventario, stanzaVisitata);
+        salvataggio.inserimentoSalvataggioInTabella(nascosto, stanzaCorrente, vivo, inventario, stanzaVisitata, evento.eventoInFunzione);
 
         if (fileDaCancellare.exists() == true)
         {
