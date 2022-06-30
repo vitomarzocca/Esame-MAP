@@ -59,7 +59,7 @@ public class Parser
             partita.apriInvetario();
         }
 
-        else if (elementiComandoPulito[0].compareTo("carica") + elementiComandoPulito[1].compareTo("salvataggio") == 0)
+        else if (elementiComandoPulito[0].compareTo("carica") + elementiComandoPulito[1].compareTo("salvataggio") == 0 || elementiComandoPulito[0].compareTo("carica") + elementiComandoPulito[1].compareTo("partita") == 0)
         {
             partita.caricaSalvataggio();
         }

@@ -50,12 +50,30 @@ public class GestioneSalvataggio
 
     public void creazioneTabellaDB()
     {
-         final String DROP_TABLE = "DROP TABLE IF EXISTS partita";
-         final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS partita (nascosto BOOLEAN, stanzaCorrente INT, Vivo BOOLEAN," +
-                "OggettoInvetario1 VARCHAR(20), OggettoInvetario2 VARCHAR(20), OggettoInvetario3 VARCHAR(20), OggettoInvetario4 VARCHAR(20)," +
-                "OggettoInvetario5 VARCHAR(20), OggettoInvetario6 VARCHAR(20), StanzaVisitata1 BOOLEAN, StanzaVisitata2 BOOLEAN, StanzaVisitata3 BOOLEAN," +
-                 "StanzaVisitata4 BOOLEAN, StanzaVisitata5 BOOLEAN, StanzaVisitata6 BOOLEAN, StanzaVisitata7 BOOLEAN, StanzaVisitata8 BOOLEAN, StanzaVisitata9 BOOLEAN," +
-                 "StanzaVisitata10 BOOLEAN, StanzaVisitata11 BOOLEAN, StanzaVisitata12 BOOLEAN)";
+         final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS partita\n" +
+                 "     (\n" +
+                 "       NASCOSTO BOOLEAN NOT NULL,\n" +
+                 "       STANZACORRENTE INT NOT NULL,\n" +
+                 "      VIVO BOOLEAN NOT NULL,\n" +
+                 "OGGETTOINVETARIO1  VARCHAR(20) NOT NULL,\n" +
+                 "OGGETTOINVETARIO2  VARCHAR(20) NOT NULL,\n" +
+                 "OGGETTOINVETARIO3  VARCHAR(20) NOT NULL,\n" +
+                 "OGGETTOINVETARIO4  VARCHAR(20) NOT NULL,\n" +
+                 "OGGETTOINVETARIO5  VARCHAR(20) NOT NULL,\n" +
+                 "OGGETTOINVETARIO6  VARCHAR(20) NOT NULL,\n" +
+                 "STANZAVISITATA1  BOOLEAN NOT NULL,\n" +
+                 "STANZAVISITATA2  BOOLEAN NOT NULL,\n" +
+                 "STANZAVISITATA3  BOOLEAN NOT NULL,\n" +
+                 "STANZAVISITATA4  BOOLEAN NOT NULL,\n" +
+                 "STANZAVISITATA5  BOOLEAN NOT NULL,\n" +
+                 "STANZAVISITATA6  BOOLEAN NOT NULL,\n" +
+                 "STANZAVISITATA7  BOOLEAN NOT NULL,\n" +
+                 "STANZAVISITATA8  BOOLEAN NOT NULL,\n" +
+                 "STANZAVISITATA9  BOOLEAN NOT NULL,\n" +
+                 "STANZAVISITATA10  BOOLEAN NOT NULL,\n" +
+                 "STANZAVISITATA11  BOOLEAN NOT NULL,\n" +
+                 "STANZAVISITATA12  BOOLEAN NOT NULL\n" +
+                 "      );";
 
         Statement stm = null;
 
@@ -71,7 +89,6 @@ public class GestioneSalvataggio
 
         try
         {
-            stm.executeUpdate(DROP_TABLE);
             stm.executeUpdate(CREATE_TABLE);
         }
         catch(SQLException e)
@@ -94,36 +111,69 @@ public class GestioneSalvataggio
 
     public  void inserimentoSalvataggioInTabella(boolean nascosto, int stanzaCorrente, boolean vivo, Oggetti inventario[], boolean stanzaVisitata[])
     {
+        connessioneDB();
 
+        final String DROP_TABLE = "DROP TABLE IF EXISTS partita";
+
+        Statement stm;
         PreparedStatement pstm = null;
+        connessioneDB();
+
         try
         {
-          pstm = conn.prepareStatement("INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-          pstm.setBoolean(1, nascosto);
-          pstm.setInt(2, stanzaCorrente);
-          pstm.setBoolean(3, vivo);
-          pstm.setString(7, inventario[0].toString());
-          pstm.setString(8, inventario[1].toString());
-          pstm.setString(9, inventario[2].toString());
-          pstm.setString(10, inventario[3].toString());
-          pstm.setString(11, inventario[4].toString());
-          pstm.setString(12, inventario[5].toString());
-          pstm.setBoolean(13, stanzaVisitata[0]);
-          pstm.setBoolean(14, stanzaVisitata[1]);
-          pstm.setBoolean(15, stanzaVisitata[2]);
-          pstm.setBoolean(16, stanzaVisitata[3]);
-          pstm.setBoolean(17, stanzaVisitata[4]);
-          pstm.setBoolean(18, stanzaVisitata[5]);
-          pstm.setBoolean(19, stanzaVisitata[6]);
-          pstm.setBoolean(20, stanzaVisitata[7]);
-          pstm.setBoolean(21, stanzaVisitata[8]);
-          pstm.setBoolean(22, stanzaVisitata[9]);
-          pstm.setBoolean(23, stanzaVisitata[10]);
-          pstm.setBoolean(24, stanzaVisitata[11]);
+            stm = conn.createStatement();
+            stm.executeUpdate(DROP_TABLE);
+            creazioneTabellaDB();
+        }
+        catch(SQLException e)
+        {
+            System.out.println("Errore nella cancellazione della tabella");
+        }
+
+        try
+        {
+
+          pstm = conn.prepareStatement("INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         }
         catch (SQLException e)
         {
+            e.getMessage();
             System.out.println("Si è verificato un errore nel salvataggio 1 ");
+        }
+
+        try
+        {
+            pstm.setBoolean(1, nascosto);
+            pstm.setInt(2, stanzaCorrente);
+            pstm.setBoolean(3, vivo);
+            pstm.setString(4, inventario[0].toString());
+            pstm.setString(5, inventario[1].toString());
+            pstm.setString(6, inventario[2].toString());
+            pstm.setString(7, inventario[3].toString());
+            pstm.setString(8, inventario[4].toString());
+            pstm.setString(9, inventario[5].toString());
+            pstm.setBoolean(10, stanzaVisitata[0]);
+            pstm.setBoolean(11, stanzaVisitata[1]);
+            pstm.setBoolean(12, stanzaVisitata[2]);
+            pstm.setBoolean(13, stanzaVisitata[3]);
+            pstm.setBoolean(14, stanzaVisitata[4]);
+            pstm.setBoolean(15, stanzaVisitata[5]);
+            pstm.setBoolean(16, stanzaVisitata[6]);
+            pstm.setBoolean(17, stanzaVisitata[7]);
+            pstm.setBoolean(18, stanzaVisitata[8]);
+            pstm.setBoolean(19, stanzaVisitata[9]);
+            pstm.setBoolean(20, stanzaVisitata[10]);
+            pstm.setBoolean(21, stanzaVisitata[11]);
+        }
+        catch(SQLException e)
+        {
+            e.getMessage();
+            System.out.println("Si è verificato un errore nel salvataggio 1.5 ");
+        }
+        catch(NullPointerException k)
+        {
+            k.getMessage();
+            System.out.println("Si è verificato un errore nel salvataggio 1.6 ");
         }
 
         try
@@ -143,13 +193,24 @@ public class GestioneSalvataggio
         {
             System.out.println("Si è verificato un errore nella chiusura dello statement");
         }
+
+        try
+        {
+            conn.close();
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Si è verificato un errore con la chiusura della connession al DB");
+        }
+
+        System.out.println("SALVATAGGIO COMPLETATO");
     }
 
     public  GameManager caricaSalvataggio()
     {
         connessioneDB();
 
-        GameManager salvataggio = null;
+        GameManager salvataggio = new GameManager();
         Statement stm = null;
         ResultSet rs = null;
         String stringaSupporto;
@@ -157,47 +218,74 @@ public class GestioneSalvataggio
         try
         {
             stm = conn.createStatement();
+
         }
-        catch(SQLException e)
+        catch (SQLException e)
         {
             System.out.println("Errore aperutra stateman");
         }
 
-        try
-        {
-            rs = stm.executeQuery("SELECT nascosto, stanzaCorrente, Vivo," +
-                    " OggettoInvetario1, OggettoInvetario2 , OggettoInvetario3 , OggettoInvetario4 ," +
-                    " OggettoInvetario5, OggettoInvetario6, StanzaVisitata1, StanzaVisitata2, StanzaVisitata3 " +
-                    " StanzaVisitata4, StanzaVisitata5, StanzaVisitata6 , StanzaVisitata7, StanzaVisitata8 , StanzaVisitata9 " +
-                    " StanzaVisitata10, StanzaVisitata11, StanzaVisitata12 FROM partita");
+        try {
+            rs = stm.executeQuery("SELECT\n" +
+                    "NASCOSTO,\n" +
+                    "STANZACORRENTE,\n" +
+                    "VIVO,\n" +
+                    "OGGETTOINVETARIO1,  \n" +
+                    "OGGETTOINVETARIO2,\n" +
+                    "OGGETTOINVETARIO3, \n" +
+                    "OGGETTOINVETARIO4, \n" +
+                    "OGGETTOINVETARIO5, \n" +
+                    "OGGETTOINVETARIO6,\n" +
+                    "STANZAVISITATA1,  \n" +
+                    "STANZAVISITATA2,  \n" +
+                    "STANZAVISITATA3 ,\n" +
+                    "STANZAVISITATA4, \n" +
+                    "STANZAVISITATA5,  \n" +
+                    "STANZAVISITATA6,  \n" +
+                    "STANZAVISITATA7,  \n" +
+                    "STANZAVISITATA8,  \n" +
+                    "STANZAVISITATA9 ,\n" +
+                    "STANZAVISITATA10 , \n" +
+                    "STANZAVISITATA11 , \n" +
+                    "STANZAVISITATA12   " +
+                    "FROM partita");
+
         }
-        catch(SQLException e)
+        catch (SQLException e)
         {
+            System.out.println(e.getMessage());
             System.out.println("Si è verificato un errore con la query SELECT 1");
         }
 
         try
         {
-            salvataggio.nascosto = rs.getBoolean(1);
-            salvataggio.stanzaCorrente = rs.getInt(2);
-            salvataggio.vivo = rs.getBoolean(3);
+            if (rs.next())
+             {
+                 salvataggio.nascosto = rs.getBoolean(1);
+                 salvataggio.stanzaCorrente = rs.getInt(2);
+                 salvataggio.vivo = rs.getBoolean(3);
 
-            for(int i = 0; i<6; i++)
-            {
-                salvataggio.inventario[i] = Oggetti.valueOf(rs.getString(i+7));
+                 for (int i = 0; i < 6; i++)
+                 {
+                     salvataggio.inventario[i] = Oggetti.valueOf(rs.getString(i + 4));
+                 }
+
+                 for (int i = 0; i < 12; i++)
+                 {
+                     salvataggio.stanzaVisitata[i] = rs.getBoolean(i + 10);
+                 }
             }
 
-            for (int i = 0; i<12; i++)
-            {
-                salvataggio.stanzaVisitata[i] = rs.getBoolean(i+13);
-            }
         }
-        catch(SQLException e)
+        catch (SQLException e)
         {
+            System.out.println(e.getMessage());
             System.out.println("Si è verificato un errore con la query SELECT 2");
         }
 
         return salvataggio;
-    }
 
+
+
+    }
 }

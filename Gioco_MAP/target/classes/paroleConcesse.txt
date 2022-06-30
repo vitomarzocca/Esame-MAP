@@ -34,3 +34,8 @@ padella
 chiave
 mostra
 fedora
+salva
+partita
+carica
+salvataggio
+partita
