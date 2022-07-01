@@ -345,7 +345,7 @@ public class GameManager {
             }
             else
             {
-                if(stanzaCorrente == 11)
+                if(stanzaCorrente == 11 && stanza.luce == false)
                 {
                     System.out.println("Accidenti la luce è rotta. Devo trovare un modo per fare luce");
                 }
@@ -379,10 +379,14 @@ public class GameManager {
                         case 7: Dialoghi.stanza7();
                             break;
 
-                        case 8: Dialoghi.stanza9();
+                        case 8: Dialoghi.stanza8();
                             break;
 
-                        case 10: Dialoghi.stanza11();
+                        case 9: Dialoghi.stanza9();
+                            break;
+
+                        case 10: Dialoghi.stanza10();
+                                 Dialoghi.messaggioPresenzaChiaveTesoro(stanza);
                             break;
 
                         case 11: Dialoghi.stanza11();
@@ -471,7 +475,7 @@ public class GameManager {
             {
                 if(stanzaCorrente == 11 && oggetto.compareTo("accendino") == 0)
                 {
-                    accendiLuce();
+                    Dialoghi.stanza11();
                 }
 
                 else if ((stanzaCorrente != 11 && (oggetto.compareTo("accendino") == 0) || oggetto.compareTo("padella") == 0))
@@ -492,7 +496,7 @@ public class GameManager {
         }
         catch (Exception e)
         {
-            System.out.println("Oggetto che vuoi usare non è presente nell'inventario");
+            System.out.println("Oggetto che vuoi usare non è presente nell'inventario \n");
         }
 
 
@@ -502,7 +506,6 @@ public class GameManager {
     {
         Stanza stanza = ricercaStanzaCorrente();
         Stanza nuovaStanza = null;
-
 
         if (stanza.numeroStanza == 1 && direzione.compareTo("est") == 0)
         {
@@ -549,7 +552,7 @@ public class GameManager {
                 else
                 {
                     Dialoghi.stanza3();
-                    Dialoghi.messaggioPresenzaAccendino(stanzaVisitata[2]);
+                    Dialoghi.messaggioPresenzaAccendino(nuovaStanza);
                 }
             }
 
@@ -568,7 +571,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(5);
-                Dialoghi.messaggioPresenzaPadella(stanzaVisitata[4], evento.eventoInFunzione);
+                Dialoghi.messaggioPresenzaPadella(nuovaStanza, evento.eventoInFunzione);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
                 if (nuovaStanza.luce == false)
@@ -659,7 +662,7 @@ public class GameManager {
                 else
                 {
                     Dialoghi.stanza4();
-                    Dialoghi.messaggioPresenzaChiaveCantina(stanzaVisitata[3]);
+                    Dialoghi.messaggioPresenzaChiaveCantina(nuovaStanza);
                 }
 
                 if (stanzaVisitata[3] == false)
@@ -751,7 +754,7 @@ public class GameManager {
                 else
                 {
                     Dialoghi.stanza3();
-                    Dialoghi.messaggioPresenzaAccendino(stanzaVisitata[2]);
+                    Dialoghi.messaggioPresenzaAccendino(nuovaStanza);
                 }
             }
 
@@ -805,7 +808,7 @@ public class GameManager {
                 else
                 {
                     Dialoghi.stanza4();
-                    Dialoghi.messaggioPresenzaChiaveCantina(stanzaVisitata[3]);
+                    Dialoghi.messaggioPresenzaChiaveCantina(nuovaStanza);
                 }
 
                 if (stanzaVisitata[3] == false)
@@ -887,7 +890,7 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(5);
-                Dialoghi.messaggioPresenzaPadella(stanzaVisitata[4], evento.eventoInFunzione);
+                Dialoghi.messaggioPresenzaPadella(nuovaStanza, evento.eventoInFunzione);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
                 if (nuovaStanza.luce == false)
@@ -898,7 +901,7 @@ public class GameManager {
                 else
                 {
                     Dialoghi.stanza5();
-                    Dialoghi.messaggioPresenzaPadella(stanzaVisitata[4], evento.eventoInFunzione);
+                    Dialoghi.messaggioPresenzaPadella(nuovaStanza, evento.eventoInFunzione);
                 }
             }
 
@@ -1006,7 +1009,7 @@ public class GameManager {
                 else
                 {
                     Dialoghi.stanza4();
-                    Dialoghi.messaggioPresenzaChiaveCantina(stanzaVisitata[3]);
+                    Dialoghi.messaggioPresenzaChiaveCantina(nuovaStanza);
                 }
 
                 if (stanzaVisitata[3] == false)
@@ -1062,6 +1065,10 @@ public class GameManager {
                 evento.cambiaStanzaCorrente(9);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
+                System.out.println("La porta sembra chiusa a chiave");
+                System.out.println("-- Jhonny usa la chiave --");
+
+
                 if (nuovaStanza.luce == false)
                 {
                     System.out.println("Accidenti la luce è spenta. Non si vede niente");
@@ -1097,7 +1104,7 @@ public class GameManager {
                 else
                 {
                     Dialoghi.stanza10();
-                    Dialoghi.messaggioPresenzaChiaveTesoro(stanzaVisitata[9]);
+                    Dialoghi.messaggioPresenzaChiaveTesoro(nuovaStanza);
                 }
             }
 

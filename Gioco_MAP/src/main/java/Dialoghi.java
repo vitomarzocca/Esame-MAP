@@ -1,39 +1,38 @@
 
 public class Dialoghi {
 
-    public static void messaggioPresenzaChiaveCantina(boolean visitata)
+    public static void messaggioPresenzaChiaveCantina(Stanza stanza)
     {
-        if(visitata == true)
+        if(stanza.oggetto == Oggetti.chiave_cantina)
         {
             System.out.println("Sul tavolo e' presente una chiave. Prima non l'ho notata.");
             System.out.println("Potrebbe risualtare utile raccoglierla");
         }
     }
-    public static void messaggioPresenzaAccendino(boolean visitata)
+    public static void messaggioPresenzaAccendino(Stanza stanza)
     {
-        if(visitata == false)
+        if(stanza.oggetto == Oggetti.accendino)
         {
             System.out.println("Qualcuno ha dimenticato sul divano un accendino.");
             System.out.println("Meglio prenderselo."
                     + " Un accendino puo' essere sempre utile");
         }
     }
-    public static void messaggioPresenzaPadella(boolean visitata, boolean eventoTipoCheCammina)
+    public static void messaggioPresenzaPadella(Stanza stanza, boolean eventoTipoCheCammina)
     {
-        if(visitata == false && eventoTipoCheCammina == true)
+        if(stanza.oggetto == Oggetti.padella && eventoTipoCheCammina == true)
         {
             System.out.println("Devo trovare un qualcosa da"
                     + " usare per difermi da quel tipo");
             System.out.println("Questa padella dovrebbe andare bene");
         }
     }
-    public static void messaggioPresenzaChiaveTesoro(boolean visitata)
+    public static void messaggioPresenzaChiaveTesoro(Stanza stanza)
     {
-        if (visitata == false)
+        if (stanza.oggetto == Oggetti.chiave_tesoro)
         {
-            System.out.println("C'e'� qualcosa che luccica");
-            System.out.println("Questa chiave e'� piu' sfarzosa"
-                    + " del solito. Forse serve per aprire la stanza dei tesori del boss");
+            System.out.println("Si intravede una chiave appesa in una teca incastonata nel comodino sinistro ");
+
         }
     }
     public static void messaggioInizioEvento()
@@ -151,9 +150,8 @@ public class Dialoghi {
             System.out.println("LA STANZA DEL BOSS");
             System.out.println("Una camera da letto super-lussuosa "
                     + "con luce soffusa "
-                    + "e con tutti gli accorgimenti possibili ed immaginabili."
-                    + "Si intravede una chiave appesa in una teca incastonata "
-                    + "nel comodino sinistro");
+                    + "e con tutti gli accorgimenti possibili ed immaginabili.");
+
             System.out.println("E' presente una porta a: Nord.");
         }
     public static void stanza11(){

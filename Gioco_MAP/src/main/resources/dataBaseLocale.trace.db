@@ -618,3 +618,19 @@ DROP TABLE partita [42102-200]
 2022-06-30 19:11:59 jdbc[4]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PARTITA" not found; SQL statement:
 INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-200]
+2022-07-01 15:43:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientConnectionException: The database is open in exclusive mode; can not open additional connections [90135-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:622)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.engine.Session.checkSuspended(Session.java:1369)
+	at org.h2.engine.Session.transitionToState(Session.java:1361)
+	at org.h2.engine.Session.waitIfExclusiveModeEnabled(Session.java:1633)
+	at org.h2.command.Command.executeQuery(Command.java:186)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:85)
+	at GestioneSalvataggio.caricaSalvataggio(GestioneSalvataggio.java:231)
+	at GameManager.caricaSalvataggio(GameManager.java:1383)
+	at Parser.parser(Parser.java:64)
+	at Test.main(Test.java:30)

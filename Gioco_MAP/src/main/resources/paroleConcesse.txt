@@ -39,3 +39,4 @@ partita
 carica
 salvataggio
 partita
+muoviti

@@ -24,7 +24,7 @@ public class Parser
         }
         
         
-        if (elementiComandoPulito[0].compareTo("entra") == 0 || elementiComandoPulito[0].compareTo("muovi") == 0 || elementiComandoPulito[0].compareTo("apri") == 0)
+        if (elementiComandoPulito[0].compareTo("entra") == 0 || elementiComandoPulito[0].compareTo("muoviti") == 0 || elementiComandoPulito[0].compareTo("apri") == 0)
         {
             partita.muovi(elementiComandoPulito[1]);
         }
@@ -54,7 +54,7 @@ public class Parser
             partita.usa(elementiComandoPulito[1]);
         }
 
-        else if ((elementiComandoPulito[0].compareTo("apri") == 0 && elementiComandoPulito[1].compareTo("inventario") == 0) || (elementiComandoPulito[0].compareTo("mostra") == 0 && elementiComandoPulito[1].compareTo("inventario") == 0))
+        else if (elementiComandoPulito[0].compareTo("mostra") == 0 && elementiComandoPulito[1].compareTo("inventario") == 0)
         {
             partita.apriInvetario();
         }
@@ -69,7 +69,7 @@ public class Parser
             partita.salvaPartita();
         }
 
-        else if (elementiComandoPulito[0].compareTo("/") == 0 || elementiComandoPulito[1].compareTo("/") == 0)
+        else
         {
             System.out.println("Comando non valido. Riprovare");
         }
