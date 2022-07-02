@@ -4,5 +4,7 @@ public enum Oggetti
     CHIAVE_CANTINA,
     ACCENDINO,
     PADELLA,
-    CHIAVE_TESORO
+    CHIAVE_TESORO,
+
+    FEDORA
 }

@@ -163,15 +163,21 @@ public class GameManager {
         ObjectInputStream ois = null;
         boolean flag = false;
 
-        try {
-            fis = new FileInputStream("./Gioco_MAP/src/main/resources/descrizioneStanze.txt");
-        } catch (IOException e) {
-            System.out.println("Si è verificato un errore con il file \"descizioneStanze.txt\" 1");
+        try
+        {
+            fis = new FileInputStream("./Gioco_MAP/src/main/resources/DescrizioneStanze");
+        }
+        catch (IOException e)
+        {
+            System.out.println("Si è verificato un errore con il file \"DescizioneStanze\" 1");
         }
 
-        try {
+        try
+        {
             ois = new ObjectInputStream(fis);
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             System.out.println("Si è verificato un errore con il file \"descizioneStanze.txt\" 2");
         }
 
