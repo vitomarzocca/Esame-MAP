@@ -27,7 +27,16 @@ public class Test {
         {
             Dialoghi.attesaInput();
             comando = input.nextLine();
-            Parser.parser(comando, partita);
+
+            try
+            {
+                Parser.parser(comando, partita);
+            }
+            catch(ParserException e)
+            {
+                System.out.println("Comando non valido");
+            }
+
         }
 
         System.out.println("FINE DEL GIOCO");

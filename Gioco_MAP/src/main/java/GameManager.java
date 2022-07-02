@@ -55,7 +55,7 @@ public class GameManager {
         String parolaLetta;
 
         try {
-            fr = new FileReader("/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/paroleDaCancellare.txt");
+            fr = new FileReader("./Gioco_MAP/src/main/resources/paroleDaCancellare.txt");
         } catch (FileNotFoundException e) {
             System.out.println("si è verificato un errore con la gestione del file");
         }
@@ -109,7 +109,7 @@ public class GameManager {
         String parolaLetta;
 
         try {
-            fr = new FileReader("/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/paroleConcesse.txt");
+            fr = new FileReader("./Gioco_MAP/src/main/resources/paroleConcesse.txt");
         } catch (FileNotFoundException e) {
             System.out.println("si è verificato un errore con la gestione del file");
         }
@@ -164,7 +164,7 @@ public class GameManager {
         boolean flag = false;
 
         try {
-            fis = new FileInputStream("/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/descrizioneStanze.txt");
+            fis = new FileInputStream("./Gioco_MAP/src/main/resources/descrizioneStanze.txt");
         } catch (IOException e) {
             System.out.println("Si è verificato un errore con il file \"descizioneStanze.txt\" 1");
         }
@@ -289,12 +289,17 @@ public class GameManager {
 
         if(stanzaCorrente == 4 && oggetto.compareTo("chiave") == 0)
         {
-            oggetto = "chiave_cantina";
+            oggetto = "CHIAVE_CANTINA";
         }
 
         if(stanzaCorrente == 10 && oggetto.compareTo("chiave") == 0)
         {
-            oggetto = "chiave_tesoro";
+            oggetto = "CHIAVE_TESORO";
+        }
+
+        if(stanzaCorrente == 3 && oggetto.compareTo("accendino") == 0)
+        {
+            oggetto = "ACCENDINO";
         }
 
 

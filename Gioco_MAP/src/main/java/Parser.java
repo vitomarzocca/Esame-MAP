@@ -3,7 +3,7 @@ import java.util.Set;
 public class Parser
 {
     //L'idea è quella di prendere il comando e riscriverlo come <verbo> <oggetto>
-    public static void parser(String comando,  GameManager partita)
+    public static void parser(String comando,  GameManager partita) throws ParserException
     {
         int i = 0;
 
@@ -71,7 +71,7 @@ public class Parser
 
         else
         {
-            System.out.println("Comando non valido. Riprovare");
+            throw new ParserException();
         }
     }
 }

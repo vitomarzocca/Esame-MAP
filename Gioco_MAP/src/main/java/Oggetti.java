@@ -1,9 +1,8 @@
 public enum Oggetti
 {
     VUOTO,
-    chiave_cantina,
-    fedora,
-    accendino,
-    padella,
-    chiave_tesoro
+    CHIAVE_CANTINA,
+    ACCENDINO,
+    PADELLA,
+    CHIAVE_TESORO
 }

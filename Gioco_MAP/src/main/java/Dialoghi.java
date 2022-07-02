@@ -3,7 +3,7 @@ public class Dialoghi {
 
     public static void messaggioPresenzaChiaveCantina(Stanza stanza)
     {
-        if(stanza.oggetto == Oggetti.chiave_cantina)
+        if(stanza.oggetto == Oggetti.CHIAVE_CANTINA)
         {
             System.out.println("Sul tavolo e' presente una chiave. Prima non l'ho notata.");
             System.out.println("Potrebbe risualtare utile raccoglierla");
@@ -11,7 +11,7 @@ public class Dialoghi {
     }
     public static void messaggioPresenzaAccendino(Stanza stanza)
     {
-        if(stanza.oggetto == Oggetti.accendino)
+        if(stanza.oggetto == Oggetti.ACCENDINO)
         {
             System.out.println("Qualcuno ha dimenticato sul divano un accendino.");
             System.out.println("Meglio prenderselo."
@@ -20,7 +20,7 @@ public class Dialoghi {
     }
     public static void messaggioPresenzaPadella(Stanza stanza, boolean eventoTipoCheCammina)
     {
-        if(stanza.oggetto == Oggetti.padella && eventoTipoCheCammina == true)
+        if(stanza.oggetto == Oggetti.PADELLA && eventoTipoCheCammina == true)
         {
             System.out.println("Devo trovare un qualcosa da"
                     + " usare per difermi da quel tipo");
@@ -29,7 +29,7 @@ public class Dialoghi {
     }
     public static void messaggioPresenzaChiaveTesoro(Stanza stanza)
     {
-        if (stanza.oggetto == Oggetti.chiave_tesoro)
+        if (stanza.oggetto == Oggetti.CHIAVE_TESORO)
         {
             System.out.println("Si intravede una chiave appesa in una teca incastonata nel comodino sinistro ");
 

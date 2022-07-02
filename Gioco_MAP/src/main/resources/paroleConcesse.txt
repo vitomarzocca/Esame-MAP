@@ -4,7 +4,6 @@ spegni
 prendi
 raccogli
 apri
-inventario
 sali
 scendi
 usa
@@ -22,7 +21,7 @@ luce
 luci
 chiave
 chiavi
-invetario
+inventario
 nasconditi
 nord
 sud
