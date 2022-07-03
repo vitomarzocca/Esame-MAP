@@ -530,7 +530,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -557,7 +557,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -587,7 +587,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -614,7 +614,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -641,7 +641,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -667,7 +667,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -705,7 +705,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -732,7 +732,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -759,7 +759,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -787,7 +787,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -813,7 +813,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -851,7 +851,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -878,7 +878,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -906,7 +906,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -934,7 +934,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -961,7 +961,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -988,7 +988,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -1014,7 +1014,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -1051,7 +1051,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -1082,7 +1082,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -1109,7 +1109,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -1137,7 +1137,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -1159,7 +1159,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -1186,7 +1186,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -1213,7 +1213,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else
@@ -1240,7 +1240,7 @@ public class GameManager {
 
                 if (nuovaStanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è spenta. Non si vede niente");
+                    Dialoghi.luceSpenta();
                 }
 
                 else

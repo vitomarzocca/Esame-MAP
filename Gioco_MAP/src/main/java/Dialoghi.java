@@ -23,7 +23,7 @@ public class Dialoghi {
         if(stanza.oggetto == Oggetti.PADELLA && eventoTipoCheCammina == true)
         {
             System.out.println("Devo trovare un qualcosa da"
-                    + " usare per difermi da quel tipo");
+                    + " usare per difendermi da quel tipo");
             System.out.println("Questa padella dovrebbe andare bene");
         }
     }
@@ -31,7 +31,8 @@ public class Dialoghi {
     {
         if (stanza.oggetto == Oggetti.CHIAVE_TESORO)
         {
-            System.out.println("Si intravede una chiave appesa in una teca incastonata nel comodino sinistro ");
+            System.out.println("Si intravede una chiave appesa in una teca"
+                    + " incastonata nel comodino sinistro ");
 
         }
     }
@@ -188,5 +189,8 @@ public class Dialoghi {
         System.out.println("--Partenza per la casa del boss--");
         System.out.println("Johnny e' pronto per riprendersi...");
         System.out.println("tutt' chell che e' o soi");
-    } 
+    }
+    public static void luceSpenta(){
+        System.out.println("Accidenti la luce e' spenta. Non si vede niente");
+    }
 }
