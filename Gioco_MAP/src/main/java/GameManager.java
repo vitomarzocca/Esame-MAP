@@ -25,9 +25,9 @@ public class GameManager {
         stanzaCorrente = 1;
         inizializzaInventario();
         inizializzaStanzaVisitata();
-        avvaloraParoleDaCancellare();
-        avvaloraParoleConcesse();
-        avvaloraCasa();
+        avvaloraParoleDaCancellare((String s) -> paroleDaCancellare.add(s));
+        avvaloraParoleConcesse((String s) -> paroleConcesse.add(s));
+        avvaloraCasa((Stanza s) -> casa.add(s));
         evento = new Evento();
         vivo = true;
         stanzaVisitata[0] = true;
@@ -48,7 +48,7 @@ public class GameManager {
         }
     }
 
-    private void avvaloraParoleDaCancellare()
+    private void avvaloraParoleDaCancellare(Inseritore<String> in)
     {
         FileReader fr = null;
         boolean flag = false;
@@ -66,7 +66,7 @@ public class GameManager {
             parolaLetta = bf.readLine();
 
             if (parolaLetta != null) {
-                paroleDaCancellare.add(parolaLetta);
+               in.inserisci(parolaLetta);
                 flag = true;
             }
 
@@ -80,7 +80,7 @@ public class GameManager {
                 parolaLetta = bf.readLine();
 
                 if (parolaLetta != null) {
-                    paroleDaCancellare.add(parolaLetta);
+                    in.inserisci(parolaLetta);
                     flag = true;
                 } else {
                     flag = false;
@@ -102,7 +102,7 @@ public class GameManager {
         }
     }
 
-    private void avvaloraParoleConcesse()
+    private void avvaloraParoleConcesse(Inseritore <String> in)
     {
         FileReader fr = null;
         boolean flag = false;
@@ -120,7 +120,7 @@ public class GameManager {
             parolaLetta = bf.readLine();
 
             if (parolaLetta != null) {
-                paroleConcesse.add(parolaLetta);
+                in.inserisci(parolaLetta);
                 flag = true;
             }
 
@@ -134,7 +134,7 @@ public class GameManager {
                 parolaLetta = bf.readLine();
 
                 if (parolaLetta != null) {
-                    paroleConcesse.add(parolaLetta);
+                    in.inserisci(parolaLetta);
                     flag = true;
                 } else {
                     flag = false;
@@ -156,7 +156,7 @@ public class GameManager {
         }
     }
 
-    private void avvaloraCasa()
+    private void avvaloraCasa(Inseritore <Stanza> in)
     {
         Stanza stanza = null;
         FileInputStream fis = null;
@@ -182,33 +182,18 @@ public class GameManager {
         }
 
         try {
-            stanza = (Stanza) ois.readObject();
-            casa.add(stanza);
-            stanza = (Stanza) ois.readObject();
-            casa.add(stanza);
-            stanza = (Stanza) ois.readObject();
-            casa.add(stanza);
-            stanza = (Stanza) ois.readObject();
-            casa.add(stanza);
-            stanza = (Stanza) ois.readObject();
-            casa.add(stanza);
-            stanza = (Stanza) ois.readObject();
-            casa.add(stanza);
-            stanza = (Stanza) ois.readObject();
-            casa.add(stanza);
-            stanza = (Stanza) ois.readObject();
-            casa.add(stanza);
-            stanza = (Stanza) ois.readObject();
-            casa.add(stanza);
-            stanza = (Stanza) ois.readObject();
-            casa.add(stanza);
-            stanza = (Stanza) ois.readObject();
-            casa.add(stanza);
-            stanza = (Stanza) ois.readObject();
-            casa.add(stanza);
-        } catch (IOException e) {
+            for(int i = 0; i<12; i++)
+            {
+                stanza = (Stanza) ois.readObject();
+                in.inserisci(stanza);
+            }
+        }
+        catch (IOException e)
+        {
             Dialoghi.errore();
-        } catch (ClassNotFoundException k) {
+        }
+        catch (ClassNotFoundException k)
+        {
             Dialoghi.errore();
         }
 
