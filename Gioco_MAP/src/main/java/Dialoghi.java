@@ -164,10 +164,10 @@ public class Dialoghi {
             System.out.println("E' presente una porta a: Sud."); 
         }
     public static void stanza12(){
-            System.out.println("DISPENSA");
-            System.out.println("C'e' un sacco di cibo in scatola ed acqua."
-                    + "Sembra come se questo boss sia pronto a tutto...");
-            System.out.println("E' presente una porta a: Sud.");
+        System.out.println("DISPENSA");
+        System.out.println("C'e' un sacco di cibo in scatola ed acqua."
+                + "Sembra come se questo boss sia pronto a tutto...");
+        System.out.println("E' presente una porta a: Sud.");
         }
     public static void messaggioSalvataggioTerminato(){
         System.out.println("La partita e' stata salvata correttamente.");
@@ -178,7 +178,7 @@ public class Dialoghi {
     public static void oggettoNecessario(){
         System.out.println("Accidenti... questa porta e' chiusa,"
       +  "credo che servira' una chiave per aprirla.");
-      System.out.println("Probabilmente si trover√† in un altra stanza della casa");
+        System.out.println("Probabilmente si trovera'† in un altra stanza della casa");
     }
     public static void nascostoStordimento(){
         System.out.println("Bravo,ti sei nascosto senza farti sentire!");
@@ -192,5 +192,77 @@ public class Dialoghi {
     }
     public static void luceSpenta(){
         System.out.println("Accidenti la luce e' spenta. Non si vede niente");
+    }
+    public static void erroreGestioneFile(){
+        System.out.println("Si e' verificato un errore con la gestione del file");
+    }
+    public static void errore(){
+        System.out.println("Si e' verificato un errore");
+    }
+    public static void erroreLetturaParoleDaCancellare(){
+        System.out.println("Si e' verificato un errore nella"
+                + " lettura del file paroleDaCancellare");
+    }
+    public static void erroreLetturaParoleConcesse(){
+        System.out.println("Si e' verificato un errore nella"
+                + " lettura del file paroleConcesse");
+    }
+    public static void erroreLetturaDescrizioneStanze(){
+        System.out.println("Si e' verificato un"
+                + " errore con il file DescrizioneStanze");
+    }
+    public static void erroreStream(){
+        System.out.println("Si e' verificato un errore nella chiusura dello stream");
+    }
+    public static void catturato(){
+        System.out.println("Sei stato catturato dalla guardia");
+    }
+    public static void luceAccesa(){
+        System.out.println("Hai acceso la luce");
+    }
+    public static void oggettoNonPresente(){
+        System.out.println("In questa stanza non e' presente l'oggetto ");
+    }
+    public static void oggettoNonPresenteInInventario(){
+        System.out.println("L' oggetto che vuoi usare non e' presente nel tuo inventario %n");
+    }
+    public static void luceGiaAccesa(){
+        System.out.println("La luce Ë gia' accesa");
+    }
+    public static void luceGiaSpenta(){
+        System.out.println("La luce e' gia' spenta");
+    }
+    public static void necessitiDi(){
+        System.out.println("Per accedere a questa stanza hai bisogno di :");
+        
+    }
+    public static void portaInesistente(){
+        System.out.println("Non esiste nessuna porta in questa direzione");
+    }
+    public static void portaSbloccata(){
+        System.out.println("La porta sembra chiusa a chiave");
+        System.out.println("-- Jhonny usa la chiave --");
+        
+    }
+    public static void aggiuntoInventario(){
+        System.out.println(" E' stato aggiunto all'invetario");
+    }
+    public static void spegniLuce(){
+        System.out.println("Hai spento la luce");
+    }
+    public static void nonPuoiUsare(){
+        System.out.println("Non ha senso usare questo oggetto qui");
+    }
+    public static void guardiaAbbattuta(){
+        System.out.println("La guardia e' sistemata. Adesso non ci saranno piu' intoppi");
+    }
+    public static void nascostoArmadio(){
+        System.out.println("Ti sei nascosto nell'armadio");
+    }
+    public static void nascostoLetto(){
+        System.out.println("Ti sei nascosto sotto il letto");
+    }
+    public static void nessunNascondiglio(){
+        System.out.println("Non c'e' nessun nascodiglio in questa stanza");
     }
 }

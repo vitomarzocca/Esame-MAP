@@ -57,7 +57,7 @@ public class GameManager {
         try {
             fr = new FileReader("./Gioco_MAP/src/main/resources/paroleDaCancellare.txt");
         } catch (FileNotFoundException e) {
-            System.out.println("si è verificato un errore con la gestione del file");
+            Dialoghi.erroreGestioneFile();
         }
 
         BufferedReader bf = new BufferedReader(fr);
@@ -71,7 +71,7 @@ public class GameManager {
             }
 
         } catch (IOException e) {
-            System.out.println("Si è verificato un errore nella lettura del file paroleDaCancellare");
+            Dialoghi.erroreLetturaParoleDaCancellare();
 
         }
 
@@ -87,18 +87,18 @@ public class GameManager {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Si è verificato un errore nella lettura del file paroleDaCancellare");
+            Dialoghi.erroreLetturaParoleDaCancellare();
         }
         try {
             bf.close();
         } catch (IOException e) {
-            System.out.println("Si è verificato un errore nella chiusura dello stream");
+            Dialoghi.erroreStream();
         }
 
         try {
             bf.close();
         } catch (IOException e) {
-            System.out.println("Si è verificato un errore nella chiusura dello stream");
+            Dialoghi.erroreStream();
         }
     }
 
@@ -111,7 +111,7 @@ public class GameManager {
         try {
             fr = new FileReader("./Gioco_MAP/src/main/resources/paroleConcesse.txt");
         } catch (FileNotFoundException e) {
-            System.out.println("si è verificato un errore con la gestione del file");
+            Dialoghi.erroreGestioneFile();
         }
 
         BufferedReader bf = new BufferedReader(fr);
@@ -125,7 +125,7 @@ public class GameManager {
             }
 
         } catch (IOException e) {
-            System.out.println("Si è verificato un errore nella lettura del file paroleConcesse");
+            Dialoghi.erroreLetturaParoleConcesse();
 
         }
 
@@ -141,18 +141,18 @@ public class GameManager {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Si è verificato un errore nella lettura del file paroleConcesse");
+            Dialoghi.erroreLetturaParoleConcesse();
         }
         try {
             bf.close();
         } catch (IOException e) {
-            System.out.println("Si è verificato un errore nella chiusura dello stream");
+            Dialoghi.erroreStream();
         }
 
         try {
             bf.close();
         } catch (IOException e) {
-            System.out.println("Si è verificato un errore nella chiusura dello stream");
+            Dialoghi.erroreStream();
         }
     }
 
@@ -169,7 +169,7 @@ public class GameManager {
         }
         catch (IOException e)
         {
-            System.out.println("Si è verificato un errore con il file \"DescizioneStanze\" 1");
+            Dialoghi.erroreLetturaDescrizioneStanze();
         }
 
         try
@@ -178,7 +178,7 @@ public class GameManager {
         }
         catch (IOException e)
         {
-            System.out.println("Si è verificato un errore con il file \"descizioneStanze.txt\" 2");
+            Dialoghi.erroreLetturaDescrizioneStanze();
         }
 
         try {
@@ -207,21 +207,21 @@ public class GameManager {
             stanza = (Stanza) ois.readObject();
             casa.add(stanza);
         } catch (IOException e) {
-            System.out.println("Si è verificato un errore");
+            Dialoghi.errore();
         } catch (ClassNotFoundException k) {
-            System.out.println("Si è verificato un errore");
+            Dialoghi.errore();
         }
 
         try {
             fis.close();
         } catch (IOException e) {
-            System.out.println("Si è verificato un errore nella chiusura dello stream");
+            Dialoghi.erroreStream();
         }
 
         try {
             ois.close();
         } catch (IOException e) {
-            System.out.println("Si è verificato un errore nella chiusura dello stream");
+            Dialoghi.erroreStream();
         }
 
     }
@@ -313,7 +313,8 @@ public class GameManager {
         {
             if (ricercaStanzaCorrente().oggetto.name().equals(oggetto))  //il .name() permette la conversione da enumerativo a stringa
             {
-                System.out.println(stanza.oggetto.name() + " è stato aggiunto all'invetario");
+                System.out.print(stanza.oggetto.name());
+                Dialoghi.aggiuntoInventario();
 
                 for (int i = 0; i < 10; i++) {
                     if (inventario[i] == Oggetti.VUOTO) {
@@ -333,12 +334,13 @@ public class GameManager {
             }
             else
             {
-                System.out.println("In questa stanza non è presente l'oggetto " + oggetto);
+                Dialoghi.oggettoNonPresente();
+                System.out.print(oggetto);
             }
         }
         else
         {
-            System.out.println("Sei stato catturato dalla guardia");
+            Dialoghi.catturato();
             vivo = false;
         }
 
@@ -352,20 +354,20 @@ public class GameManager {
         {
             if (stanza.luce == true)
             {
-                System.out.println("In questa stanza la luce è già accesa");
+                Dialoghi.luceGiaAccesa();
             }
             else
             {
                 if(stanzaCorrente == 11 && stanza.luce == false)
                 {
-                    System.out.println("Accidenti la luce è rotta. Devo trovare un modo per fare luce");
+                    Dialoghi.luceGuasta();
                 }
                 else
                 {
                     casa.remove(stanza);
                     stanza.luce = true;
                     casa.add(stanza);
-                    System.out.println("Hai acceso la luce");
+                    Dialoghi.luceAccesa();
 
                     switch (stanzaCorrente)
                     {
@@ -412,7 +414,7 @@ public class GameManager {
         }
         else
         {
-            System.out.println("Sei stato catturato dalla guardia");
+            Dialoghi.catturato();
             vivo = false;
         }
 
@@ -433,20 +435,20 @@ public class GameManager {
             {
                 if (stanza.luce == false)
                 {
-                    System.out.println("In questa stanza la luce è già spenta");
+                    Dialoghi.luceGiaSpenta();
                 }
                 else
                 {
                     casa.remove(stanza);
                     stanza.luce = false;
                     casa.add(stanza);
-                    System.out.println("Hai spento la luce");
+                    Dialoghi.spegniLuce();
                 }
             }
         }
         else
         {
-            System.out.println("Sei stato catturato dalla guardia");
+            Dialoghi.catturato();
             vivo = false;
         }
 
@@ -466,12 +468,12 @@ public class GameManager {
 
         if (stanza.armadio == true) {
             nascosto = true;
-            System.out.println("Ti sei nascosto nell'aramdio");
+            Dialoghi.nascostoArmadio();
         } else if (stanza.letto == true) {
             nascosto = true;
-            System.out.println("Ti sei nascosto sotto il letto");
+            Dialoghi.nascostoLetto();
         } else {
-            System.out.println("Non c'è nessun nascodiglio in questa stanza");
+            Dialoghi.nessunNascondiglio();
         }
     }
 
@@ -491,23 +493,23 @@ public class GameManager {
 
                 else if ((stanzaCorrente != 11 && (oggetto.compareTo("accendino") == 0) || oggetto.compareTo("padella") == 0))
                 {
-                    System.out.println("Non ha senso usare questo oggetto qui");
+                    Dialoghi.nonPuoiUsare();
                 }
 
                 else if(nascosto = true && oggetto.compareTo("padella") == 0)
                 {
                     evento.interrupt();
-                    System.out.println("La guradi è sistemata. Adesso non ci saranno più intoppi");
+                    Dialoghi.guardiaAbbattuta();
                 }
             }
             else
             {
-                System.out.print("L' oggetto che vuoi usare non è presente nel tuo inventario");
+                Dialoghi.oggettoNonPresenteInInventario();
             }
         }
         catch (Exception e)
         {
-            System.out.println("Oggetto che vuoi usare non è presente nell'inventario \n");
+            Dialoghi.oggettoNonPresenteInInventario();
         }
 
 
@@ -541,7 +543,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -569,7 +572,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
 
         }
@@ -598,7 +602,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -625,7 +630,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -652,7 +658,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -689,7 +696,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -716,7 +724,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -743,7 +752,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -771,7 +781,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -798,7 +809,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -835,7 +847,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -862,7 +875,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -889,7 +903,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -918,7 +933,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -945,7 +961,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -972,7 +989,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -999,7 +1017,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -1035,7 +1054,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -1062,7 +1082,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -1076,8 +1097,7 @@ public class GameManager {
                 evento.cambiaStanzaCorrente(9);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                System.out.println("La porta sembra chiusa a chiave");
-                System.out.println("-- Jhonny usa la chiave --");
+                Dialoghi.portaSbloccata();
 
 
                 if (nuovaStanza.luce == false)
@@ -1093,7 +1113,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -1121,7 +1142,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -1170,7 +1192,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -1197,7 +1220,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -1224,7 +1248,8 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
@@ -1251,13 +1276,14 @@ public class GameManager {
 
             else
             {
-                System.out.println("Per accedere a questa stanza hai bisogno di :" + nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi();
+                System.out.print(nuovaStanza.oggettoRichiesto);
             }
         }
 
         else
         {
-            System.out.println("Non esiste nessuna porta in questa direzione");
+            Dialoghi.portaInesistente();
         }
 
         stampaMappa();
