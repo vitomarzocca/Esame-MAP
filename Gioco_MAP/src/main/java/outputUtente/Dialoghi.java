@@ -5,6 +5,10 @@ import logica.Stanza;
 
 public class Dialoghi {
 
+    /**
+     * Metodo statico che stampa un messaggio a schermo che norifica la presenza di una chiave
+     * @param stanza
+     */
     public static void messaggioPresenzaChiaveCantina(Stanza stanza)
     {
         if(stanza.oggetto == Oggetti.CHIAVE_CANTINA)
@@ -14,6 +18,10 @@ public class Dialoghi {
         }
     }
 
+    /**
+     * Metodo statico che stampa un messaggio a schermo che notifica la presenza di un accendino
+     * @param stanza
+     */
     public static void messaggioPresenzaAccendino(Stanza stanza)
     {
         if(stanza.oggetto == Oggetti.ACCENDINO)
@@ -24,9 +32,15 @@ public class Dialoghi {
         }
     }
 
+    /**
+     * Metodo statico che stampa un messaggio a schermo che notifica la presenza di una padella,
+     * ma solo se l'evento è stato attivato
+     * @param stanza
+     * @param eventoTipoCheCammina
+     */
     public static void messaggioPresenzaPadella(Stanza stanza, boolean eventoTipoCheCammina)
     {
-        if(stanza.oggetto == Oggetti.PADELLA && eventoTipoCheCammina == true)
+        if(stanza.oggetto == Oggetti.PADELLA && eventoTipoCheCammina)
         {
             System.out.println("Devo trovare un qualcosa da"
                     + " usare per difendermi da quel tipo");
@@ -34,6 +48,10 @@ public class Dialoghi {
         }
     }
 
+    /**
+     * Metodo statico che stampa un messaggio a schermo che notifica la presenza di una chiave
+     * @param stanza
+     */
     public static void messaggioPresenzaChiaveTesoro(Stanza stanza)
     {
         if (stanza.oggetto == Oggetti.CHIAVE_TESORO)
@@ -44,6 +62,9 @@ public class Dialoghi {
         }
     }
 
+    /**
+     * Metodo statico che stampa un messaggio a schermo che noifica l'inzio dell'evento
+     */
     public static void messaggioInizioEvento()
     {
         System.out.println("\n");
@@ -51,6 +72,9 @@ public class Dialoghi {
         System.out.println("NON FARTI BECCARE");
     }
 
+    /**
+     * Metodo statico che stampa a schermo il prologo della storia
+     */
     public static void prologo()
     {
         System.out.println("Prologo:");
@@ -203,21 +227,12 @@ public class Dialoghi {
         System.out.println("E' presente una porta a: Sud.");
         }
     public static void messaggioSalvataggioTerminato(){
-        System.out.println("La partita e' stata salvata correttamente.");
+        System.out.println("LA PARTITA E' STATA SALVATA CORRETTAMENTE.");
     }
     public static void luceGuasta(){
         System.out.println("La luce e' guasta. Devo usare qualcosa par fare luce");
     }
-    public static void oggettoNecessario(){
-        System.out.println("Accidenti... questa porta e' chiusa,"
-      +  "credo che servira' una chiave per aprirla.");
-        System.out.println("Probabilmente si trovera'� in un altra stanza della casa");
-    }
-    public static void nascostoStordimento(){
-        System.out.println("Bravo,ti sei nascosto senza farti sentire!");
-        System.out.println("Guarda!!! E' di spalle, sfrutta"
-                + " l' occasione per colpirlo con la padella!!!");
-    }
+
     public static void piuTardi(){
         System.out.println("--Partenza per la casa del boss--");
         System.out.println("Johnny e' pronto per riprendersi...");

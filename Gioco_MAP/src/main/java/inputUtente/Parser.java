@@ -4,6 +4,13 @@ import logica.GameManager;
 
 public class Parser
 {
+    /**
+     * Metodo che riceve in input una stringa, stabilisce qual'è il soggetto della stringa e qual'è loggetto e invoca un metodo di GameManager.
+     * Se viene passata una stringa che non rappresenta nussun comando viene lanciata un eccezione
+     * @param comando
+     * @param partita
+     * @throws ParserException
+     */
     public static void parser(String comando,  GameManager partita) throws ParserException
     {
         int i = 0;

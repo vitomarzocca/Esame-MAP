@@ -1,5 +1,7 @@
 package logica;
 
+import outputUtente.Dialoghi;
+
 import java.sql.*;
 import java.util.Properties;
 
@@ -7,6 +9,9 @@ public class GestioneSalvataggio
 {
     public Connection conn;
 
+    /**
+     * Costruttore della classe GestioneSalvataggio
+     */
     public GestioneSalvataggio()
     {
         conn = null;
@@ -31,6 +36,10 @@ public class GestioneSalvataggio
         }
 
     }
+
+    /**
+     * Permette di collegarsi al DB locale
+     */
     private void connessioneDB()
     {
        Properties credenziali = new Properties();
@@ -49,6 +58,9 @@ public class GestioneSalvataggio
 
     }
 
+    /**
+     * Crea una tabella nel DB se non è già presente, utile per il salvataggio
+     */
     private void creazioneTabellaDB()
     {
          final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS partita\n" +
@@ -111,7 +123,16 @@ public class GestioneSalvataggio
 
     }
 
-    public  void inserimentoSalvataggioInTabella(boolean nascosto, int stanzaCorrente, boolean vivo, Oggetti inventario[], boolean stanzaVisitata[], boolean statoEvento)
+    /**
+     * Metodo che permettere di inserire durante un salvataggio i dati nella tabella presente in tabella
+     * @param nascosto
+     * @param stanzaCorrente
+     * @param vivo
+     * @param inventario
+     * @param stanzaVisitata
+     * @param statoEvento
+     */
+    public  void inserimentoSalvataggioInTabella(boolean nascosto, int stanzaCorrente, boolean vivo, Oggetti[] inventario, boolean[] stanzaVisitata, boolean statoEvento)
     {
         connessioneDB();
 
@@ -139,7 +160,7 @@ public class GestioneSalvataggio
         }
         catch (SQLException e)
         {
-            e.getMessage();
+
             System.out.println("Si è verificato un errore nel salvataggio 1 ");
         }
 
@@ -170,12 +191,12 @@ public class GestioneSalvataggio
         }
         catch(SQLException e)
         {
-            e.getMessage();
+
             System.out.println("Si è verificato un errore nel salvataggio 1.5 ");
         }
         catch(NullPointerException k)
         {
-            k.getMessage();
+
             System.out.println("Si è verificato un errore nel salvataggio 1.6 ");
         }
 
@@ -206,9 +227,13 @@ public class GestioneSalvataggio
             System.out.println("Si è verificato un errore con la chiusura della connession al DB");
         }
 
-        System.out.println("SALVATAGGIO COMPLETATO");
+        Dialoghi.messaggioSalvataggioTerminato();
     }
 
+    /**
+     * Permette di leggere i dati dalla tabella del DB
+     * @return
+     */
     public GameManager caricaSalvataggio()
     {
         connessioneDB();
@@ -216,7 +241,6 @@ public class GestioneSalvataggio
         GameManager salvataggio = new GameManager();
         Statement stm = null;
         ResultSet rs = null;
-        String stringaSupporto;
 
         try
         {

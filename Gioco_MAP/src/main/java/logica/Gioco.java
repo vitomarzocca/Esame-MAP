@@ -25,7 +25,7 @@ public class Gioco {
 
         Scanner input = new Scanner(System.in);
 
-        while (partita.vivo == true)
+        while (partita.vivo)
         {
             Dialoghi.attesaInput();
             comando = input.nextLine();

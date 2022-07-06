@@ -5,7 +5,6 @@ import outputUtente.Dialoghi;
 import java.io.*;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Locale;
 import java.util.Set;
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -25,7 +24,9 @@ public class GameManager {
     Evento evento;
     GestioneSalvataggio salvataggio;
 
-
+    /**
+     * Costruttore della classe GameManager che inzializza le variabili di istanza
+     */
     public GameManager()
     {
         stanzaCorrente = 1;
@@ -39,6 +40,9 @@ public class GameManager {
         stanzaVisitata[0] = true;
     }
 
+    /**
+     * Iniziallizza l'array stanzaVisitata con valori FALSE
+     */
     private void inizializzaStanzaVisitata()
     {
         for (int i = 0; i < 12; i++) {
@@ -46,6 +50,9 @@ public class GameManager {
         }
     }
 
+    /**
+     * Inizializza l'array invetario con valori Oggetti.VUOTO
+     */
     private void inizializzaInventario()
     {
         for (int i = 0; i < 6; i++) {
@@ -54,6 +61,10 @@ public class GameManager {
         }
     }
 
+    /**
+     * Avvalora l'insieme paroleDaCancellare attraverso il file paroleDaCancellare.txt
+     * @param in
+     */
     private void avvaloraParoleDaCancellare(Inseritore<String> in)
     {
         FileReader fr = null;
@@ -61,7 +72,7 @@ public class GameManager {
         String parolaLetta;
 
         try {
-            fr = new FileReader("C:\\Users\\Flavio Palma\\Desktop\\Metodi Avanzati Programmazione\\Prog\\Esame-MAP\\Gioco_MAP\\src\\main\\resources\\paroleDaCancellare.txt");
+            fr = new FileReader("./Gioco_MAP/src/main/resources/paroleDaCancellare.txt");
         } catch (FileNotFoundException e) {
             Dialoghi.erroreGestioneFile();
         }
@@ -82,12 +93,12 @@ public class GameManager {
         }
 
         try {
-            while (flag == true) {
+            while (flag) {
                 parolaLetta = bf.readLine();
 
                 if (parolaLetta != null) {
                     in.inserisci(parolaLetta);
-                    flag = true;
+
                 } else {
                     flag = false;
                 }
@@ -108,6 +119,10 @@ public class GameManager {
         }
     }
 
+    /**
+     * Avvalora l'insieme paroleConcesse attraverso il file paroleConcesse.txt
+     * @param in
+     */
     private void avvaloraParoleConcesse(Inseritore<String> in)
     {
         FileReader fr = null;
@@ -115,7 +130,7 @@ public class GameManager {
         String parolaLetta;
 
         try {
-            fr = new FileReader("C:\\Users\\Flavio Palma\\Desktop\\Metodi Avanzati Programmazione\\Prog\\Esame-MAP\\Gioco_MAP\\src\\main\\resources\\paroleConcesse.txt");
+            fr = new FileReader("./Gioco_MAP/src/main/resources/paroleConcesse.txt");
         } catch (FileNotFoundException e) {
             Dialoghi.erroreGestioneFile();
         }
@@ -136,7 +151,7 @@ public class GameManager {
         }
 
         try {
-            while (flag == true) {
+            while (flag) {
                 parolaLetta = bf.readLine();
 
                 if (parolaLetta != null) {
@@ -162,12 +177,15 @@ public class GameManager {
         }
     }
 
+    /**
+     * Avvalore l'insieme casa attraverso il file binario DescrizioneStanze
+     * @param in
+     */
     private void avvaloraCasa(Inseritore<Stanza> in)
     {
         Stanza stanza = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
-        boolean flag = false;
 
         try
         {
@@ -181,7 +199,7 @@ public class GameManager {
 
         try
         {
-            fis = new FileInputStream("C:\\Users\\Flavio Palma\\Desktop\\Metodi Avanzati Programmazione\\Prog\\Esame-MAP\\Gioco_MAP\\src\\main\\resources\\DescrizioneStanze");
+            fis = new FileInputStream("./Gioco_MAP/src/main/resources/DescrizioneStanze");
         }
         catch (IOException e)
         {
@@ -208,7 +226,7 @@ public class GameManager {
         {
             Dialoghi.errore();
         }
-        catch (ClassNotFoundException k)
+        catch (ClassNotFoundException k )
         {
             Dialoghi.errore();
         }
@@ -232,6 +250,11 @@ public class GameManager {
 
     }
 
+    /**
+     * Ricerca all'interno dell'insieme casa l'instanza di Stanza che ha l'attributo Stanza.numeroStanza
+     * uguale al valore della variabile stanzaCorrente
+     * @return
+     */
     private Stanza ricercaStanzaCorrente()
     {
         Stanza stanza = null;
@@ -239,7 +262,7 @@ public class GameManager {
 
         Iterator<Stanza> it = casa.iterator();
         {
-            while (it.hasNext() == true) {
+            while (it.hasNext()) {
                 stanza = it.next();
 
                 if (stanza.numeroStanza != stanzaCorrente) {
@@ -253,6 +276,12 @@ public class GameManager {
         return stanza;
     }
 
+    /**
+     * Ricerca all'interno dell'insieme casa l'instanza di Stanza che l'attributo Stanza.numeroStanza
+     * uguale al valore passato al metddo
+     * @param numeroStanza
+     * @return
+     */
     private Stanza ricercaStanzaPerNumero(int numeroStanza)
     {
         Stanza nuovaStanza = null;
@@ -260,7 +289,7 @@ public class GameManager {
 
         Iterator<Stanza> it = casa.iterator();
         {
-            while (it.hasNext() == true) {
+            while (it.hasNext()) {
                 nuovaStanza = it.next();
 
                 if (nuovaStanza.numeroStanza != numeroStanza) {
@@ -274,6 +303,11 @@ public class GameManager {
         return nuovaStanza;
     }
 
+    /**
+     * Controlla se nell'array invetario è presente l'oggetto passato in input al metodo
+     * @param oggetto
+     * @return
+     */
     private boolean controllaInvetario(Oggetti oggetto)
     {
         boolean trovato = false;
@@ -285,16 +319,17 @@ public class GameManager {
         for (int i = 0; i < 6; i++) {
             if (inventario[i] == oggetto) {
                 trovato = true;
+                break;
             }
         }
 
-        if (trovato == true) {
-            return true;
-        } else {
-            return false;
-        }
+        return trovato;
     }
 
+    /**
+     * Insersice all'interno dell'array invetario l'oggetto indicato dalla stringa passato in input
+     * @param oggetto
+     */
     public void raccoltaOggetto(String oggetto)
     {
         Stanza stanza = ricercaStanzaCorrente();
@@ -327,7 +362,7 @@ public class GameManager {
         }
 
 
-        if (evento.eventoInPausa == false)
+        if (!evento.eventoInPausa)
         {
             if (ricercaStanzaCorrente().oggetto.name().equals(oggetto))  //il .name() permette la conversione da enumerativo a stringa
             {
@@ -364,19 +399,22 @@ public class GameManager {
 
     }
 
+    /**
+     * Imposta su TRUE il valore Stanza.luce dell'instaza di Stanza che rappresente la stanza corrente
+     */
     public void accendiLuce()
     {
         Stanza stanza = ricercaStanzaCorrente();
 
-        if (evento.eventoInPausa == false)
+        if (!evento.eventoInPausa)
         {
-            if (stanza.luce == true)
+            if (stanza.luce)
             {
                 Dialoghi.luceGiaAccesa();
             }
             else
             {
-                if(stanzaCorrente == 11 && stanza.luce == false)
+                if(stanzaCorrente == 11)
                 {
                     Dialoghi.luceGuasta();
                 }
@@ -439,11 +477,14 @@ public class GameManager {
 
     }
 
+    /**
+     * Imposta du FALSE il valore Stanza.luce dell'instanza di Stanza che rappresenta la stanza corrente
+     */
     public void spegniLuce()
     {
         Stanza stanza = ricercaStanzaCorrente();
 
-        if (evento.eventoInPausa == false)
+        if (!evento.eventoInPausa)
         {
             if (stanzaCorrente == 11)
             {
@@ -451,7 +492,7 @@ public class GameManager {
             }
             else
             {
-                if (stanza.luce == false)
+                if (!stanza.luce)
                 {
                     Dialoghi.luceGiaSpenta();
                 }
@@ -473,6 +514,9 @@ public class GameManager {
 
     }
 
+    /**
+     * Stampa a schermo tutti gli oggetti presenti nell'inventario
+     */
     public void apriInvetario()
     {
         for (Oggetti oggetto : inventario) {
@@ -480,14 +524,18 @@ public class GameManager {
         }
     }
 
+    /**
+     * Se nella stanza attuale è presente un nascondiglio imposta su TRUE
+     * l'attributo nascosto
+     */
     public void nascondi()
     {
         Stanza stanza = ricercaStanzaCorrente();
 
-        if (stanza.armadio == true) {
+        if (stanza.armadio) {
             nascosto = true;
             Dialoghi.nascostoArmadio();
-        } else if (stanza.letto == true) {
+        } else if (stanza.letto) {
             nascosto = true;
             Dialoghi.nascostoLetto();
         } else {
@@ -495,6 +543,10 @@ public class GameManager {
         }
     }
 
+    /**
+     * Serve per usare un oggetto presente nell'inventario
+     * @param oggetto
+     */
     public void usa(String oggetto)
     {
         Oggetti ogg;
@@ -509,7 +561,7 @@ public class GameManager {
                     Dialoghi.stanza11();
                 }
 
-                else if(nascosto = true && oggetto.compareTo("padella") == 0)
+                else if(nascosto && oggetto.compareTo("padella") == 0)
                 {
                     evento.interrupt();
                     Dialoghi.guardiaAbbattuta();
@@ -533,22 +585,26 @@ public class GameManager {
 
     }
 
+    /**
+     * Permette di cambiare stanza in base ad una direzione indicata dalla stringa in input
+     * @param direzione
+     */
     public void muovi(String direzione)
     {
         Stanza stanza = ricercaStanzaCorrente();
-        Stanza nuovaStanza = null;
+        Stanza nuovaStanza;
 
         if (stanza.numeroStanza == 1 && direzione.compareTo("est") == 0)
         {
             nuovaStanza = ricercaStanzaPerNumero(2);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(2);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -570,13 +626,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(3);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(3);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -599,14 +655,14 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(5);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(5);
                 Dialoghi.messaggioPresenzaPadella(nuovaStanza, evento.eventoInFunzione);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -627,13 +683,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(1);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(1);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -654,13 +710,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(1);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(1);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -681,12 +737,12 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(4);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(4);
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -697,7 +753,7 @@ public class GameManager {
                     Dialoghi.messaggioPresenzaChiaveCantina(nuovaStanza);
                 }
 
-                if (stanzaVisitata[3] == false)
+                if (!stanzaVisitata[3])
                 {
                     Dialoghi.messaggioInizioEvento();
                     evento.eventoInFunzione = true;
@@ -718,13 +774,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(7);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(7);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -745,13 +801,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(5);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(5);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -773,13 +829,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(3);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(3);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -801,13 +857,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(1);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(1);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -828,12 +884,12 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(4);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(4);
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -844,7 +900,7 @@ public class GameManager {
                     Dialoghi.messaggioPresenzaChiaveCantina(nuovaStanza);
                 }
 
-                if (stanzaVisitata[3] == false)
+                if (!stanzaVisitata[3])
                 {
                     Dialoghi.messaggioInizioEvento();
                     evento.eventoInFunzione = true;
@@ -865,13 +921,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(6);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(6);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -892,13 +948,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(12);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(12);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -919,13 +975,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(5);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(5);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -947,13 +1003,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(7);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(7);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -974,13 +1030,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(11);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(11);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -1001,13 +1057,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(6);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(6);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -1027,13 +1083,13 @@ public class GameManager {
         else if (stanza.numeroStanza == 7 && direzione.compareTo("sud") == 0) {
             nuovaStanza = ricercaStanzaPerNumero(4);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(4);
                 Dialoghi.stanza4();
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -1044,7 +1100,7 @@ public class GameManager {
                     Dialoghi.messaggioPresenzaChiaveCantina(nuovaStanza);
                 }
 
-                if (stanzaVisitata[3] == false)
+                if (!stanzaVisitata[3])
                 {
                     Dialoghi.messaggioInizioEvento();
                     evento.eventoInFunzione = true;
@@ -1064,13 +1120,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(8);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(8);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -1091,7 +1147,7 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(9);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(9);
@@ -1100,7 +1156,7 @@ public class GameManager {
                 Dialoghi.portaSbloccata();
 
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -1121,13 +1177,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(10);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(10);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -1149,13 +1205,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(7);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(7);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -1171,13 +1227,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(8);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(8);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -1198,13 +1254,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(8);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(8);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -1225,13 +1281,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(6);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(6);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -1252,13 +1308,13 @@ public class GameManager {
         {
             nuovaStanza = ricercaStanzaPerNumero(5);
 
-            if (controllaInvetario(nuovaStanza.oggettoRichiesto) == true)
+            if (controllaInvetario(nuovaStanza.oggettoRichiesto))
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(5);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
-                if (nuovaStanza.luce == false)
+                if (!nuovaStanza.luce)
                 {
                     Dialoghi.luceSpenta();
                 }
@@ -1280,14 +1336,14 @@ public class GameManager {
             Dialoghi.portaInesistente();
         }
 
-        if(nascosto == true)
+        if(nascosto)
         {
             nascosto = false;
         }
 
         stampaMappa();
 
-        if (evento.eventoInFunzione == true && evento.eventoInPausa == true)
+        if (evento.eventoInFunzione && evento.eventoInPausa)
         {
             evento.eventoInPausa=false;
         }
@@ -1297,6 +1353,9 @@ public class GameManager {
 
     }
 
+    /**
+     * Stampa a schermo la posizione attuale attraverso una mappa
+     */
     public void stampaMappa()
     {
         if (stanzaCorrente == 1) {
@@ -1411,6 +1470,9 @@ public class GameManager {
         }
     }
 
+    /**
+     * Permette di riprendere la partita dal punto dove si è salvato il gioco
+     */
     public void caricaSalvataggio()
     {
         GameManager nuovaPartita;
@@ -1418,21 +1480,17 @@ public class GameManager {
 
         nuovaPartita = salvataggio.caricaSalvataggio();
 
-        for (int i = 0; i < 12; i++) {
-            stanzaVisitata[i] = nuovaPartita.stanzaVisitata[i];
-        }
+        System.arraycopy(nuovaPartita.stanzaVisitata, 0, stanzaVisitata, 0, 12);
 
-        for (int i = 0; i < 6; i++) {
-            inventario[i] = nuovaPartita.inventario[i];
-        }
+        System.arraycopy(nuovaPartita.inventario, 0, inventario, 0, 6);
 
         nascosto = nuovaPartita.nascosto;
         vivo = nuovaPartita.vivo;
         stanzaCorrente = nuovaPartita.stanzaCorrente;
 
-        if (nuovaPartita.stanzaVisitata[3] == true)
+        if (nuovaPartita.stanzaVisitata[3])
         {
-            if(evento.eventoInFunzione == false)
+            if(!evento.eventoInFunzione)
             {
                 evento.eventoInFunzione = true;
                 evento.start();
@@ -1479,14 +1537,17 @@ public class GameManager {
         stampaMappa();
     }
 
+    /**
+     * Permette di salvare lo stato attuale della partita in un DB locale
+     */
     public void salvaPartita()
     {
         salvataggio = new GestioneSalvataggio();
-        File fileDaCancellare = new File ("C:\\Users\\Flavio Palma\\Desktop\\Metodi Avanzati Programmazione\\Prog\\Esame-MAP\\Gioco_MAP\\src\\main\\resources\\descrizioneStanze.txt");
+        File fileDaCancellare = new File ("./Gioco_MAP/src/main/resources/DescrizioneStanze");
 
         salvataggio.inserimentoSalvataggioInTabella(nascosto, stanzaCorrente, vivo, inventario, stanzaVisitata, evento.eventoInFunzione);
 
-        if (fileDaCancellare.exists() == true)
+        if (fileDaCancellare.exists())
         {
             fileDaCancellare.delete();
 
@@ -1494,6 +1555,9 @@ public class GameManager {
         }
     }
 
+    /**
+     * Crea un nuovo file DescrizioneStanza aggiornato durante l'operaizone di salvataggio
+     */
     private void creaNuovoFileDescrizioneStaza()
     {
         FileOutputStream fos = null;
@@ -1502,8 +1566,7 @@ public class GameManager {
 
         try
         {
-
-            fos = new FileOutputStream("C:\\Users\\Flavio Palma\\Desktop\\Metodi Avanzati Programmazione\\Prog\\Esame-MAP\\Gioco_MAP\\src\\main\\resources\\descrizioneStanze.txt");
+            fos = new FileOutputStream("./Gioco_MAP/src/main/resources/DescrizioneStanze");
         }
         catch(FileNotFoundException e)
         {

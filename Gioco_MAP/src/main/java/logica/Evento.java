@@ -7,23 +7,32 @@ public class Evento extends Thread
     public boolean eventoInFunzione;
     public boolean eventoInPausa;
     public int stanzaGuardia;
-    public int stanzaCorrente;
+    public int stanzaGiocatore;
 
 
-
+    /**
+     * Costruttore della classe Evento che inzializza le variabili di istanza
+     */
     public Evento()
     {
         eventoInPausa = false;
         eventoInFunzione = false;
         stanzaGuardia = 1;
-        stanzaCorrente = 4;
+        stanzaGiocatore = 4;
     }
 
+    /**
+     * Aggiorana la variabile stanzaGiocatore in base al valore passato al metodo
+     * @param numeroStanza
+     */
     public void cambiaStanzaCorrente(int numeroStanza)
     {
-        stanzaCorrente = numeroStanza;
+        stanzaGiocatore = numeroStanza;
     }
 
+    /**
+     * Metodo che contiene il codice del thread
+     */
     public void run()
     {
         while (eventoInFunzione == true ) {
@@ -168,7 +177,7 @@ public class Evento extends Thread
                 }
 
 
-                if (stanzaGuardia == stanzaCorrente) {
+                if (stanzaGuardia == stanzaGiocatore) {
                     System.out.println("ATTENZIONE SENTI DEI PASSI CHE SI STANNO AVVICINANDO VERSO DI TE");
                     System.out.println("NASCONDITI O CAMBIA STANZA");
                     eventoInPausa = true;
@@ -186,6 +195,9 @@ public class Evento extends Thread
         }
     }
 
+    /**
+     * Metodo invocato per terminare il thread
+     */
     public void interrupt()
     {
         eventoInFunzione = false;
