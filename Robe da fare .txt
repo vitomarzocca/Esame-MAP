@@ -1,4 +1,0 @@
-1 - Implementare una classe per i messaggi;
-2 - implementare thread persona che cammina
-3 - caricare la descrizione delle stanza su file
-
