@@ -139,6 +139,7 @@ public class Dialoghi {
             System.out.println("LA CUCINA");
             System.out.println("Una cucina scavolini di quelle sponsorizzate"
                     + " da Cracco.");
+            System.out.println("E' presente un armadio");
             System.out.println("E' presente una porta a: Nord, Sud, Est, Ovest.");
         }
     public static void stanza6(){

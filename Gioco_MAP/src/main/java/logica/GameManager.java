@@ -313,6 +313,11 @@ public class GameManager {
             oggetto = "ACCENDINO";
         }
 
+        if (stanzaCorrente == 5 && oggetto.compareTo("padella") == 0)
+        {
+            oggetto = "PADELLA";
+        }
+
 
         if (evento.eventoInPausa == false)
         {
@@ -496,15 +501,15 @@ public class GameManager {
                     Dialoghi.stanza11();
                 }
 
-                else if ((stanzaCorrente != 11 && (oggetto.compareTo("accendino") == 0) || oggetto.compareTo("padella") == 0))
-                {
-                    Dialoghi.nonPuoiUsare();
-                }
-
                 else if(nascosto = true && oggetto.compareTo("padella") == 0)
                 {
                     evento.interrupt();
                     Dialoghi.guardiaAbbattuta();
+                }
+
+                else
+                {
+                    Dialoghi.nonPuoiUsare();
                 }
             }
             else
@@ -1289,6 +1294,11 @@ public class GameManager {
         else
         {
             Dialoghi.portaInesistente();
+        }
+
+        if(nascosto == true)
+        {
+            nascosto = false;
         }
 
         stampaMappa();
