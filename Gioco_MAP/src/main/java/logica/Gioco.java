@@ -17,9 +17,8 @@ public class Gioco {
 
         Dialoghi.prologo();
         Dialoghi.oggi();
-
-        //INSERIRE DIALOGO PRIMA DI ENTRARE IN CASA
-
+        Dialoghi.piuTardi();
+        Dialoghi.obiettivo();
         Dialoghi.stanza1();
         partita.stampaMappa();
 

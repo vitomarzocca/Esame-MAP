@@ -61,7 +61,7 @@ public class GameManager {
         String parolaLetta;
 
         try {
-            fr = new FileReader("./Gioco_MAP/src/main/resources/paroleDaCancellare.txt");
+            fr = new FileReader("C:\\Users\\Flavio Palma\\Desktop\\Metodi Avanzati Programmazione\\Prog\\Esame-MAP\\Gioco_MAP\\src\\main\\resources\\paroleDaCancellare.txt");
         } catch (FileNotFoundException e) {
             Dialoghi.erroreGestioneFile();
         }
@@ -115,7 +115,7 @@ public class GameManager {
         String parolaLetta;
 
         try {
-            fr = new FileReader("./Gioco_MAP/src/main/resources/paroleConcesse.txt");
+            fr = new FileReader("C:\\Users\\Flavio Palma\\Desktop\\Metodi Avanzati Programmazione\\Prog\\Esame-MAP\\Gioco_MAP\\src\\main\\resources\\paroleConcesse.txt");
         } catch (FileNotFoundException e) {
             Dialoghi.erroreGestioneFile();
         }
@@ -181,7 +181,7 @@ public class GameManager {
 
         try
         {
-            fis = new FileInputStream("./Gioco_MAP/src/main/resources/DescrizioneStanze");
+            fis = new FileInputStream("C:\\Users\\Flavio Palma\\Desktop\\Metodi Avanzati Programmazione\\Prog\\Esame-MAP\\Gioco_MAP\\src\\main\\resources\\DescrizioneStanze");
         }
         catch (IOException e)
         {
@@ -1482,7 +1482,7 @@ public class GameManager {
     public void salvaPartita()
     {
         salvataggio = new GestioneSalvataggio();
-        File fileDaCancellare = new File ("/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/descrizioneStanze.txt");
+        File fileDaCancellare = new File ("C:\\Users\\Flavio Palma\\Desktop\\Metodi Avanzati Programmazione\\Prog\\Esame-MAP\\Gioco_MAP\\src\\main\\resources\\descrizioneStanze.txt");
 
         salvataggio.inserimentoSalvataggioInTabella(nascosto, stanzaCorrente, vivo, inventario, stanzaVisitata, evento.eventoInFunzione);
 
@@ -1502,7 +1502,11 @@ public class GameManager {
 
         try
         {
+<<<<<<< HEAD
+            fos = new FileOutputStream("C:\\Users\\Flavio Palma\\Desktop\\Metodi Avanzati Programmazione\\Prog\\Esame-MAP\\Gioco_MAP\\src\\main\\resources\\descrizioneStanze.txt");
+=======
             fos = new FileOutputStream("./Gioco_MAP/src/main/resources/descrizioneStanze.txt");
+>>>>>>> df954f47e300b8e4da2ea2302ae22b5477f49f5d
         }
         catch(FileNotFoundException e)
         {
@@ -1515,7 +1519,7 @@ public class GameManager {
         }
         catch (IOException e)
         {
-            System.out.println("Si è verofocato un errore nell salvataggio 1");
+            System.out.println("Si è verificato un errore nell salvataggio 1");
         }
 
         it = casa.iterator();

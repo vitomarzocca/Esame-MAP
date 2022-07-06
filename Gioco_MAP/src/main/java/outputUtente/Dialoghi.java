@@ -46,27 +46,35 @@ public class Dialoghi {
 
     public static void messaggioInizioEvento()
     {
+        System.out.println("\n");
         System.out.println("ATTENZIONE E' APPENA ARRIVATA UN AUTO");
         System.out.println("NON FARTI BECCARE");
     }
 
     public static void prologo()
     {
-            System.out.println("Prologo:");
-            System.out.println("20 giorni prima");
-            System.out.println("Una giornata tranquilla nella chiassosa Brooklyn, Johnny -o mafius- si sta ritirando a casa da una serena cena con i colleghi mafiosi.");
-            System.out.println("Johnny era sempre stato uno a cui piaceva apparire e piaceva farlo con stile, ma questa cosa gli si ritorse contro.");
-            System.out.println("Appena uscito dal ristorante del suo miglior amico e collega Vivio Marzalma,si ritrovo' con le spalle al muro in un vicoletto li' vicino...");
-            System.out.println("Una banda di scapestrati mandati da qualcuno l aveva gia' accerchiato e sembrava fossero interessati solo al derubarlo anche a costo di non lasciarlo in vita.");
-            System.out.println("-Davvero strano- penso' Johnny mentre guardava negli occhi i suoi malfattori, -guardano tutti la mia fedora di al capone, saranno interessati davvero a quella?-");
-            System.out.println("Non fece in tempo a pensare un alternativa per scappare che senti' una botta e poi tutto nero.");
+        System.out.println("Prologo:");
+        System.out.println("20 giorni prima");
+        System.out.println("Una giornata tranquilla nella chiassosa Brooklyn, Johnny -o mafius- si sta" +
+                " ritirando a casa da una serena cena con i colleghi mafiosi.");
+        System.out.println("Johnny era sempre stato uno a cui piaceva apparire e piaceva" +
+                " farlo con stile, ma questa cosa gli si ritorse contro.");
+        System.out.println("Appena uscito dal ristorante del suo miglior amico e" +
+                " collega Vivio Marzalma,si ritrovo' con le spalle al muro in un vicoletto li' vicino...");
+        System.out.println("Una banda di scapestrati mandati da qualcuno l aveva gia'" +
+                " accerchiato e sembrava fossero interessati solo al derubarlo anche a costo di non lasciarlo in vita.");
+        System.out.println("-Davvero strano- penso' Johnny mentre guardava negli occhi" +
+                " i suoi malfattori, -guardano tutti la mia fedora di al capone, saranno interessati davvero a quella?-");
+        System.out.println("Non fece in tempo a pensare un alternativa" +
+                " per scappare che senti' una botta e poi tutto nero.");
         }
 
     public static void obiettivo()
     {
-            System.out.println("Missione: Il Furto");
-            System.out.println("Obiettivo: Recupera LA FEDORA");
-        }
+        System.out.println("\n");
+        System.out.println("Missione: Il Furto");
+        System.out.println("Obiettivo: Recupera LA FEDORA");
+    }
 
     public static void oggi()
     {
@@ -98,33 +106,33 @@ public class Dialoghi {
         }
     public static void stanza1()
     {
-            System.out.println("\n");
-            System.out.println("L' INGRESSO");
-            System.out.println("L' ingresso e' alquanto illuminato dalla luna"
+        System.out.println("\n");
+        System.out.println("L' INGRESSO");
+        System.out.println("L' ingresso e' alquanto illuminato dalla luna"
                     + " che frange le vetrate con immagini della madonna.");
 
-            System.out.println("E' presente una porta a: Nord, Est, Ovest.");         
+        System.out.println("E' presente una porta a: Nord, Est, Ovest.");
         }
 
     public static void stanza2()
     {
-            System.out.println("\n");
-            System.out.println("LO SGABUZZINO");
-            System.out.println("Si intravedono delle"
-                    + " scope ed un lavello sporco di sangue."
-                    + "Che puzza esci subito da quiii!!");
-            System.out.println("E' presente una porta a: Ovest.");
+        System.out.println("\n");
+        System.out.println("LO SGABUZZINO");
+        System.out.println("Si intravedono delle"
+                + " scope ed un lavello sporco di sangue."
+                + "Che puzza esci subito da quiii!!");
+        System.out.println("E' presente una porta a: Ovest.");
         }
 
     public static void stanza3()
     {
-            System.out.println("IL SALOTTO");
-            System.out.println("Un salotto rustico con un enorme "
-                    + "set di divani di pelle"
-                    + "marrone trapuntati e la testa di un orso sul camino"
-                    + "in pietra.");
-            System.out.println("E' presente un armadio");
-            System.out.println("E' presente una porta a: Nord, Ovest.");
+        System.out.println("IL SALOTTO");
+        System.out.println("Un salotto rustico con un enorme "
+                + "set di divani di pelle"
+                + "marrone trapuntati e la testa di un orso sul camino"
+                + "in pietra.");
+        System.out.println("E' presente un armadio");
+        System.out.println("E' presente una porta a: Nord, Ovest.");
         }
 
     public static void stanza4()
