@@ -39,7 +39,7 @@ public class GestioneSalvataggio
 
         try
         {
-             conn = DriverManager.getConnection("jdbc:h2:file:/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/dataBaseLocale", credenziali);
+             conn = DriverManager.getConnection("jdbc:h2:file:./Gioco_MAP/src/main/resources/dataBaseLocale", credenziali);
         }
         catch (SQLException e)
         {

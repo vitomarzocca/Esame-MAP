@@ -5,6 +5,7 @@ import outputUtente.Dialoghi;
 import java.io.*;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Set;
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -318,6 +319,13 @@ public class GameManager {
             oggetto = "PADELLA";
         }
 
+        if (stanzaCorrente == 9 && oggetto.compareTo("fedora") == 0)
+        {
+            oggetto = "FEDORA";
+            Dialoghi.fine();
+            vivo = false;
+        }
+
 
         if (evento.eventoInPausa == false)
         {
@@ -492,7 +500,7 @@ public class GameManager {
         Oggetti ogg;
 
         try {
-            ogg = Oggetti.valueOf(oggetto);
+            ogg = Oggetti.valueOf(oggetto.toUpperCase());
 
             if (controllaInvetario(ogg))
             {
@@ -553,8 +561,8 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
+
             }
         }
 
@@ -582,8 +590,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
 
         }
@@ -612,8 +619,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -640,8 +646,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -668,8 +673,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -706,8 +710,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -734,8 +737,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -757,13 +759,13 @@ public class GameManager {
                 else
                 {
                     Dialoghi.stanza5();
+                    Dialoghi.messaggioPresenzaPadella(nuovaStanza, evento.eventoInFunzione);
                 }
             }
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -791,8 +793,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -819,8 +820,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -857,8 +857,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -885,8 +884,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -913,8 +911,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -926,7 +923,6 @@ public class GameManager {
             {
                 stanzaCorrente = nuovaStanza.numeroStanza;
                 evento.cambiaStanzaCorrente(5);
-                Dialoghi.messaggioPresenzaPadella(nuovaStanza, evento.eventoInFunzione);
                 stanzaVisitata[stanzaCorrente - 1] = true;
 
                 if (nuovaStanza.luce == false)
@@ -943,8 +939,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -971,8 +966,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -999,8 +993,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -1027,8 +1020,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -1064,8 +1056,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -1092,8 +1083,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -1123,8 +1113,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -1152,8 +1141,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -1202,8 +1190,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -1230,8 +1217,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -1258,8 +1244,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -1286,8 +1271,7 @@ public class GameManager {
 
             else
             {
-                Dialoghi.necessitiDi();
-                System.out.print(nuovaStanza.oggettoRichiesto);
+                Dialoghi.necessitiDi(nuovaStanza);
             }
         }
 
@@ -1518,7 +1502,7 @@ public class GameManager {
 
         try
         {
-            fos = new FileOutputStream("/home/vito/Scrivania/Esame-MAP/Gioco_MAP/src/main/resources/descrizioneStanze.txt");
+            fos = new FileOutputStream("./Gioco_MAP/src/main/resources/descrizioneStanze.txt");
         }
         catch(FileNotFoundException e)
         {

@@ -42,7 +42,7 @@ public class Gioco {
 
         }
 
-        System.out.println("FINE DEL GIOCO");
+        System.out.println("\nFINE DEL GIOCO");
     }
 }
 

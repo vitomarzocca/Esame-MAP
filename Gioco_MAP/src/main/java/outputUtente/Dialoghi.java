@@ -198,7 +198,7 @@ public class Dialoghi {
         System.out.println("La partita e' stata salvata correttamente.");
     }
     public static void luceGuasta(){
-        System.out.println("La luce e' guasta. Hai qualcosa per illuminare?");
+        System.out.println("La luce e' guasta. Devo usare qualcosa par fare luce");
     }
     public static void oggettoNecessario(){
         System.out.println("Accidenti... questa porta e' chiusa,"
@@ -249,7 +249,7 @@ public class Dialoghi {
         System.out.println("In questa stanza non e' presente l'oggetto ");
     }
     public static void oggettoNonPresenteInInventario(){
-        System.out.println("L' oggetto che vuoi usare non e' presente nel tuo inventario %n");
+        System.out.println("L' oggetto che vuoi usare non e' presente nel tuo inventario ");
     }
     public static void luceGiaAccesa(){
         System.out.println("La luce � gia' accesa");
@@ -257,8 +257,9 @@ public class Dialoghi {
     public static void luceGiaSpenta(){
         System.out.println("La luce e' gia' spenta");
     }
-    public static void necessitiDi(){
-        System.out.println("Per accedere a questa stanza hai bisogno di :");
+    public static void necessitiDi(Stanza stanza)
+    {
+        System.out.println("Per accedere a questa stanza hai bisogno di: " + stanza.oggettoRichiesto + "\n");
         
     }
     public static void portaInesistente(){
