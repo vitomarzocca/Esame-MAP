@@ -1,3 +1,7 @@
+package logica;
+
+import logica.Oggetti;
+
 import java.io.Serializable;
 
 public class Stanza implements Serializable
@@ -5,7 +9,7 @@ public class Stanza implements Serializable
     public int numeroStanza;
     public String descrizione;
     public Oggetti oggettoRichiesto = Oggetti.VUOTO;  //ad esempio per entrare in una stanza serve la chiave
-    public Oggetti oggetto = Oggetti.VUOTO;
+    public Oggetti oggetto;
     public boolean luce;   //FALSE = luce spenta    TRUE = luce accesa
     public boolean letto;  //FALSE = non c'è un letto   TRUE = c'è un letto.
     public boolean armadio;  //FALSE = non c'è un armadio   TRUE = c'è un letto.armadio.

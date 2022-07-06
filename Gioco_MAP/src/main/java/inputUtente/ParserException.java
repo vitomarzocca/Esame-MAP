@@ -1,3 +1,5 @@
+package inputUtente;
+
 public class ParserException extends Exception
 {
     @Override

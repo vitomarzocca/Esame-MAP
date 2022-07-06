@@ -1,8 +1,9 @@
-import java.util.Set;
+package inputUtente;
+
+import logica.GameManager;
 
 public class Parser
 {
-    //L'idea è quella di prendere il comando e riscriverlo come <verbo> <oggetto>
     public static void parser(String comando,  GameManager partita) throws ParserException
     {
         int i = 0;
@@ -16,7 +17,7 @@ public class Parser
 
         for (String parola:elementiComandoSporco)
         {
-            if(partita.paroleDaCancellare.contains(parola) == false && i<2 && partita.paroleConcesse.contains(parola) == true)
+            if(!partita.paroleDaCancellare.contains(parola) && i<2 && partita.paroleConcesse.contains(parola))
             {
                 elementiComandoPulito[i]=parola;
                 i++;

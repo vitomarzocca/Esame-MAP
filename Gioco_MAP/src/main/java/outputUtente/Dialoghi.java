@@ -1,3 +1,7 @@
+package outputUtente;
+
+import logica.Oggetti;
+import logica.Stanza;
 
 public class Dialoghi {
 
@@ -9,6 +13,7 @@ public class Dialoghi {
             System.out.println("Potrebbe risualtare utile raccoglierla");
         }
     }
+
     public static void messaggioPresenzaAccendino(Stanza stanza)
     {
         if(stanza.oggetto == Oggetti.ACCENDINO)
@@ -18,6 +23,7 @@ public class Dialoghi {
                     + " Un accendino puo' essere sempre utile");
         }
     }
+
     public static void messaggioPresenzaPadella(Stanza stanza, boolean eventoTipoCheCammina)
     {
         if(stanza.oggetto == Oggetti.PADELLA && eventoTipoCheCammina == true)
@@ -27,6 +33,7 @@ public class Dialoghi {
             System.out.println("Questa padella dovrebbe andare bene");
         }
     }
+
     public static void messaggioPresenzaChiaveTesoro(Stanza stanza)
     {
         if (stanza.oggetto == Oggetti.CHIAVE_TESORO)
@@ -36,12 +43,15 @@ public class Dialoghi {
 
         }
     }
+
     public static void messaggioInizioEvento()
     {
         System.out.println("ATTENZIONE E' APPENA ARRIVATA UN AUTO");
         System.out.println("NON FARTI BECCARE");
     }
-    public static void prologo() {
+
+    public static void prologo()
+    {
             System.out.println("Prologo:");
             System.out.println("20 giorni prima");
             System.out.println("Una giornata tranquilla nella chiassosa Brooklyn, Johnny -o mafius- si sta ritirando a casa da una serena cena con i colleghi mafiosi.");
@@ -51,10 +61,13 @@ public class Dialoghi {
             System.out.println("-Davvero strano- penso' Johnny mentre guardava negli occhi i suoi malfattori, -guardano tutti la mia fedora di al capone, saranno interessati davvero a quella?-");
             System.out.println("Non fece in tempo a pensare un alternativa per scappare che senti' una botta e poi tutto nero.");
         }
-    public static void obiettivo(){
+
+    public static void obiettivo()
+    {
             System.out.println("Missione: Il Furto");
             System.out.println("Obiettivo: Recupera LA FEDORA");
         }
+
     public static void oggi()
     {
             System.out.println("\n");
@@ -65,7 +78,9 @@ public class Dialoghi {
             System.out.println("-Dimmi che e' quello che penso...- disse Johnny con gli occhi di fuoco.");
             System.out.println("-Paparino sta tornando!-");
         }
-    public static void fine(){
+
+    public static void fine()
+    {
           System.out.println("Fine:");  
           System.out.println("Johnny rivide il suo cappello e si mise a piangere"
                   + "dalla gioia,era cosi felice che si fece"
@@ -77,10 +92,12 @@ public class Dialoghi {
                   + "ci si dovrebbe aspettare un morto. Eh."
                   + "Non tutte le storie finiscono bene.");
         }
+
     public static void attesaInput(){
             System.out.println("\nCOSA VUOI FARE :");
         }
-    public static void stanza1(){
+    public static void stanza1()
+    {
             System.out.println("\n");
             System.out.println("L' INGRESSO");
             System.out.println("L' ingresso e' alquanto illuminato dalla luna"
@@ -88,7 +105,9 @@ public class Dialoghi {
 
             System.out.println("E' presente una porta a: Nord, Est, Ovest.");         
         }
-    public static void stanza2(){
+
+    public static void stanza2()
+    {
             System.out.println("\n");
             System.out.println("LO SGABUZZINO");
             System.out.println("Si intravedono delle"
@@ -96,7 +115,9 @@ public class Dialoghi {
                     + "Che puzza esci subito da quiii!!");
             System.out.println("E' presente una porta a: Ovest.");
         }
-    public static void stanza3(){
+
+    public static void stanza3()
+    {
             System.out.println("IL SALOTTO");
             System.out.println("Un salotto rustico con un enorme "
                     + "set di divani di pelle"
@@ -105,12 +126,15 @@ public class Dialoghi {
             System.out.println("E' presente un armadio");
             System.out.println("E' presente una porta a: Nord, Ovest.");
         }
-    public static void stanza4(){
+
+    public static void stanza4()
+    {
             System.out.println("LA SALA DA PRANZO");
             System.out.println("Una sala da pranzo stile a meta' tra il moderno"
                     + " ed il classico, si vede che ci ha speso un capitale.");
             System.out.println("E' presente una porta a: Nord, Sud, Est.");
         }
+
     public static void stanza5(){
             System.out.println("LA CUCINA");
             System.out.println("Una cucina scavolini di quelle sponsorizzate"
@@ -178,7 +202,7 @@ public class Dialoghi {
     public static void oggettoNecessario(){
         System.out.println("Accidenti... questa porta e' chiusa,"
       +  "credo che servira' una chiave per aprirla.");
-        System.out.println("Probabilmente si trovera'  in un altra stanza della casa");
+        System.out.println("Probabilmente si trovera'ï¿½ in un altra stanza della casa");
     }
     public static void nascostoStordimento(){
         System.out.println("Bravo,ti sei nascosto senza farti sentire!");
@@ -227,7 +251,7 @@ public class Dialoghi {
         System.out.println("L' oggetto che vuoi usare non e' presente nel tuo inventario %n");
     }
     public static void luceGiaAccesa(){
-        System.out.println("La luce è gia' accesa");
+        System.out.println("La luce ï¿½ gia' accesa");
     }
     public static void luceGiaSpenta(){
         System.out.println("La luce e' gia' spenta");

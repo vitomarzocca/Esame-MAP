@@ -1,9 +1,12 @@
-import java.io.*;
-import java.net.PasswordAuthentication;
-import java.util.Iterator;
+package logica;
+
+import inputUtente.Parser;
+import outputUtente.Dialoghi;
+import inputUtente.ParserException;
+
 import java.util.Scanner;
 
-public class Test {
+public class Gioco {
     public static void main(String[] args)
     {
         String comando;

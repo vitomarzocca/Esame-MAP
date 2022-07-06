@@ -37,21 +37,21 @@
  import java.io.*;
 import java.util.Iterator;
 
-public class Test {
+public class logica.Gioco {
     public static void main(String[] args)
     {
-        Stanza stanza1 = new Stanza(1, "Ingresso", true, false, false, Oggetti.VUOTO, Oggetti.VUOTO);
-        Stanza stanza2 = new Stanza(2, "Ripostiglio", false, false, false, Oggetti.VUOTO, Oggetti.VUOTO);
-        Stanza stanza3 = new Stanza(3, "Salotto", true, false, true, Oggetti.accendino, Oggetti.VUOTO);
-        Stanza stanza4 = new Stanza(4, "Sala da prinazo", false, false, false, Oggetti.chiave_cantina, Oggetti.VUOTO);
-        Stanza stanza5 = new Stanza(5, "Cucina", true, false, true, Oggetti.padella, Oggetti.VUOTO);
-        Stanza stanza6 = new Stanza(6, "Bagno", true, false, true, Oggetti.VUOTO, Oggetti.VUOTO);
-        Stanza stanza7 = new Stanza(7, "Secondo salotto", false, false, false, Oggetti.VUOTO, Oggetti.VUOTO);
-        Stanza stanza8 = new Stanza(8, "Stanza da letto delle guardie del bos", false, true, true, Oggetti.VUOTO, Oggetti.VUOTO);
-        Stanza stanza9 = new Stanza(9, "Stanza dei tesori", true, false, false, Oggetti.fedora, Oggetti.chiave_tesoro);
-        Stanza stanza10 = new Stanza(10, "Stanza da letto del bos", false, true, true, Oggetti.chiave_tesoro, Oggetti.VUOTO);
-        Stanza stanza11 = new Stanza(11, "Cantina delle armi", false, false, false, Oggetti.VUOTO, Oggetti.VUOTO);
-        Stanza stanza12 = new Stanza(12, "Cantina delle scorte alimentari", false, false, false, Oggetti.VUOTO, Oggetti.VUOTO);
+        logica.Stanza stanza1 = new logica.Stanza(1, "Ingresso", true, false, false, logica.Oggetti.VUOTO, logica.Oggetti.VUOTO);
+        logica.Stanza stanza2 = new logica.Stanza(2, "Ripostiglio", false, false, false, logica.Oggetti.VUOTO, logica.Oggetti.VUOTO);
+        logica.Stanza stanza3 = new logica.Stanza(3, "Salotto", true, false, true, logica.Oggetti.accendino, logica.Oggetti.VUOTO);
+        logica.Stanza stanza4 = new logica.Stanza(4, "Sala da prinazo", false, false, false, logica.Oggetti.chiave_cantina, logica.Oggetti.VUOTO);
+        logica.Stanza stanza5 = new logica.Stanza(5, "Cucina", true, false, true, logica.Oggetti.padella, logica.Oggetti.VUOTO);
+        logica.Stanza stanza6 = new logica.Stanza(6, "Bagno", true, false, true, logica.Oggetti.VUOTO, logica.Oggetti.VUOTO);
+        logica.Stanza stanza7 = new logica.Stanza(7, "Secondo salotto", false, false, false, logica.Oggetti.VUOTO, logica.Oggetti.VUOTO);
+        logica.Stanza stanza8 = new logica.Stanza(8, "logica.Stanza da letto delle guardie del bos", false, true, true, logica.Oggetti.VUOTO, logica.Oggetti.VUOTO);
+        logica.Stanza stanza9 = new logica.Stanza(9, "logica.Stanza dei tesori", true, false, false, logica.Oggetti.fedora, logica.Oggetti.chiave_tesoro);
+        logica.Stanza stanza10 = new logica.Stanza(10, "logica.Stanza da letto del bos", false, true, true, logica.Oggetti.chiave_tesoro, logica.Oggetti.VUOTO);
+        logica.Stanza stanza11 = new logica.Stanza(11, "Cantina delle armi", false, false, false, logica.Oggetti.VUOTO, logica.Oggetti.VUOTO);
+        logica.Stanza stanza12 = new logica.Stanza(12, "Cantina delle scorte alimentari", false, false, false, logica.Oggetti.VUOTO, logica.Oggetti.VUOTO);
 
         ObjectOutputStream oss;
         try{

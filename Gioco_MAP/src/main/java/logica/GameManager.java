@@ -1,3 +1,7 @@
+package logica;
+
+import outputUtente.Dialoghi;
+
 import java.io.*;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -6,17 +10,18 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 
 public class GameManager {
+
+    final int DIMENSIONE_INVENTARIO = 6;
+    final int NUMERO_STANZE = 12;
     public boolean nascosto = false;
     public int stanzaCorrente;
     public boolean vivo;
-    public Oggetti[] inventario = new Oggetti[6];
-    public boolean[] stanzaVisitata = new boolean[12];
-    public Set<Stanza> casa = new HashSet();
+    public Oggetti[] inventario = new Oggetti[DIMENSIONE_INVENTARIO];
+    public boolean[] stanzaVisitata = new boolean[NUMERO_STANZE];
+    public Set<Stanza> casa = new HashSet<>();
     public Set<String> paroleConcesse = new HashSet<>();
     public Set<String> paroleDaCancellare = new HashSet<>();
-
     Evento evento;
-
     GestioneSalvataggio salvataggio;
 
 
@@ -102,7 +107,7 @@ public class GameManager {
         }
     }
 
-    private void avvaloraParoleConcesse(Inseritore <String> in)
+    private void avvaloraParoleConcesse(Inseritore<String> in)
     {
         FileReader fr = null;
         boolean flag = false;
@@ -156,12 +161,22 @@ public class GameManager {
         }
     }
 
-    private void avvaloraCasa(Inseritore <Stanza> in)
+    private void avvaloraCasa(Inseritore<Stanza> in)
     {
         Stanza stanza = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         boolean flag = false;
+
+        try
+        {
+            Class.forName("logica.Stanza");
+        }
+        catch(ClassNotFoundException e)
+        {
+            System.out.println("non worka");
+        }
+
 
         try
         {
@@ -197,21 +212,26 @@ public class GameManager {
             Dialoghi.errore();
         }
 
-        try {
+        try
+        {
             fis.close();
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             Dialoghi.erroreStream();
         }
 
-        try {
+        try
+        {
             ois.close();
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             Dialoghi.erroreStream();
         }
 
     }
 
-    public Stanza ricercaStanzaCorrente()
+    private Stanza ricercaStanzaCorrente()
     {
         Stanza stanza = null;
 

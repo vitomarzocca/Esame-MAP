@@ -1,4 +1,5 @@
-import java.util.Set;
+package logica;
+
 
 public interface Inseritore <T>
 {

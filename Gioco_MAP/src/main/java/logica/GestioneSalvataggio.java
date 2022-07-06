@@ -1,4 +1,5 @@
-import javax.xml.transform.Result;
+package logica;
+
 import java.sql.*;
 import java.util.Properties;
 
@@ -30,7 +31,7 @@ public class GestioneSalvataggio
         }
 
     }
-    public void connessioneDB()
+    private void connessioneDB()
     {
        Properties credenziali = new Properties();
        credenziali.setProperty("user", "user");
@@ -48,7 +49,7 @@ public class GestioneSalvataggio
 
     }
 
-    public void creazioneTabellaDB()
+    private void creazioneTabellaDB()
     {
          final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS partita\n" +
                  "     (\n" +
@@ -208,7 +209,7 @@ public class GestioneSalvataggio
         System.out.println("SALVATAGGIO COMPLETATO");
     }
 
-    public  GameManager caricaSalvataggio()
+    public GameManager caricaSalvataggio()
     {
         connessioneDB();
 

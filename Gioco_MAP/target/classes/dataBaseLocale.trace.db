@@ -116,16 +116,16 @@ INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
 	at org.h2.message.DbException.get(DbException.java:181)
 	at org.h2.message.DbException.get(DbException.java:170)
 	at org.h2.command.dml.Insert.prepare(Insert.java:319)
-	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.command.inputUtente.Parser.prepareCommand(inputUtente.Parser.java:744)
 	at org.h2.engine.Session.prepareLocal(Session.java:657)
 	at org.h2.engine.Session.prepareCommand(Session.java:595)
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
 	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
 	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352)
-	at GestioneSalvataggio.inserimentoSalvataggioInTabella(GestioneSalvataggio.java:122)
-	at GameManager.salvaPartita(GameManager.java:1129)
-	at Parser.parser(Parser.java:69)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.inserimentoSalvataggioInTabella(logica.GestioneSalvataggio.java:122)
+	at logica.GameManager.salvaPartita(logica.GameManager.java:1129)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:69)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-29 20:33:19 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Invalid value "22" for parameter "parameterIndex" [90008-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:590)
@@ -134,10 +134,10 @@ org.h2.jdbc.JdbcSQLDataException: Invalid value "22" for parameter "parameterInd
 	at org.h2.message.DbException.getInvalidValueException(DbException.java:280)
 	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1503)
 	at org.h2.jdbc.JdbcPreparedStatement.setBoolean(JdbcPreparedStatement.java:585)
-	at GestioneSalvataggio.inserimentoSalvataggioInTabella(GestioneSalvataggio.java:151)
-	at GameManager.salvaPartita(GameManager.java:1129)
-	at Parser.parser(Parser.java:69)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.inserimentoSalvataggioInTabella(logica.GestioneSalvataggio.java:151)
+	at logica.GameManager.salvaPartita(logica.GameManager.java:1129)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:69)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-29 20:33:19 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Parameter "#4" is not set; SQL statement:
 INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [90012-200]
@@ -151,10 +151,10 @@ INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
 	at org.h2.command.Command.executeUpdate(Command.java:251)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
-	at GestioneSalvataggio.inserimentoSalvataggioInTabella(GestioneSalvataggio.java:168)
-	at GameManager.salvaPartita(GameManager.java:1129)
-	at Parser.parser(Parser.java:69)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.inserimentoSalvataggioInTabella(logica.GestioneSalvataggio.java:168)
+	at logica.GameManager.salvaPartita(logica.GameManager.java:1129)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:69)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-29 20:35:57 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Invalid value "22" for parameter "parameterIndex" [90008-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:590)
@@ -163,10 +163,10 @@ org.h2.jdbc.JdbcSQLDataException: Invalid value "22" for parameter "parameterInd
 	at org.h2.message.DbException.getInvalidValueException(DbException.java:280)
 	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1503)
 	at org.h2.jdbc.JdbcPreparedStatement.setBoolean(JdbcPreparedStatement.java:585)
-	at GestioneSalvataggio.inserimentoSalvataggioInTabella(GestioneSalvataggio.java:152)
-	at GameManager.salvaPartita(GameManager.java:1129)
-	at Parser.parser(Parser.java:69)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.inserimentoSalvataggioInTabella(logica.GestioneSalvataggio.java:152)
+	at logica.GameManager.salvaPartita(logica.GameManager.java:1129)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:69)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-29 20:35:57 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Parameter "#4" is not set; SQL statement:
 INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [90012-200]
@@ -180,10 +180,10 @@ INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
 	at org.h2.command.Command.executeUpdate(Command.java:251)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
-	at GestioneSalvataggio.inserimentoSalvataggioInTabella(GestioneSalvataggio.java:169)
-	at GameManager.salvaPartita(GameManager.java:1129)
-	at Parser.parser(Parser.java:69)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.inserimentoSalvataggioInTabella(logica.GestioneSalvataggio.java:169)
+	at logica.GameManager.salvaPartita(logica.GameManager.java:1129)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:69)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-29 20:36:18 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Invalid value "22" for parameter "parameterIndex" [90008-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:590)
@@ -192,10 +192,10 @@ org.h2.jdbc.JdbcSQLDataException: Invalid value "22" for parameter "parameterInd
 	at org.h2.message.DbException.getInvalidValueException(DbException.java:280)
 	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1503)
 	at org.h2.jdbc.JdbcPreparedStatement.setBoolean(JdbcPreparedStatement.java:585)
-	at GestioneSalvataggio.inserimentoSalvataggioInTabella(GestioneSalvataggio.java:151)
-	at GameManager.salvaPartita(GameManager.java:1129)
-	at Parser.parser(Parser.java:69)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.inserimentoSalvataggioInTabella(logica.GestioneSalvataggio.java:151)
+	at logica.GameManager.salvaPartita(logica.GameManager.java:1129)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:69)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-29 20:36:18 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Parameter "#4" is not set; SQL statement:
 INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [90012-200]
@@ -209,10 +209,10 @@ INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
 	at org.h2.command.Command.executeUpdate(Command.java:251)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
-	at GestioneSalvataggio.inserimentoSalvataggioInTabella(GestioneSalvataggio.java:168)
-	at GameManager.salvaPartita(GameManager.java:1129)
-	at Parser.parser(Parser.java:69)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.inserimentoSalvataggioInTabella(logica.GestioneSalvataggio.java:168)
+	at logica.GameManager.salvaPartita(logica.GameManager.java:1129)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:69)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-29 20:36:35 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Invalid value "22" for parameter "parameterIndex" [90008-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:590)
@@ -221,10 +221,10 @@ org.h2.jdbc.JdbcSQLDataException: Invalid value "22" for parameter "parameterInd
 	at org.h2.message.DbException.getInvalidValueException(DbException.java:280)
 	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1503)
 	at org.h2.jdbc.JdbcPreparedStatement.setBoolean(JdbcPreparedStatement.java:585)
-	at GestioneSalvataggio.inserimentoSalvataggioInTabella(GestioneSalvataggio.java:151)
-	at GameManager.salvaPartita(GameManager.java:1129)
-	at Parser.parser(Parser.java:69)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.inserimentoSalvataggioInTabella(logica.GestioneSalvataggio.java:151)
+	at logica.GameManager.salvaPartita(logica.GameManager.java:1129)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:69)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-29 20:36:35 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Parameter "#4" is not set; SQL statement:
 INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [90012-200]
@@ -238,10 +238,10 @@ INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
 	at org.h2.command.Command.executeUpdate(Command.java:251)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
-	at GestioneSalvataggio.inserimentoSalvataggioInTabella(GestioneSalvataggio.java:168)
-	at GameManager.salvaPartita(GameManager.java:1129)
-	at Parser.parser(Parser.java:69)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.inserimentoSalvataggioInTabella(logica.GestioneSalvataggio.java:168)
+	at logica.GameManager.salvaPartita(logica.GameManager.java:1129)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:69)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-29 20:37:38 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Invalid value "22" for parameter "parameterIndex" [90008-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:590)
@@ -250,10 +250,10 @@ org.h2.jdbc.JdbcSQLDataException: Invalid value "22" for parameter "parameterInd
 	at org.h2.message.DbException.getInvalidValueException(DbException.java:280)
 	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1503)
 	at org.h2.jdbc.JdbcPreparedStatement.setBoolean(JdbcPreparedStatement.java:585)
-	at GestioneSalvataggio.inserimentoSalvataggioInTabella(GestioneSalvataggio.java:151)
-	at GameManager.salvaPartita(GameManager.java:1129)
-	at Parser.parser(Parser.java:69)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.inserimentoSalvataggioInTabella(logica.GestioneSalvataggio.java:151)
+	at logica.GameManager.salvaPartita(logica.GameManager.java:1129)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:69)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-29 20:37:50 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Parameter "#4" is not set; SQL statement:
 INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [90012-200]
@@ -267,10 +267,10 @@ INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
 	at org.h2.command.Command.executeUpdate(Command.java:251)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
-	at GestioneSalvataggio.inserimentoSalvataggioInTabella(GestioneSalvataggio.java:168)
-	at GameManager.salvaPartita(GameManager.java:1129)
-	at Parser.parser(Parser.java:69)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.inserimentoSalvataggioInTabella(logica.GestioneSalvataggio.java:168)
+	at logica.GameManager.salvaPartita(logica.GameManager.java:1129)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:69)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-29 20:38:18 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Invalid value "22" for parameter "parameterIndex" [90008-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:590)
@@ -279,10 +279,10 @@ org.h2.jdbc.JdbcSQLDataException: Invalid value "22" for parameter "parameterInd
 	at org.h2.message.DbException.getInvalidValueException(DbException.java:280)
 	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1503)
 	at org.h2.jdbc.JdbcPreparedStatement.setBoolean(JdbcPreparedStatement.java:585)
-	at GestioneSalvataggio.inserimentoSalvataggioInTabella(GestioneSalvataggio.java:151)
-	at GameManager.salvaPartita(GameManager.java:1129)
-	at Parser.parser(Parser.java:69)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.inserimentoSalvataggioInTabella(logica.GestioneSalvataggio.java:151)
+	at logica.GameManager.salvaPartita(logica.GameManager.java:1129)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:69)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-29 20:42:55 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Parameter "#4" is not set; SQL statement:
 INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [90012-200]
@@ -296,10 +296,10 @@ INSERT INTO partita VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
 	at org.h2.command.Command.executeUpdate(Command.java:251)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
-	at GestioneSalvataggio.inserimentoSalvataggioInTabella(GestioneSalvataggio.java:168)
-	at GameManager.salvaPartita(GameManager.java:1129)
-	at Parser.parser(Parser.java:69)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.inserimentoSalvataggioInTabella(logica.GestioneSalvataggio.java:168)
+	at logica.GameManager.salvaPartita(logica.GameManager.java:1129)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:69)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-30 11:24:16 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: No data is available [2000-200]
 2022-06-30 11:25:43 jdbc[3]: exception
@@ -542,10 +542,10 @@ org.h2.jdbc.JdbcSQLNonTransientConnectionException: The database is open in excl
 	at org.h2.engine.Session.waitIfExclusiveModeEnabled(Session.java:1633)
 	at org.h2.command.Command.executeQuery(Command.java:186)
 	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:85)
-	at GestioneSalvataggio.caricaSalvataggio(GestioneSalvataggio.java:215)
-	at GameManager.caricaSalvataggio(GameManager.java:1105)
-	at Parser.parser(Parser.java:64)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.caricaSalvataggio(logica.GestioneSalvataggio.java:215)
+	at logica.GameManager.caricaSalvataggio(logica.GameManager.java:1105)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:64)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-30 12:48:51 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: No data is available [2000-200]
 2022-06-30 12:56:09 jdbc[3]: exception
@@ -603,15 +603,15 @@ STANZAVISITATA12   FROM partita [42122-200]
 	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
 	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
 	at org.h2.command.dml.Select.prepare(Select.java:1206)
-	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.command.inputUtente.Parser.prepareCommand(inputUtente.Parser.java:744)
 	at org.h2.engine.Session.prepareLocal(Session.java:657)
 	at org.h2.engine.Session.prepareCommand(Session.java:595)
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
 	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:78)
-	at GestioneSalvataggio.caricaSalvataggio(GestioneSalvataggio.java:231)
-	at GameManager.caricaSalvataggio(GameManager.java:1376)
-	at Parser.parser(Parser.java:64)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.caricaSalvataggio(logica.GestioneSalvataggio.java:231)
+	at logica.GameManager.caricaSalvataggio(logica.GameManager.java:1376)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:64)
+	at logica.Gioco.main(logica.Gioco.java:30)
 2022-06-30 19:11:59 jdbc[4]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PARTITA" not found; SQL statement:
 DROP TABLE partita [42102-200]
@@ -630,7 +630,7 @@ org.h2.jdbc.JdbcSQLNonTransientConnectionException: The database is open in excl
 	at org.h2.engine.Session.waitIfExclusiveModeEnabled(Session.java:1633)
 	at org.h2.command.Command.executeQuery(Command.java:186)
 	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:85)
-	at GestioneSalvataggio.caricaSalvataggio(GestioneSalvataggio.java:231)
-	at GameManager.caricaSalvataggio(GameManager.java:1383)
-	at Parser.parser(Parser.java:64)
-	at Test.main(Test.java:30)
+	at logica.GestioneSalvataggio.caricaSalvataggio(logica.GestioneSalvataggio.java:231)
+	at logica.GameManager.caricaSalvataggio(logica.GameManager.java:1383)
+	at inputUtente.Parser.parser(inputUtente.Parser.java:64)
+	at logica.Gioco.main(logica.Gioco.java:30)

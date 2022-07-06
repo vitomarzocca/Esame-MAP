@@ -1,3 +1,5 @@
+package logica;
+
 public enum Oggetti
 {
     VUOTO,
@@ -5,6 +7,5 @@ public enum Oggetti
     ACCENDINO,
     PADELLA,
     CHIAVE_TESORO,
-
     FEDORA
 }

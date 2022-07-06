@@ -1,19 +1,19 @@
+package logica;
+
 import java.lang.Math;
 
-public class Evento extends Thread      //EVENTO TIPO CHE CAMMINA PER LE STANZE
+public class Evento extends Thread
 {
     public boolean eventoInFunzione;
     public boolean eventoInPausa;
-
     public int stanzaGuardia;
-
     public int stanzaCorrente;
 
-    //creare un costruttore
+
 
     public Evento()
     {
-        eventoInFunzione = false;
+        eventoInPausa = false;
         eventoInFunzione = false;
         stanzaGuardia = 1;
         stanzaCorrente = 4;
