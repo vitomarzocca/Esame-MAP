@@ -1502,11 +1502,8 @@ public class GameManager {
 
         try
         {
-<<<<<<< HEAD
+
             fos = new FileOutputStream("C:\\Users\\Flavio Palma\\Desktop\\Metodi Avanzati Programmazione\\Prog\\Esame-MAP\\Gioco_MAP\\src\\main\\resources\\descrizioneStanze.txt");
-=======
-            fos = new FileOutputStream("./Gioco_MAP/src/main/resources/descrizioneStanze.txt");
->>>>>>> df954f47e300b8e4da2ea2302ae22b5477f49f5d
         }
         catch(FileNotFoundException e)
         {
