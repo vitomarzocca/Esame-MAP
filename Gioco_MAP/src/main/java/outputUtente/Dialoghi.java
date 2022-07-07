@@ -100,6 +100,9 @@ public class Dialoghi {
         System.out.println("Obiettivo: Recupera LA FEDORA");
     }
 
+    /**
+     * Stampa a schermo il prologo della storia
+     */
     public static void oggi(){
             System.out.println("\n");
             System.out.println("Oggi:");
@@ -109,13 +112,19 @@ public class Dialoghi {
             System.out.println("-Dimmi che e' quello che penso...- disse Johnny con gli occhi di fuoco.");
             System.out.println("-Paparino sta tornando!-");
     }
-    
+
+    /**
+     * Stampa il continuo del prologo della storia
+     */
     public static void piuTardi(){
         System.out.println("--Partenza per la casa del boss--");
         System.out.println("Johnny e' pronto per riprendersi...");
         System.out.println("tutt' chell che e' o soi");
     }
 
+    /**
+     * Stampa l'epilogo delle storia
+     */
     public static void fine()
     {
           System.out.println("Fine:");  
@@ -130,6 +139,9 @@ public class Dialoghi {
                   + "Non tutte le storie finiscono bene.");
         }
 
+    /**
+     * Stampa a schermo un messaggio per chiedere al giocatore cosa vuole fare
+     */
     public static void attesaInput(){
             System.out.println("\nCOSA VUOI FARE :");
         }
@@ -364,7 +376,7 @@ public class Dialoghi {
     }
     /**
      * Metodo statico che avvisa il
-     * giocatore che non è presente nessuna porta nella direzione scelta
+     * giocatore che non ï¿½ presente nessuna porta nella direzione scelta
      */
     public static void portaInesistente(){
         System.out.println("Non esiste nessuna porta in questa direzione");
