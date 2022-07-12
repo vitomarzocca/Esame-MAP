@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class GestioneSalvataggio
 {
-    public Connection conn;
+    private Connection conn;
 
     /**
      * Costruttore della classe GestioneSalvataggio

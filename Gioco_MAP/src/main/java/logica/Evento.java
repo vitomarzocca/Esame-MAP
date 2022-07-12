@@ -6,8 +6,8 @@ public class Evento extends Thread
 {
     public boolean eventoInFunzione;
     public boolean eventoInPausa;
-    public int stanzaGuardia;
-    public int stanzaGiocatore;
+    private int stanzaGuardia;
+    private int stanzaGiocatore;
 
 
     /**
