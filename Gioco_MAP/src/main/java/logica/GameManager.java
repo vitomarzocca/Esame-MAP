@@ -3,9 +3,7 @@ package logica;
 import outputUtente.Dialoghi;
 
 import java.io.*;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 import java.io.FileReader;
 import java.io.BufferedReader;
 
@@ -18,7 +16,7 @@ public class GameManager {
     public boolean vivo;
     public Oggetti[] inventario = new Oggetti[DIMENSIONE_INVENTARIO];
     public boolean[] stanzaVisitata = new boolean[NUMERO_STANZE];
-    private Set<Stanza> casa = new HashSet<>();
+    private List<Stanza> casa = new ArrayList<>();
     public Set<String> paroleConcesse = new HashSet<>();
     public Set<String> paroleDaCancellare = new HashSet<>();
     Evento evento;
