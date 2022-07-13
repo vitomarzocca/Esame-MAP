@@ -96,8 +96,8 @@ public class Dialoghi {
      */
     public static void obiettivo(){
         System.out.println("\n");
-        System.out.println("Missione: Il Furto");
-        System.out.println("Obiettivo: Recupera LA FEDORA");
+        System.out.println("MISSIONE: Il Furto");
+        System.out.println("OBIETTIVO: Gira per la case del Boss e trova la fedora");
     }
 
     /**
@@ -389,7 +389,7 @@ public class Dialoghi {
         System.out.println("-- Jhonny usa la chiave --");
     }
     /**
-     * Metodo statico che avvisa il corretto nascondimento del giocatore nell armadio
+     * Metodo statico che avvisa il corretto inserimento di un oggetto nell'inventario
      */
     public static void aggiuntoInventario(){
         System.out.println(" E' stato aggiunto all'invetario");

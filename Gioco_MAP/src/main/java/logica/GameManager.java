@@ -11,14 +11,14 @@ import java.io.BufferedReader;
 
 public class GameManager {
 
-    final int DIMENSIONE_INVENTARIO = 6;
-    final int NUMERO_STANZE = 12;
+    final private int DIMENSIONE_INVENTARIO = 6;
+    final private int NUMERO_STANZE = 12;
     public boolean nascosto = false;
     public int stanzaCorrente;
     public boolean vivo;
     public Oggetti[] inventario = new Oggetti[DIMENSIONE_INVENTARIO];
     public boolean[] stanzaVisitata = new boolean[NUMERO_STANZE];
-    public Set<Stanza> casa = new HashSet<>();
+    private Set<Stanza> casa = new HashSet<>();
     public Set<String> paroleConcesse = new HashSet<>();
     public Set<String> paroleDaCancellare = new HashSet<>();
     Evento evento;
