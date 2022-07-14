@@ -78,32 +78,27 @@ public class GameManager {
         BufferedReader bf = new BufferedReader(fr);
 
         try {
-            parolaLetta = bf.readLine();
 
-            if (parolaLetta != null) {
-               in.inserisci(parolaLetta);
-                flag = true;
-            }
-
-        } catch (IOException e) {
-            Dialoghi.erroreLetturaParoleDaCancellare();
-
-        }
-
-        try {
-            while (flag) {
+            do
+            {
                 parolaLetta = bf.readLine();
 
-                if (parolaLetta != null) {
+                if (parolaLetta != null)
+                {
                     in.inserisci(parolaLetta);
-
-                } else {
+                    flag = true;
+                }
+                else
+                {
                     flag = false;
                 }
-            }
+            } while (flag);
+
         } catch (IOException e) {
             Dialoghi.erroreLetturaParoleDaCancellare();
+
         }
+
         try {
             bf.close();
         } catch (IOException e) {
@@ -135,33 +130,29 @@ public class GameManager {
 
         BufferedReader bf = new BufferedReader(fr);
 
-        try {
-            parolaLetta = bf.readLine();
-
-            if (parolaLetta != null) {
-                in.inserisci(parolaLetta);
-                flag = true;
-            }
-
-        } catch (IOException e) {
-            Dialoghi.erroreLetturaParoleConcesse();
-
-        }
-
-        try {
-            while (flag) {
+        try
+        {
+            do
+            {
                 parolaLetta = bf.readLine();
 
-                if (parolaLetta != null) {
+                if (parolaLetta != null)
+                {
                     in.inserisci(parolaLetta);
                     flag = true;
-                } else {
+                }
+                else
+                {
                     flag = false;
                 }
-            }
+            }while(flag);
+
+
         } catch (IOException e) {
             Dialoghi.erroreLetturaParoleConcesse();
+
         }
+
         try {
             bf.close();
         } catch (IOException e) {
