@@ -191,6 +191,7 @@ public class Evento extends Thread
                 {
                     System.out.println("Il thread si è interrotto");
                 }
+
             }
         }
     }

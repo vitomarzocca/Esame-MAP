@@ -172,7 +172,7 @@ public class GameManager {
      */
     private void avvaloraCasa(Inseritore<Stanza> in)
     {
-        Stanza stanza = null;
+        Stanza stanza;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
 
