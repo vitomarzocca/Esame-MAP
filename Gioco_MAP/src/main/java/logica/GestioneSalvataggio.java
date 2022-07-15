@@ -26,15 +26,6 @@ public class GestioneSalvataggio
             System.out.println("Errore nel costruttore");
         }
 
-        try
-        {
-            conn.close();
-        }
-        catch(SQLException e)
-        {
-            System.out.println("Errore nella chiusura della connessione");
-        }
-
     }
 
     /**
@@ -312,9 +303,26 @@ public class GestioneSalvataggio
             System.out.println("Si è verificato un errore con la query SELECT 2");
         }
 
+        try
+        {
+            stm.close();
+            rs.close();
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Si è verificato un errore nella chiusura dello statement");
+        }
+
+        try
+        {
+            conn.close();
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Si è verificato un errore con la chiusura della connession al DB");
+        }
+
         return salvataggio;
-
-
 
     }
 }
