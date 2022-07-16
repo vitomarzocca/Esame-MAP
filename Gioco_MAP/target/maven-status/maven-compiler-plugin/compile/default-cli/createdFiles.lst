@@ -1,0 +1,10 @@
+inputUtente/ParserException.class
+logica/GameManager.class
+logica/Evento.class
+logica/Gioco.class
+outputUtente/Dialoghi.class
+logica/Oggetti.class
+logica/GestioneSalvataggio.class
+inputUtente/Parser.class
+logica/Stanza.class
+logica/Inseritore.class
